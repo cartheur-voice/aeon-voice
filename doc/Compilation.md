@@ -25,7 +25,7 @@ To start compilation, execute the command:
 scons
 ```
 
-To change some compilation options, check scons help:
+To change some compilation options, check scons help for the project:
 
 ```bash
 scons -h
