@@ -22,5 +22,5 @@ voices lack the naturalness of the synthesizers - as a matter of speech generati
 
 ## Documentation about the code
 
-* [Compilation](/doc/Compile-Install.md)
+* [Compilation](/doc/Compilation.md)
 * [Configuration](/doc/Configuration.md)
