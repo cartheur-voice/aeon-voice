@@ -1,4 +1,4 @@
 Import("env")
 
-env.InstallConfig("RHVoice.conf")
+env.InstallConfig("AeonVoice.conf")
 # env.InstallConfig(Glob("dicts/*"),"dicts")
