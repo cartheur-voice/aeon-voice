@@ -1,20 +1,5 @@
 # -*- coding: utf-8; mode: Python; indent-tabs-mode: t -*-
 
-# Copyright (C) 2013, 2014, 2018, 2019, 2021, 2022  Olga Yakovleva <olga@rhvoice.org>
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
 import codecs
 import os.path
 from collections import OrderedDict
@@ -281,8 +266,8 @@ class msi_packager(wix_packager):
 		dir.set("Id","MyTempFolder")
 		dir.set("Name",names.dev_dir_name)
 		dir=self.SubElement(dir,"Directory")
-		dir.set("Id","RHVoiceTempFolder")
-		dir.set("Name","RHVoice")
+		dir.set("Id","AeonVoiceTempFolder")
+		dir.set("Name","AeonVoice")
 		return self.temp_directory
 
 	def create_directory_element(self):
@@ -297,7 +282,7 @@ class msi_packager(wix_packager):
 		dir.set("Name", names.dev_dir_name)
 		self.directory=self.SubElement(dir,"Directory")
 		self.directory.set("Id","RHV")
-		self.directory.set("Name","RHVoice")
+		self.directory.set("Name","AeonVoice")
 
 	def get_subdirectory_element(self,dir,path):
 		p=path.split(os.sep,1)
@@ -481,7 +466,7 @@ class nsis_bootstrapper_packager(windows_packager):
 		self.script.append("AllowSkipFiles off")
 		self.script.append("CRCCheck on")
 		self.script.append("ShowInstDetails show")
-		self.script.append(r'InstallDir "$TEMP\{}\RHVoice"'.format(names.dev_dir_name))
+		self.script.append(r'InstallDir "$TEMP\{}\AeonVoice"'.format(names.dev_dir_name))
 		self.script.append(u'Name "{} V{}"'.format(self.display_name,self.version))
 		self.script.append(u'OutFile "{}"'.format(self.outfile.abspath))
 		self.script.append('RequestExecutionLevel admin')

@@ -82,9 +82,9 @@ class packager(object):
 		raise NotImplementedError
 
 class names:
-	dev="Contributors to the RHVoice project"
-	dev_dir_name="rhvoice.org"
-	email="rhvoice@rhvoice.org"
+	dev="Contributors to the AeonVoice project"
+	dev_dir_name="aeon.voice"
+	email="cartheur@pm.me"
 	def_with_email="{} <{}>".format(dev, email)
-	src_url="https://github.com/RHVoice/RHVoice"
-	url="https://rhvoice.org"
+	src_url="https://github.com/cartheur/voice/aeon-voice"
+	url="https://emotional.toys"
