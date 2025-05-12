@@ -34,3 +34,7 @@
 # Build directory
 
 build/
+
+# Boost umpacked
+
+external/libs/boost/include/boost/
