@@ -50,7 +50,7 @@ echo test|AeonVoice-test
 To clean the workspace execute the command:
 
 ```bash
-scons -h
+scons -c
 ```
 
 ## General Scons help
