@@ -191,8 +191,8 @@ def create_base_env(user_vars):
         env_args["tools"]=["default","installer"]
     env_args["tools"].extend(["textfile","library"])
     env_args["LIBS"]=[]
-    env_args["package_name"]="RHVoice"
-    env_args["CPPDEFINES"]=[("RHVOICE","1")]
+    env_args["package_name"]="AeonVoice"
+    env_args["CPPDEFINES"]=[("AeonVoice","1")]
     env=Environment(**env_args)
     if env["dev"]:
         env["prefix"]=os.path.abspath("local")
@@ -203,8 +203,8 @@ def create_base_env(user_vars):
         env.Append(CPPDEFINES=("WIN32",1))
         env.Append(CPPDEFINES=("UNICODE",1))
         env.Append(CPPDEFINES=("NOMINMAX",1))
-    env["libcore"]="RHVoice_core"
-    env["libaudio"]="RHVoice_audio"
+    env["libcore"]="AeonVoice_core"
+    env["libaudio"]="AeonVoice_audio"
     return env
 
 def display_help(env,vars):
@@ -357,7 +357,7 @@ def build_for_windows(base_env,user_vars):
     docs=["README.md"]+[os.path.join("licenses",name) for name in os.listdir("licenses") if name!="voices"]
     for f in docs:
         base_env.ConvertNewlines(os.path.join(BUILDDIR,f),f)
-    base_env.ConvertNewlinesB(os.path.join(BUILDDIR,"RHVoice.ini"),os.path.join("config","RHVoice.conf"))
+    base_env.ConvertNewlinesB(os.path.join(BUILDDIR,"AeonVoice.ini"),os.path.join("config","AeonVoice.conf"))
     # env.ConvertNewlinesB(os.path.join(BUILDDIR,"dict.txt"),os.path.join("config","dicts","example.txt"))
     SConscript(os.path.join("src","nvda-addon","SConscript"),
                variant_dir=os.path.join(BUILDDIR,"nvda-addon"),
