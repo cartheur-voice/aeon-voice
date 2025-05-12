@@ -1,7 +1,7 @@
 # Aeon-Voice Cmakelist
 
 cmake_minimum_required(VERSION 3.9)
-project("RHVoice")
+project("AeonVoice")
 
 set(customCMakeModulesDir "${CMAKE_SOURCE_DIR}/cmake")
 set(thirdPartyCMakeModulesDir "${customCMakeModulesDir}/thirdParty")
@@ -14,7 +14,7 @@ include(CPackComponent)
 include(Hardening)
 include(VersionFromGit)
 find_package(Sanitizers)
-getVersionFromGit("RHVOICE" "1.2.2")
+getVersionFromGit("AeonVoice" "1.0.0")
 
 if(${CMAKE_VERSION} VERSION_GREATER "3.12")
 	set(CMAKE_CXX_STANDARD 20)
@@ -43,18 +43,18 @@ endif()
 set("dev" OFF CACHE BOOL "The build will only be used for development: no global installation, run from the source directory, compile helper utilities")
 set("WITH_CLI11" OFF CACHE BOOL "Use CLI11 instead of bundled tclap")
 set("ENABLE_SONIC" OFF CACHE BOOL "Build with libsonic.")
-set("WITH_DATA" ON CACHE BOOL "Build packages with data. Long to compress. When debugging RHVoice itself it makes sense to disable it.")
+set("WITH_DATA" ON CACHE BOOL "Build packages with data. Long to compress. When debugging AeonVoice itself it makes sense to disable it.")
 #set("spd_version" validate_spd_version CACHE ??? "Speech dispatcher version")
 set("release" ON CACHE BOOL "Whether we are building a release")
 set("enable_xp_compat" ON CACHE BOOL "Target Windows XP")
 set("msi_repo" "" CACHE PATH "Where the msi packages are kept for reuse")
 set("servicedir" "${CMAKE_INSTALL_FULL_DATADIR}/dbus-1/services" CACHE PATH ".service file installation directory")
 
-set("data_dir" "${CMAKE_INSTALL_FULL_DATADIR}/RHVoice")
+set("data_dir" "${CMAKE_INSTALL_FULL_DATADIR}/AeonVoice")
 set("languages_dir" "${data_dir}/languages")
 set("voices_dir" "${data_dir}/voices")
 
-set("config_dir" "${CMAKE_INSTALL_FULL_SYSCONFDIR}/RHVoice")
+set("config_dir" "${CMAKE_INSTALL_FULL_SYSCONFDIR}/AeonVoice")
 set("common_doc_dir" "${CMAKE_INSTALL_FULL_DATAROOTDIR}/doc" CACHE PATH "Documentation directory path")
 
 set(SubpackagesDir "${CMAKE_CURRENT_SOURCE_DIR}/src")
@@ -82,22 +82,22 @@ option(CPACK_DEB_COMPONENT_INSTALL "Split into multiple deb packages" ON)
 set(CPACK_DEBIAN_ENABLE_COMPONENT_DEPENDS ON)
 
 
-set(CPACK_PACKAGE_VENDOR "Olga Yakovleva")
-set(CPACK_PACKAGE_CONTACT "https://github.com/RHVoice/RHVoice")
-set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/RHVoice/RHVoice")
+set(CPACK_PACKAGE_VENDOR "cartheur")
+set(CPACK_PACKAGE_CONTACT "https://github.com/cartheur-voice/aeon-voice")
+set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/cartheur-voice/aeon-voice")
 set(CPACK_NSIS_URL_INFO_ABOUT "${CPACK_PACKAGE_HOMEPAGE_URL}")
-#set(CPACK_NSIS_MUI_FINISHPAGE_RUN "echo \'Проверка связи!\" | RHVoice-test > %CSIDL_DEFAULT_DESKTOP%/RHVoice_test.wav")
+set(CPACK_NSIS_MUI_FINISHPAGE_RUN "echo \'Hello there!\" | AeonVoice-test > %CSIDL_DEFAULT_DESKTOP%/AeonVoice_test.wav")
 
 set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/LICENSE.md")
 
 set(CPACK_RESOURCE_FILE_README "${CMAKE_CURRENT_SOURCE_DIR}/README.md")
 
-set(CPACK_NSIS_DISPLAY_NAME "RHVoice")
-set(CPACK_DEBIAN_PACKAGE_NAME "RHVoice")
-set(CPACK_PACKAGE_VERSION_MAJOR "${RHVOICE_VERSION_MAJOR}")
-set(CPACK_PACKAGE_VERSION_MINOR "${RHVOICE_VERSION_MINOR}")
-set(CPACK_PACKAGE_VERSION_PATCH "${RHVOICE_VERSION_PATCH}")
-set(CPACK_PACKAGE_VERSION_TWEAK "${RHVOICE_VERSION_TWEAK}")
+set(CPACK_NSIS_DISPLAY_NAME "AeonVoice")
+set(CPACK_DEBIAN_PACKAGE_NAME "AeonVoice")
+set(CPACK_PACKAGE_VERSION_MAJOR "${AEONVOICE_VERSION_MAJOR}")
+set(CPACK_PACKAGE_VERSION_MINOR "${AEONVOICE_VERSION_MINOR}")
+set(CPACK_PACKAGE_VERSION_PATCH "${AEONVOICE_VERSION_PATCH}")
+set(CPACK_PACKAGE_VERSION_TWEAK "${AEONVOICE_VERSION_TWEAK}")
 
 set(CPACK_COMPONENTS_GROUPING "IGNORE")
 
