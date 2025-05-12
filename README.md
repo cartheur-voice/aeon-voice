@@ -20,6 +20,7 @@ For the former, the selection was to leverage the [statistical parametric synthe
 Voices are built from recordings of natural speech, as such they have small footprints since the statistical models are stored on the Aeon hardware. Although it could be argued the
 voices lack the naturalness of the synthesizers - as a matter of speech generation by combining segments of the recordings themselves - these are still intelligible and resemble the speakers who recorded the source material, which is the point to bring _humanness_ to our artificial animals as [emotional](https://emotional.toys) toys.
 
-## Building the code
+## Documentation about the code
 
-
+* Compilation and [install](/doc/Compile-Install.md)
+* [Configuration](/doc/Configuration.md)
