@@ -39,7 +39,7 @@ To install AeonVoice execute the command:
 scons install
 ```
 
-Now you can check if the synthesizer is working:
+To check if the synthesizer is working:
 
 ```bash
 echo test|AeonVoice-test
@@ -55,7 +55,7 @@ scons -c
 
 ## General Scons help
 
-General help for the scons tool is found by:
+General help for the scons tool:
 
 ```bash
 scons -H
