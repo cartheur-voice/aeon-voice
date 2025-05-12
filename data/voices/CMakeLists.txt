@@ -1,4 +1,4 @@
-set("CPACK_DEBIAN_VOICES_PACKAGE_NAME" "rhvoice-voices" PARENT_SCOPE)
+set("CPACK_DEBIAN_VOICES_PACKAGE_NAME" "aeonvoice-voices" PARENT_SCOPE)
 
 macro(voiceInDir voiceName voiceDir)
 	set(lang_var_name "VOICE_${voiceName}_LANG")
@@ -21,22 +21,22 @@ macro(voiceInDir voiceName voiceDir)
 		set(licenseFileCandidate "${CMAKE_SOURCE_DIR}/LICENSE.md")
 	endif()
 
-	set(languagePackageName "RHVoice-language-${langCode}")
+	set(languagePackageName "AeonVoice-language-${langCode}")
 	string(REPLACE "-" "_" languagePackageFilteredName "${languagePackageName}")
 
-	set(voicesGroupName "RHVoice-voices-${langCode}")
+	set(voicesGroupName "AeonVoice-voices-${langCode}")
 	string(REPLACE "-" "_" voicesGroupFilteredName "${voicesGroupName}")
 	string(TOUPPER "${voicesGroupFilteredName}" voicesGroupFilteredNameUpper)
 	if(NOT DEFINED "CPACK_COMPONENT_${voicesGroupFilteredNameUpper}_GROUP")
 		cpack_add_component_group("${voicesGroupFilteredName}"
 			DISPLAY_NAME "${langName}"
-			DESCRIPTION "Voices for ${langName} (${langCode}) language for RHVoice"
+			DESCRIPTION "Voices for ${langName} (${langCode}) language for AeonVoice"
 			PARENT_GROUP "voices"
 			EXPANDED
 		)
 	endif()
 
-	set(voicePackageName "RHVoice-voice-${langCode}-${voiceName}")
+	set(voicePackageName "AeonVoice-voice-${langCode}-${voiceName}")
 	string(REPLACE "-" "_" voicePackageFilteredName "${voicePackageName}")
 	file(GLOB_RECURSE SRCFILES RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "${voiceDir}/*")
 	add_custom_target(
@@ -47,14 +47,14 @@ macro(voiceInDir voiceName voiceDir)
 	string(TOUPPER "${voicePackageFilteredName}" voicePackageFilteredNameUpper)
 
 	cpack_add_component("${voicePackageFilteredName}" GROUP "${voicesGroupFilteredName}" DISPLAY_NAME "${voiceName}"
-		DESCRIPTION "${voiceName} voice for ${langName} (${langCode}) language for RHVoice licensed under `${license}` license."
+		DESCRIPTION "${voiceName} voice for ${langName} (${langCode}) language for AeonVoice licensed under `${license}` license."
 		DEPENDS "${languagePackageFilteredName}"
 	)
 	list(APPEND CPACK_COMPONENTS_ALL "${voicePackageFilteredName}")
 
 	set("CPACK_DEBIAN_${voicePackageFilteredNameUpper}_PACKAGE_NAME" "${voicePackageName}")
 	set("CPACK_RPM_${voicePackageFilteredNameUpper}_PACKAGE_NAME" "${voicePackageName}")
-	set("CPACK_DEBIAN_${voicePackageFilteredNameUpper}_PACKAGE_DEPENDS" "${CPACK_DEBIAN_CORE_PACKAGE_NAME}, RHVoice-language-${langCode}" PARENT_SCOPE)
+	set("CPACK_DEBIAN_${voicePackageFilteredNameUpper}_PACKAGE_DEPENDS" "${CPACK_DEBIAN_CORE_PACKAGE_NAME}, AeonVoice-language-${langCode}" PARENT_SCOPE)
 	set("CPACK_DEBIAN_${languagePackageNameUpper}_PACKAGE_SECTION" "contrib" PARENT_SCOPE)
 	
 	install(DIRECTORY "${voiceDir}"
@@ -96,7 +96,7 @@ macro(voiceInDir voiceName voiceDir)
 endmacro()
 
 
-#set("CPACK_DEBIAN_VOICES_PACKAGE_NAME" "rhvoice-voices" PARENT_SCOPE)
+#set("CPACK_DEBIAN_VOICES_PACKAGE_NAME" "aeonvoice-voices" PARENT_SCOPE)
 
 cpack_add_component_group("voices"
 	DISPLAY_NAME "Voices"

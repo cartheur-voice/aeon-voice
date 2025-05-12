@@ -3,11 +3,11 @@
 import sys
 import os
 import os.path
-from RHVoicePackaging.archiving import archiver
+from AeonVoicePackaging.archiving import archiver
 if sys.platform=="win32":
-	import RHVoicePackaging.nvda
-	import RHVoicePackaging.windows
-import RHVoiceInfoParser
+	import AeonVoicePackaging.nvda
+	import AeonVoicePackaging.windows
+import AeonVoiceInfoParser
 
 Import("env")
 local_env=env.Clone()
@@ -46,7 +46,7 @@ for dir_name in ["languages","voices"]:
 		if not os.path.isfile(info_path):
 			continue
 		data_files=list_files(subdir)
-		props=RHVoiceInfoParser.parse(info_path)
+		props=AeonVoiceInfoParser.parse(info_path)
 		if type=="language":
 			props["language"]=props["name"]
 		if props["language"].lower() not in local_env["languages"]:
@@ -77,8 +77,8 @@ for dir_name in ["languages","voices"]:
 			outdir=os.path.normpath(os.path.relpath(f.Dir(".").abspath,subdir.abspath))
 			packagers["zip"].add(f, outdir)
 		if sys.platform=="win32":
-			packagers["nvda"]=RHVoicePackaging.nvda.addon_packager(package_name,pkgdir.Dir("nvda"),local_env,package_name,description,description,full_version+nvda_addon_build_number,True)
-			packagers["msi"]=RHVoicePackaging.windows.data_packager(props["msi_upgrade_code"],package_name,pkgdir.Dir("sapi"),local_env,description,version+msi_build_number)
+			packagers["nvda"]=AeonVoicePackaging.nvda.addon_packager(package_name,pkgdir.Dir("nvda"),local_env,package_name,description,description,full_version+nvda_addon_build_number,True)
+			packagers["msi"]=AeonVoicePackaging.windows.data_packager(props["msi_upgrade_code"],package_name,pkgdir.Dir("sapi"),local_env,description,version+msi_build_number)
 			for f in data_files:
 				packagers["nvda"].add(f,os.path.normpath(os.path.join("data",os.path.relpath(f.Dir(".").abspath,subdir.abspath))))
 				packagers["msi"].add(f,os.path.normpath(os.path.join("data",type+"s",props["file_name"],os.path.relpath(f.Dir(".").abspath,subdir.abspath))))
@@ -91,7 +91,7 @@ for dir_name in ["languages","voices"]:
 					if lang_key in props:
 						for f in lang_files[props[lang_key]]:
 							packagers["nvda"].add(f,os.path.normpath(os.path.join(lang_dir_name,os.path.relpath(f.Dir(".").abspath,root_dir.Dir("languages").Dir(props[lang_key]).abspath))))
-				packagers["exe"]=RHVoicePackaging.windows.nsis_bootstrapper_packager(package_name,pkgdir.Dir("sapi"),local_env,description,full_version+exe_build_number)
+				packagers["exe"]=AeonVoicePackaging.windows.nsis_bootstrapper_packager(package_name,pkgdir.Dir("sapi"),local_env,description,full_version+exe_build_number)
 				if env["enable_x64"]:
 					packagers["exe"].msis.append(local_env["WindowsInstallers_core_64"])
 				packagers["exe"].msis.append(local_env["WindowsInstallers_core_32"])
