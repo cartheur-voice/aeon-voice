@@ -17,7 +17,7 @@ Before compiling AeonVoice, make sure that at least one of the following audio l
 
 Please note that many distributions provide a separate development package for a library, which is necessary to compile the programs using the library. It is advised to install both runtime and development packages.
 
-## Compilation
+## Building
 
 To start compilation, execute the command:
 
@@ -33,7 +33,7 @@ scons -h
 
 ## Installation
 
-To install AeonVoice execute the following command:
+To install AeonVoice execute the command:
 
 ```bash
 scons install
@@ -43,4 +43,20 @@ Now you can check if the synthesizer is working:
 
 ```bash
 echo test|AeonVoice-test
+```
+
+## Cleaning
+
+To clean the workspace execute the command:
+
+```bash
+scons -h
+```
+
+## General Scons help
+
+General help for the scons tool is found by:
+
+```bash
+scons -H
 ```
