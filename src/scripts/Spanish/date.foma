@@ -1,0 +1,45 @@
+# Date support for Spanish with documentation
+# Writen by Matthew C.
+# The format is: DD/MM/YYYY (or DD/MM/AAAA in Spanish)
+# Note: date fsts or fomas can be adapted to your preferred date format for another language, but here we 
+# are demonstrating how to do in Spanish. Also, please note that you will need to specify your date format 
+# in the tokenizer, placing it in the future tokenization type called date, so the date FST can run in 
+# these cases when a date is found according to your language.
+# In this case, the separator is / (slash) that helps to identify and translate a date.
+define NZDig 1|2|3|4|5|6|7|8|9 ; 
+define Dig %0|NZDig ; 
+define Year [Dig^<4] ; 
+# The following conditions is for a new tokenization type, date:
+#define Month [Dig^<2] ; 
+#define Day [Dig^<2] ; 
+# Here, we will indicate translations for each month.
+define date 
+01:enero | 
+02:febrero | 
+03:marzo | 
+04:abril | 
+05:mayo | 
+06:junio | 
+07:julio | 
+08:agosto | 
+09:septiembre | 
+10:octubre | 
+11:noviembre | 
+12:diciembre ; 
+define separator %/ ; 
+# 12 months:
+define months 01|02|03|04|05|06|07|08|09|10|11|12 ; 
+# Up to 31 days:
+define days months|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|31 ; 
+
+define DateRule 
+# Convert months to words.
+date -> || days separator _ separator Year ,, 
+# In Spanish, convert the last slash (separator) to del. Del 2024.
+separator -> del || .#. days separator months _ ,, 
+# And convert the first separator to de. 2 de febrero.
+separator -> de || .#. days _ ,, 
+# And when a day starts with 01, convert it to primero.
+[01] -> primero || .#. _ ; 
+# Finally, we have a date support.
+regex DateRule ; 

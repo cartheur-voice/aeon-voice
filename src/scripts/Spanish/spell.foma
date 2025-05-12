@@ -1,0 +1,130 @@
+# Copyright (C) 2024  Mateo Cedillo <angelitomateocedillo@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 2.1 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+define Digit 
+%0 : cero | 
+1:uno | 
+2:dos | 
+3:trés | 
+4:cuatro | 
+5:cinco | 
+6:seis | 
+7:siete | 
+8:ocho | 
+9:nueve ; 
+
+define RegularLetter 
+# regular letters:
+[a|A]:a | 
+[À|à]:[á grabe] | 
+[Á|á]:[á agudo] | 
+[Ä|ä]:[á diéresis] | 
+[Â|â]:[á circunflejo] | 
+[Ã|ã]:[á tilde] | 
+[b|B]:bé | 
+[c|C]:cé | 
+[Ç|ç]:[cé cedilla] | 
+[d|D]:dé | 
+[e|E]:e | 
+[É|é]:[é agudo] | 
+[Ë|ë]:[é diéresis] | 
+[Ê|ê]:[ê circunflejo] | 
+[f|F]:efe | 
+[g|G]:gé | 
+[h|H]:ache | 
+[i|I]:i | 
+[í|Í]:[í agudo] | 
+[ï|Ï]:[í diéresis] | 
+[j|J]:jota | 
+[k|K]:ca | 
+[l|L]:ele | 
+[m|M]:eme | 
+[n|N]:ene | 
+[ñ|Ñ]:eñe | 
+[o|O]:o | 
+[Ó|ó]:[ó agudo] | 
+[Ö|ö]:[ó diéresis] | 
+[Ô|ô]:[ô circunflejo] | 
+[Õ|õ]:[ô tilde] | 
+[Ö|ö]:[ô diéresis] | 
+[p|P]:pe | 
+[q|Q]:qu | 
+[r|R]:erre | 
+[s|S]:ese | 
+[t|T]:té | 
+[u|U]:u | 
+[Ú|ú]:[ú agudo] | 
+[Ü|ü]:[ú diéresis] | 
+[v|V]:uve | 
+[w|W]:[uve doble] | 
+[x|X]:equis | 
+[y|Y]:[i griega] | 
+[z|Z]:ceta ; 
+
+source special_chars.foma
+
+define Letter RegularLetter | NormalizeCharactersSpell ;
+
+define Whitespace 
+tab:tab | 
+nl:[línea nueva] | 
+cr:[retorno de línea] | 
+sp:espacio | 
+nbsp:[espacio sin descanso] ; 
+
+define Symbol 
+%! : [cerrar exclamación] | 
+%" : comillas | 
+%# : número | 
+%$ : dólar | 
+%£ : libra | 
+%€ : euro | 
+%¢ : centavos | 
+%¥ : ien | 
+%₹ : rúpya | 
+%% : porciento | 
+%& : ampersand | 
+%' : apóstrofo | 
+%( : [abrir paréntesis] | 
+%) : [cerrar paréntesis] | 
+%* : asterisco | 
+%+ : más | 
+%, : coma | 
+%- : guión | 
+%— : raya | 
+%. : punto | 
+%/ : barra | 
+%: : [dos puntos] | 
+%; : [punto y coma] | 
+%< : [menor que] | 
+%> : [maior que] | 
+%= : igual | 
+%? : [cerrar interrogación] | 
+%@ : arroba | 
+%[ : [abre corchete] | 
+%] : [cierra corchete] | 
+%\ : [barra invertida] | 
+%^ : circunflejo | 
+%_ : subrayado | 
+%` : signo grave | 
+%{ : [abre llave] | 
+%} : [cierra llave] | 
+%| : [barra vertical] | 
+%~ : tilde | 
+%ª : [ordinal femenino] | 
+%º : [ordinal masculino] ; 
+
+regex 
+Letter|Digit | Whitespace | Symbol ; 

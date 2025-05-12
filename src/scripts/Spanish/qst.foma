@@ -1,0 +1,26 @@
+source gpos.foma
+clear
+
+define WhInitialConjunction 
+y | pero ; 
+
+define StartOfWhQuestion 
+(WhInitialConjunction) 
+[[(o) (por) qué] | 
+[(Preposition) WhWord]] ; 
+
+define DefaultTagger 
+[..] -> %= q || _ .#. ; 
+
+define WhWordTagger 
+StartOfWhQuestion [0:[%+ whw]] -> || .#. _ \[%-|%=] ; 
+
+define WhQuestionTagger 
+q -> whq || %+ whw ?* %= _ .#. ; 
+
+define Tagger 
+DefaultTagger .o. 
+WhWordTagger .o. 
+WhQuestionTagger ; 
+
+regex Tagger ; 

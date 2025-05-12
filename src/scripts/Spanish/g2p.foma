@@ -1,0 +1,255 @@
+# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation, either version 2.1 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Lesser General Public License for more details.
+
+# You should have received a copy of the GNU Lesser General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+define UnstressedWords 
+{aunque} | {hacia} | {hasta} | {bajo} | {contra} | {como} | {cuando} | {cuanto} | {desde} | {donde} | {durante} | 
+[{haya}(n|s)] | 
+{hemos} | {mediante} | {mientras} | {pero} | {porque} | 
+[{quien}({es})] | 
+{sino} | {sobre} | 
+[{una}(s)] | {unos} | {ante} | 
+[{cuya}(s)] | [{cuyo}(s)] | {entre} | 
+[{esa}(s)] | [{esta}(s)] | {ese} | {esos} | {este} | {estos} | 
+[{nuestro}(s)] | [{nuestra}(s)] | [{vuestro}(s)] | [{vuestra}(s)] | 
+{para} | 
+{al} | {han} | {has} | {con} | {de} | {del} | {en} | {el} | {les} | {le} | {lo} | {los} | {la} | {las} | {me} | {nos} | {os} | {por} | {pues} | {mi} | {mis} | {ni} | {que} | {se} | {si} | {sin} | {su} | {sus} | {te} | {ti} | {tu} | {tus} | {un} | {mas} | {tras} ; 
+
+define UnstressedWordsTag 
+[..] @-> Uns || .#. UnstressedWords _ .#. ,, 
+{hace} @-> MakeTag || .#. _ .#. ; 
+
+define vocal 
+[a|a0|a1|e|e0|e1|i|i0|i1|o|o0|o1|u|u0|u1|j|w] ; 
+
+define TranscribeVowel 
+a:a | 
+á:a1 | 
+Á:a1 | 
+e:e | 
+é:e1 | 
+É:e1 | 
+i:i | 
+í:i1 | 
+Í:i1 | 
+o:o | 
+ó:o1 | 
+Ó:o1 | 
+u:u | 
+ú:u1 | 
+Ú:u1 ; 
+
+define TranscribeConsonant 
+b:b | 
+c:c | 
+ç:s | 
+{ca}:{ka} | # casa, finca.
+[c a1]:[k a1] | # acá.
+{co}:{ko} | # coche, cinco
+[c o1]:[k o1] | # marcó, achicó.
+[c u]:{ku} | # curso, cuveta
+[c u1]:[k u1] | # cúspide.
+{ch}:ts | # Chico, cholo
+d:d | 
+f:f | 
+g:g | # siglo
+[g u e]:[g e] | # sigue, guerra
+[g u e1]:[g e1] | # portugués
+[g e]:[x e] | # Gente, generación
+[g e1]:[x e1] | # génesis
+[g u i]:[g i] | # guiso, guineo
+[g u i1]:[g i1] | # guía
+[g i]:[x i] | 
+[g i1]:[x i1] | 
+[g u a]:[g w a] | # antigua, guarida
+[g ü e]:[g w e] | # antigüedad, desagüe
+[g ü e1]:[g w e1] | # averigüé
+[g ü i]:[g w i] | # agüita
+[g ü i1]:[g w i1] | # Lingüística.
+[g u o]:[g w o] | # antiguo
+h: "" | # H is a sylent consonant, so no phoneme.
+j:x | 
+k:k | 
+l:l | 
+{ll}:ll | # aquella
+m:m | 
+n:n | 
+ñ:ni | # año, otoño
+p:p | 
+{ph}:f | 
+r:r | 
+{rr}:rr | # Rato, tierra
+s:s | 
+{sh}:sh | # especialmente para palabras estrangeras (foreign words)
+t:t | 
+ŭ:u | 
+ü:u | # In cases outside g rules.
+v:v | 
+z:zh | # previously c, but z is a bit long sound diferent than c (ce, ci).
+q:k | 
+[q u e]:[k e] | # queso, buque
+[q u e1]:[k e1] | # qué
+[q u i]:[k i] | # quito, quijada
+[q u i1]:[k i1] | # sequía
+w:u | # Change to a u sound for some cases.
+x:{ks} | # Existe, éxito
+y:y ; 
+
+define SpanishRules 
+# closed vowel i
+{ia}:[j a] | # biacrusis, referencia, viciándose, diafragma, fiar, sequia, cecilia, ...
+[i a1]:[j a1] | # viciándose, viciado, desquiciado
+{ie}:[j e] | # bien, ciego, diente, fiera, quieto, lienzo, pie
+[i e1]:[j e1] | # arrepiéntanse, vicié
+{io}:[j o] | # biología, servicio, fiona, kiosco, julio, leccionario
+[i o1]:[j o1] | # siguió, biósfera, asociación, institución, adiós, selección, actualización
+{iu}:[j u] | # viudo, quiubo, veintiuno
+[i u1]:[j u1] | # veintiún
+# closed vowel u
+{ua}:[w a] | # estatua
+[u a1]:[w a1] | # guácala
+{ue}:[w e] | # encuesta
+[u e1]:[w e1] | # muérgano
+{ui}:[w i] | # juicio
+[u i1]:[w i1] | # cuídate
+{uo}:[w o] | # reciduo
+[u o1]:[w o1] | # continuó
+# Brian, not bryan:
+[b r y]:[b r j] | 
+# c to k exceptions:
+[c c]:[k c] | # selección, leccionario
+[c d]:[k d] | # Anécdota.
+[c k]:k | # talkback.
+[c l]:[k l] | # claro (klaro, not claro)
+[c m]:[k m] | # francmasonería.
+[c n]:[k n] | # cneorácea, tecnología.
+[c p]:[k p] | # yucpa
+[c r]:[k r] | # secreto (sekreto, not secreto)
+[c s]:[k s] | # clics.
+[c t]:[k t] | # actualización (aktwalizhazhjo1n, not actwalicacjo1n)
+{cy}:[c i] | # Cynthia.
+[t ts]:ts | # switch
+[a p p]:[a p] ; # For English words.
+
+define WordStartRules 
+# source rules from cldr/common/transforms/es-es_FONIPA.xml
+{ct} -> t || .#. _ ,, # ctónico
+{cz} -> z || .#. _ ,, # czar
+{gn} -> n || .#. _ ,, # gnomo
+{mn} -> n || .#. _ ,, # mnemotécnico
+{pt} -> t || .#. _ ,, # pterodáctilo
+{ks} -> s || .#. _ ,, # xilófono
+# Matthew's rules:
+{any} -> {ani} || .#. _ ,, # Especially for English text.
+{may} -> {mai} || .#. _ ,,
+{psi} -> {si} || .#. _ ,, # psicología, psiquiatra.
+[ts r i] -> [k r i] || .#. _ ,, # Christian, christina.
+[d e sh] -> [d e s] || .#. _ ,, # des prefix. Deshabilitar, deshacer, deshecho.
+r -> [rr] || .#. _, [l|n|s] _ ; # at the start: rato, rico, roma, all words starting r needs to be a RR sound. However, in words that contains l, n or s anywere, needs to be a rr sound, too. For example: alrededor, enredo, Desramar.
+
+define WordMidRules 
+# when y is a standalone word, converts to i because it is an open vowel.
+y -> i || .#. _ .#. ; 
+
+define WordEndRules 
+# handling of closed vowel y to the end of word. Pley, soy, estoy, voy, hay, etc.
+{ay} -> [a yc] || _ .#. ,, # hay alguien aquí?
+{ey} -> [e yc] || _ .#. ,, # vacabuey, rey, ley.
+{oy} -> [o yc] || _ .#. ,, # voy, soy, estoy.
+{uy} -> [u j] || _ .#. ,, # muy, cuy, Chuy, juyayay.
+# The following is especially for foreign words.
+{by} -> [b i] || _ .#. ,, 
+{dy} -> [d i] || _ ,, 
+{gy} -> [g i] || _ .#. ,, 
+{ky} -> [k i] || _ .#. ,, 
+[i n g] -> [i n] || _ .#. ,, 
+{ly} -> [l i] || _ .#. ,, 
+{my} -> [m i] || _ ,, 
+{ny} -> [n i] || _ .#. ,, # Danny, Ronny.
+{py} -> [p i] || _ .#. ,, 
+{ry} -> [r i] || _ .#. ,, 
+[rr y] -> [rr i] || _ .#. ,, # cherry.
+{sy} -> [s i] || _ .#. ,, 
+{ty} -> [t i] || _ .#. ,, 
+[y s] -> [i s] || _ .#. ,, 
+# now, when a words ends with c, convert to k.
+c -> k || _ .#. ; # cómic, tictac.
+
+define approximants 
+# In Spanish, there are about 4 approximants, that are voiced consonants that occurs in different contexts. The good news, all approximants occurs between vowels.
+{b} -> bh || vocal _ vocal ,, 
+{d} -> dh || vocal _ vocal ,, 
+{g} -> gh || vocal _ vocal ,, 
+{v} -> vh || vocal _ vocal ; 
+
+define exceptions 
+# Special word:
+[{tayta} : [t a1 i0 t a0]] | 
+# Other exceptions:
+[[{wi} (%-) {fi}] : [w a0 i0 f a1 yc]] | 
+[{a.c.} : [a1 n t e0 s d e0 k r i1 s t o0]] | 
+[{a.m.} : [d e0 l a0 m a0 ni a1 n a0]] | 
+[{d.c.} : [d e0 s p w e1 s d e0 k r i1 s t o0]] | 
+[{p.m.} : [d e0 l a0 t a1 r d e0]] | 
+# Weeks, months:
+[{lun.} : [l u1 n e0 s]] | 
+[{mar.} : [m a1 r t e0 s]] | 
+[{mié.} : [m j e1 r k o0 l e0 s]] | 
+[{jue.} : [x w e1 v e0 s]] | 
+[{vie.} : [v j e1 r n e0 s]] | 
+[{sáb.} : [s a1 b a0 d o0]] | 
+[{dom.} : [d o0 m i1 n g o0]] | 
+[{ene.} : [e0 n e1 r o0]] | 
+[{feb.} : [f e0 b r e1 r o0]] | 
+[{abr.} : [a0 b r i1 l]] | 
+[{may.} : [m a1 y o0]] | 
+[{jun.} : [x u1 n j o0]] | 
+[{jul.} : [x u1 l j o0]] | 
+[{ago.} : [a g o1 s t o0]] | 
+[{sep.} : [s e0 p t j e1 m b r e0]] | 
+[{oct.} : [o0 k t u1 b r e0]] | 
+[{nov.} : [n o0 v j e1 m b r e0]] | 
+[{dic.} : [d i0 c j e1 m b r e0]] | 
+[{etc.} : [e0 t c e1 t e0 r a0]] ; 
+
+define Stage1 
+TranscribeVowel @-> ; 
+
+define Stage2 
+TranscribeConsonant @-> ; 
+
+define Stage3 
+SpanishRules @-> ; 
+
+source stress.foma
+
+
+define rules 
+UnstressedWordsTag .o. 
+Stage1 .o. 
+Stage2 .o. 
+Stage3 .o. 
+WordStartRules .o. 
+WordMidRules .o. 
+WordEndRules .o. 
+approximants .o. 
+unstress .o. 
+dhipthongStress .o. 
+MonosylStress .o. 
+SpanishStress .o. 
+SpanishStress2 .o. 
+[Uns @-> 0] ; 
+
+regex 
+[exceptions .P. rules] ; 
