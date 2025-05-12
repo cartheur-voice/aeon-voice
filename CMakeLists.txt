@@ -83,8 +83,8 @@ set(CPACK_DEBIAN_ENABLE_COMPONENT_DEPENDS ON)
 
 
 set(CPACK_PACKAGE_VENDOR "cartheur")
-set(CPACK_PACKAGE_CONTACT "https://github.com/cartheur-voice/aeon-voice")
-set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/cartheur-voice/aeon-voice")
+set(CPACK_PACKAGE_CONTACT "https://github.com/cartheur/voice/aeon-voice")
+set(CPACK_PACKAGE_HOMEPAGE_URL "https://github.com/cartheur/voice/aeon-voice")
 set(CPACK_NSIS_URL_INFO_ABOUT "${CPACK_PACKAGE_HOMEPAGE_URL}")
 set(CPACK_NSIS_MUI_FINISHPAGE_RUN "echo \'Hello there!\" | AeonVoice-test > %CSIDL_DEFAULT_DESKTOP%/AeonVoice_test.wav")
 
