@@ -36,6 +36,8 @@
 
 build/
 
-# Boost umpacked
-
+# Boost unpacked
 external/libs/boost/include/boost/
+
+# Generated header files
+src/include/core/config.h
