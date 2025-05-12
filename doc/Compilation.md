@@ -4,7 +4,7 @@ To compile AeonVoice the following programs are prerequsities:
 
 * [GCC](https://gcc.gnu.org)
 * [Pkg-config](https://www.freedesktop.org/wiki/Software/pkg-config/)
-* [SCons](https://www.scons.org)
+* [SCons](https://github.com/SCons/scons)
 
 ## Dependencies
 
