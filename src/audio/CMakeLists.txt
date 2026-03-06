@@ -35,26 +35,26 @@ if(WITH_PORTAUDIO)
 	list(APPEND SOURCES "portaudio.cpp")
 endif()
 
-add_library(RHVoice_audio SHARED "${SOURCES}")
-set_target_properties(RHVoice_audio PROPERTIES VERSION "${RHVOICE_VERSION}" SOVERSION "${RHVOICE_VERSION_MAJOR}")
-harden("RHVoice_audio")
-add_sanitizers("RHVoice_audio")
-target_include_directories(RHVoice_audio PRIVATE "${INCLUDE_DIR}")
+add_library(AeonVoice_audio SHARED "${SOURCES}")
+set_target_properties(AeonVoice_audio PROPERTIES VERSION "${AEONVOICE_VERSION}" SOVERSION "${AEONVOICE_VERSION_MAJOR}")
+harden("AeonVoice_audio")
+add_sanitizers("AeonVoice_audio")
+target_include_directories(AeonVoice_audio PRIVATE "${INCLUDE_DIR}")
 
 if(WITH_LIBAO)
-	target_link_libraries(RHVoice_audio "${LIBAO_LIBRARIES}")
+	target_link_libraries(AeonVoice_audio "${LIBAO_LIBRARIES}")
 	message(STATUS "${LIBAO_INCLUDE_DIRS}")
-	target_include_directories(RHVoice_audio PRIVATE "${LIBAO_INCLUDE_DIRS}")
+	target_include_directories(AeonVoice_audio PRIVATE "${LIBAO_INCLUDE_DIRS}")
 endif()
 if(WITH_PULSE)
-	target_compile_definitions(RHVoice_audio PUBLIC WITH_PULSE)
-	target_link_libraries(RHVoice_audio "${LIBPULSESIMPLE_LIBRARIES}")
-	target_include_directories(RHVoice_audio PRIVATE "${LIBPULSESIMPLE_INCLUDE_DIRS}")
+	target_compile_definitions(AeonVoice_audio PUBLIC WITH_PULSE)
+	target_link_libraries(AeonVoice_audio "${LIBPULSESIMPLE_LIBRARIES}")
+	target_include_directories(AeonVoice_audio PRIVATE "${LIBPULSESIMPLE_INCLUDE_DIRS}")
 endif()
 if(WITH_PORTAUDIO)
-	target_compile_definitions(RHVoice_audio PUBLIC WITH_PORTAUDIO)
-	target_link_libraries(RHVoice_audio "${LIBPORTAUDIO_LIBRARIES}")
-	target_include_directories(RHVoice_audio PRIVATE "${LIBPORTAUDIO_INCLUDE_DIRS}")
+	target_compile_definitions(AeonVoice_audio PUBLIC WITH_PORTAUDIO)
+	target_link_libraries(AeonVoice_audio "${LIBPORTAUDIO_LIBRARIES}")
+	target_include_directories(AeonVoice_audio PRIVATE "${LIBPORTAUDIO_INCLUDE_DIRS}")
 endif()
 
 cpack_add_component(audio
@@ -65,11 +65,11 @@ cpack_add_component(audio
 )
 list(APPEND CPACK_COMPONENTS_ALL "audio")
 
-install(TARGETS "RHVoice_audio"
+install(TARGETS "AeonVoice_audio"
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
 	COMPONENT "audio"
 )
 
-set("CPACK_DEBIAN_AUDIO_PACKAGE_NAME" "librhvoice-audio")
+set("CPACK_DEBIAN_AUDIO_PACKAGE_NAME" "libaeonvoice-audio")
 set(CPACK_DEBIAN_AUDIO_PACKAGE_DEPENDS "${CPACK_DEBIAN_CORE_PACKAGE_NAME}")
 pass_through_cpack_vars()

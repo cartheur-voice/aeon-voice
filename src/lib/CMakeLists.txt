@@ -13,17 +13,17 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-add_library(RHVoice SHARED "${CMAKE_CURRENT_SOURCE_DIR}/lib.cpp")
-set_target_properties(RHVoice PROPERTIES VERSION "${RHVOICE_VERSION}" SOVERSION "${RHVOICE_VERSION_MAJOR}")
-harden("RHVoice")
-add_sanitizers("RHVoice")
-target_include_directories(RHVoice PRIVATE "${INCLUDE_DIR}" "${HTS_LABELS_KIT_INCLUDES}")
-target_link_libraries("RHVoice" "RHVoice_core")
+add_library(AeonVoice SHARED "${CMAKE_CURRENT_SOURCE_DIR}/lib.cpp")
+set_target_properties(AeonVoice PROPERTIES VERSION "${AEONVOICE_VERSION}" SOVERSION "${AEONVOICE_VERSION_MAJOR}")
+harden("AeonVoice")
+add_sanitizers("AeonVoice")
+target_include_directories(AeonVoice PRIVATE "${INCLUDE_DIR}" "${HTS_LABELS_KIT_INCLUDES}")
+target_link_libraries("AeonVoice" "AeonVoice_core")
 
-install(TARGETS "RHVoice"
+install(TARGETS "AeonVoice"
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
 	COMPONENT "lib"
 )
 
-set("CPACK_DEBIAN_LIB_PACKAGE_NAME" "librhvoice" PARENT_SCOPE)
+set("CPACK_DEBIAN_LIB_PACKAGE_NAME" "libaeonvoice" PARENT_SCOPE)
 set(CPACK_DEBIAN_LIB_PACKAGE_DEPENDS "${CPACK_DEBIAN_CORE_PACKAGE_NAME}, ${CPACK_DEBIAN_AUDIO_PACKAGE_NAME}"  PARENT_SCOPE)

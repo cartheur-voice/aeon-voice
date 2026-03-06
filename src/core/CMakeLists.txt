@@ -61,7 +61,7 @@ cpack_add_component(core
 )
 list(APPEND CPACK_COMPONENTS_ALL "core")
 
-install(TARGETS "RHVoice_core"
+install(TARGETS "AeonVoice_core"
 	LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
 	COMPONENT "core"
 )
@@ -71,6 +71,6 @@ if(Sonic_FORCE_COMPILATION)
 endif()
 
 string(REPLACE ";" ", " CPACK_DEBIAN_CORE_PACKAGE_DEPENDS "${CPACK_DEBIAN_CORE_PACKAGE_DEPENDS}")
-set("CPACK_DEBIAN_CORE_PACKAGE_NAME" "librhvoice-core")
+set("CPACK_DEBIAN_CORE_PACKAGE_NAME" "libaeonvoice-core")
 
 pass_through_cpack_vars()
