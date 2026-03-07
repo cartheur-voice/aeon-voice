@@ -16,7 +16,7 @@
 #include <algorithm>
 #include "core/speech_processor.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   bool speech_processor::fill_input_buffer(sample_ptr& start,sample_ptr end)
   {

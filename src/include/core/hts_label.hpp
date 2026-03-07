@@ -24,7 +24,7 @@
 #include "hts_labeller.hpp"
 #include "property.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class hts_label
   {

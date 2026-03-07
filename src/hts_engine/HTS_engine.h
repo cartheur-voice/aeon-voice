@@ -1,8 +1,8 @@
-/* hts_engine for the RHVoice speech synthesis system, a modified version */
+/* hts_engine for the AeonVoice speech synthesis system, a modified version */
 /* of the original hts_engine, implementing streaming synthesis and other */
-/* features RHVoice needs. */
+/* features AeonVoice needs. */
 
-/* Copyright (C) 2016-2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2016-2022  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU General Public License as published by */
@@ -162,7 +162,7 @@ typedef struct _HTS_Model {
    float ***pdf;                /* PDFs */
    HTS_Tree *tree;              /* pointer to the list of trees */
    HTS_Question *question;      /* pointer to the list of questions */
-  RHVoice_model_answer_cache_t answer_cache;
+  AeonVoice_model_answer_cache_t answer_cache;
 } HTS_Model;
 
 /* HTS_ModelSet: set of duration models, HMMs and GV models. */
@@ -192,7 +192,7 @@ typedef struct _HTS_LabelString {
    char *name;                  /* label string */
    double start;                /* start frame specified in the given label */
    double end;                  /* end frame specified in the given label */
-  RHVoice_parsed_label_string parsed;
+  AeonVoice_parsed_label_string parsed;
   double dur_mod;
 } HTS_LabelString;
 
@@ -318,9 +318,9 @@ typedef struct _HTS_Condition {
    double **gv_iw;              /* weights for GV interpolation */
 } HTS_Condition;
 
-typedef struct _RHVoice_extra {
+typedef struct _AeonVoice_extra {
   size_t view_pos_in_utt;
-} RHVoice_extra;
+} AeonVoice_extra;
 
 /* HTS_Engine: Engine itself. */
 typedef struct _HTS_Engine {
@@ -332,7 +332,7 @@ typedef struct _HTS_Engine {
    HTS_PStreamSet pss;          /* set of PDF streams */
    HTS_GStreamSet gss;          /* set of generated parameter streams */
   BPF bpf;
-  RHVoice_extra extra;
+  AeonVoice_extra extra;
 } HTS_Engine;
 
 /* engine method --------------------------------------------------- */

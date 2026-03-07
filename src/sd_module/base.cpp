@@ -15,7 +15,7 @@
 
 #include "base.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

@@ -27,7 +27,7 @@
 #include "io.hpp"
 #include "exception.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   template<typename T>
   class rules

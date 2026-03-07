@@ -1,4 +1,4 @@
-/* Copyright (C) 2017, 2018, 2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2017, 2018, 2022  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU Lesser General Public License as published by */
@@ -17,7 +17,7 @@
 #define RHVOICE_QUALITY_SETTING_HPP
 
 #include "property.hpp"
-namespace RHVoice
+namespace AeonVoice
 {
   enum quality_t
     {

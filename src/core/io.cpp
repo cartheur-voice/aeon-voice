@@ -19,7 +19,7 @@
 #include "core/io.hpp"
 #include "utf8.h"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace io
   {

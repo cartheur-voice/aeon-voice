@@ -112,19 +112,19 @@
 #define YYCODETYPE unsigned char
 #define YYNOCODE 59
 #define YYACTIONTYPE unsigned char
-#define userdictParseTOKENTYPE RHVoice::userdict::token*
+#define userdictParseTOKENTYPE AeonVoice::userdict::token*
 typedef union {
   int yyinit;
   userdictParseTOKENTYPE yy0;
-  RHVoice::userdict::ruleset* yy22;
+  AeonVoice::userdict::ruleset* yy22;
 } YYMINORTYPE;
 #ifndef YYSTACKDEPTH
 #define YYSTACKDEPTH 100
 #endif
-#define userdictParseARG_SDECL RHVoice::userdict::parse_state* ps;
-#define userdictParseARG_PDECL ,RHVoice::userdict::parse_state* ps
+#define userdictParseARG_SDECL AeonVoice::userdict::parse_state* ps;
+#define userdictParseARG_PDECL ,AeonVoice::userdict::parse_state* ps
 #define userdictParseARG_PARAM ,ps
-#define userdictParseARG_FETCH RHVoice::userdict::parse_state* ps=yypParser->ps;
+#define userdictParseARG_FETCH AeonVoice::userdict::parse_state* ps=yypParser->ps;
 #define userdictParseARG_STORE yypParser->ps=ps;
 #define userdictParseCTX_SDECL
 #define userdictParseCTX_PDECL
@@ -1256,10 +1256,10 @@ static YYACTIONTYPE yy_reduce(
       case 4: /* symbol_rule ::= symbol space EQUALS space symbol_pron */
 #line 133 "src/core/userdict_parser.g"
 {
-  yylhsminor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::start_of_token>();
+  yylhsminor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::start_of_token>();
   yylhsminor.yy22->append(yymsp[-4].minor.yy22);
   yylhsminor.yy22->append(yymsp[0].minor.yy22);
-  yylhsminor.yy22->append<RHVoice::userdict::end_of_token>();
+  yylhsminor.yy22->append<AeonVoice::userdict::end_of_token>();
   delete yymsp[-4].minor.yy22;
   delete yymsp[0].minor.yy22;
 }
@@ -1271,8 +1271,8 @@ static YYACTIONTYPE yy_reduce(
 #line 143 "src/core/userdict_parser.g"
 {
   yylhsminor.yy22=yymsp[-2].minor.yy22;
-  yylhsminor.yy22->append<RHVoice::userdict::end_of_token>();
-  yylhsminor.yy22->append<RHVoice::userdict::start_of_token>();
+  yylhsminor.yy22->append<AeonVoice::userdict::end_of_token>();
+  yylhsminor.yy22->append<AeonVoice::userdict::start_of_token>();
   yylhsminor.yy22->append(yymsp[0].minor.yy22);
   delete yymsp[0].minor.yy22;
 }
@@ -1285,7 +1285,7 @@ static YYACTIONTYPE yy_reduce(
 {  yy_destructor(yypParser,4,&yymsp[0].minor);
 #line 157 "src/core/userdict_parser.g"
 {
-  yymsp[0].minor.yy22=new RHVoice::userdict::ruleset;
+  yymsp[0].minor.yy22=new AeonVoice::userdict::ruleset;
 }
 #line 1290 "src/core/userdict_parser.c"
 }
@@ -1293,14 +1293,14 @@ static YYACTIONTYPE yy_reduce(
       case 8: /* prefix ::= */
 #line 162 "src/core/userdict_parser.g"
 {
-  yymsp[1].minor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::start_of_token>();
+  yymsp[1].minor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::start_of_token>();
 }
 #line 1298 "src/core/userdict_parser.c"
         break;
       case 10: /* suffix ::= */
 #line 172 "src/core/userdict_parser.g"
 {
-  yymsp[1].minor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::end_of_token>();
+  yymsp[1].minor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::end_of_token>();
 }
 #line 1305 "src/core/userdict_parser.c"
         break;
@@ -1320,7 +1320,7 @@ static YYACTIONTYPE yy_reduce(
 #line 189 "src/core/userdict_parser.g"
 {
   yylhsminor.yy22=yymsp[-2].minor.yy22;
-  yylhsminor.yy22->append<RHVoice::userdict::word_break>();
+  yylhsminor.yy22->append<AeonVoice::userdict::word_break>();
   yylhsminor.yy22->append(yymsp[0].minor.yy22);
   delete yymsp[0].minor.yy22;
 }
@@ -1361,7 +1361,7 @@ static YYACTIONTYPE yy_reduce(
       case 22: /* word_flags ::= */
 #line 243 "src/core/userdict_parser.g"
 {
-  yymsp[1].minor.yy22=new RHVoice::userdict::ruleset;
+  yymsp[1].minor.yy22=new AeonVoice::userdict::ruleset;
 }
 #line 1366 "src/core/userdict_parser.c"
         break;
@@ -1389,7 +1389,7 @@ static YYACTIONTYPE yy_reduce(
       case 34: /* set_element ::= */
 #line 309 "src/core/userdict_parser.g"
 {
-  yymsp[1].minor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::empty_string>();
+  yymsp[1].minor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::empty_string>();
 }
 #line 1394 "src/core/userdict_parser.c"
         break;
@@ -1398,7 +1398,7 @@ static YYACTIONTYPE yy_reduce(
 #line 359 "src/core/userdict_parser.g"
 {
   yylhsminor.yy22=yymsp[-2].minor.yy22;
-  yylhsminor.yy22->append<RHVoice::userdict::word_break>();
+  yylhsminor.yy22->append<AeonVoice::userdict::word_break>();
   yylhsminor.yy22->append(yymsp[0].minor.yy22);
   delete yymsp[0].minor.yy22;
 }
@@ -1409,7 +1409,7 @@ static YYACTIONTYPE yy_reduce(
       case 47: /* word_pron_flags ::= */
 #line 387 "src/core/userdict_parser.g"
 {
-  yymsp[1].minor.yy22= new RHVoice::userdict::ruleset;
+  yymsp[1].minor.yy22= new AeonVoice::userdict::ruleset;
 }
 #line 1414 "src/core/userdict_parser.c"
         break;
@@ -1417,7 +1417,7 @@ static YYACTIONTYPE yy_reduce(
       case 56: /* substring ::= ENGLISH_LETTERS */ yytestcase(yyruleno==56);
 #line 430 "src/core/userdict_parser.g"
 {
-  yylhsminor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::substring>(yymsp[0].minor.yy0);
+  yylhsminor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::substring>(yymsp[0].minor.yy0);
   delete yymsp[0].minor.yy0;
 }
 #line 1423 "src/core/userdict_parser.c"
@@ -1426,7 +1426,7 @@ static YYACTIONTYPE yy_reduce(
       case 57: /* symbol ::= SYM */
 #line 442 "src/core/userdict_parser.g"
 {
-  yylhsminor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::symbol>(yymsp[0].minor.yy0);
+  yylhsminor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::symbol>(yymsp[0].minor.yy0);
   delete yymsp[0].minor.yy0;
 }
 #line 1432 "src/core/userdict_parser.c"
@@ -1436,7 +1436,7 @@ static YYACTIONTYPE yy_reduce(
       case 59: /* deletion ::= ENGLISH_LETTERS */ yytestcase(yyruleno==59);
 #line 448 "src/core/userdict_parser.g"
 {
-  yylhsminor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::deletion>(yymsp[0].minor.yy0);
+  yylhsminor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::deletion>(yymsp[0].minor.yy0);
   delete yymsp[0].minor.yy0;
 }
 #line 1442 "src/core/userdict_parser.c"
@@ -1445,7 +1445,7 @@ static YYACTIONTYPE yy_reduce(
       case 60: /* insertion ::= NATIVE_LETTERS */
 #line 460 "src/core/userdict_parser.g"
 {
-  yylhsminor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::insertion>(yymsp[0].minor.yy0);
+  yylhsminor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::insertion>(yymsp[0].minor.yy0);
   delete yymsp[0].minor.yy0;
 }
 #line 1451 "src/core/userdict_parser.c"
@@ -1455,7 +1455,7 @@ static YYACTIONTYPE yy_reduce(
 {  yy_destructor(yypParser,14,&yymsp[0].minor);
 #line 466 "src/core/userdict_parser.g"
 {
-  yymsp[0].minor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::stress_mark>();
+  yymsp[0].minor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::stress_mark>();
 }
 #line 1460 "src/core/userdict_parser.c"
 }
@@ -1463,7 +1463,7 @@ static YYACTIONTYPE yy_reduce(
       case 64: /* stressed_syl_number ::= STRESSED_SYL_NUMBER */
 #line 483 "src/core/userdict_parser.g"
 {
-  yylhsminor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::stressed_syl_number>(yymsp[0].minor.yy0);
+  yylhsminor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::stressed_syl_number>(yymsp[0].minor.yy0);
   delete yymsp[0].minor.yy0;
 }
 #line 1469 "src/core/userdict_parser.c"
@@ -1473,7 +1473,7 @@ static YYACTIONTYPE yy_reduce(
 {  yy_destructor(yypParser,16,&yymsp[0].minor);
 #line 489 "src/core/userdict_parser.g"
 {
-  yymsp[0].minor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::unstressed_flag>();
+  yymsp[0].minor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::unstressed_flag>();
 }
 #line 1478 "src/core/userdict_parser.c"
 }
@@ -1482,7 +1482,7 @@ static YYACTIONTYPE yy_reduce(
 {  yy_destructor(yypParser,17,&yymsp[0].minor);
 #line 494 "src/core/userdict_parser.g"
 {
-  yymsp[0].minor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::initialism_flag>();
+  yymsp[0].minor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::initialism_flag>();
 }
 #line 1487 "src/core/userdict_parser.c"
 }
@@ -1491,7 +1491,7 @@ static YYACTIONTYPE yy_reduce(
 {  yy_destructor(yypParser,18,&yymsp[0].minor);
 #line 499 "src/core/userdict_parser.g"
 {
-  yymsp[0].minor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::foreign_flag>();
+  yymsp[0].minor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::foreign_flag>();
 }
 #line 1496 "src/core/userdict_parser.c"
 }
@@ -1500,7 +1500,7 @@ static YYACTIONTYPE yy_reduce(
 {  yy_destructor(yypParser,19,&yymsp[0].minor);
 #line 504 "src/core/userdict_parser.g"
 {
-  yymsp[0].minor.yy22=RHVoice::userdict::ruleset::create<RHVoice::userdict::native_flag>();
+  yymsp[0].minor.yy22=AeonVoice::userdict::ruleset::create<AeonVoice::userdict::native_flag>();
 }
 #line 1505 "src/core/userdict_parser.c"
 }

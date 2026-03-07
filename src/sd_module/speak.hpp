@@ -19,7 +19,7 @@
 #include "command.hpp"
 #include "tts_message.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

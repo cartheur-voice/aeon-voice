@@ -19,7 +19,7 @@
 #include <memory>
 #include "utf8.h"
 
-namespace RHVoice
+namespace AeonVoice
 {
 enum emoji_property_t
   {

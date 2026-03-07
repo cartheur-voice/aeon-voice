@@ -296,7 +296,7 @@ with open(os.path.join(folder, "graph.txt"), encoding="utf-8") as f:
 
 def getTranscription(str):
 	inStr="<speak xml:lang=\""+lang2+"\"><s>"+str+"</s></speak>"
-	res=subprocess.run([os.path.join(folder, "../../../local/bin/RHVoice-transcribe-sentences"), "/dev/stdin", "/dev/stdout"], capture_output=True, input=inStr, text=True)
+	res=subprocess.run([os.path.join(folder, "../../../local/bin/AeonVoice-transcribe-sentences"), "/dev/stdin", "/dev/stdout"], capture_output=True, input=inStr, text=True)
 	res=res.stdout.strip()
 	if res.startswith("pau "):
 		res=res[4:]
@@ -521,7 +521,7 @@ writeFoma("unicodechars.foma", resultFoma)
 
 with open("../../../data/languages/"+lang+"/graph.txt", "w", encoding="utf-8") as fi:
 	for ch, chType in graphs.items():
-		if ord(ch) >= 0x1d400: # RHVoice can't decode these
+		if ord(ch) >= 0x1d400: # AeonVoice can't decode these
 			continue
 		fi.write(ch+" "+chType+"\n")
 

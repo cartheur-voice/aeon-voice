@@ -18,17 +18,17 @@
 #pkg_check_modules(LIBGLIMM REQUIRED glibmm-2.4)
 pkg_check_modules(LIBGIOMM REQUIRED giomm-2.4)
 
-add_executable("RHVoice-service" "${CMAKE_CURRENT_SOURCE_DIR}/service.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/common.cpp")
-target_include_directories("RHVoice-service" PRIVATE "${LIBGIOMM_INCLUDE_DIRS}" "${HTS_LABELS_KIT_INCLUDES}")
-target_link_libraries("RHVoice-service" "RHVoice_core" "${LIBGIOMM_LIBRARIES}")
-harden("RHVoice-service")
-add_sanitizers("RHVoice-service")
+add_executable("AeonVoice-service" "${CMAKE_CURRENT_SOURCE_DIR}/service.cpp" "${CMAKE_CURRENT_SOURCE_DIR}/common.cpp")
+target_include_directories("AeonVoice-service" PRIVATE "${LIBGIOMM_INCLUDE_DIRS}" "${HTS_LABELS_KIT_INCLUDES}")
+target_link_libraries("AeonVoice-service" "AeonVoice_core" "${LIBGIOMM_LIBRARIES}")
+harden("AeonVoice-service")
+add_sanitizers("AeonVoice-service")
 
-install(TARGETS "RHVoice-service"
+install(TARGETS "AeonVoice-service"
 	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
 	COMPONENT "service"
 )
-set(SERVICE_FILE_NAME "com.github.OlgaYakovleva.RHVoice.service")
+set(SERVICE_FILE_NAME "com.github.OlgaYakovleva.AeonVoice.service")
 
 set(serviceInputFile "${CMAKE_CURRENT_SOURCE_DIR}/${SERVICE_FILE_NAME}.in")
 set(serviceOutputFile "${CMAKE_CURRENT_BINARY_DIR}/${SERVICE_FILE_NAME}")
@@ -41,4 +41,4 @@ install(FILES "${serviceOutputFile}"
 	DESTINATION "${servicedir}"
 	COMPONENT "service"
 )
-set("CPACK_DEBIAN_SERVICE_PACKAGE_NAME" "rhvoice-systemd-service" PARENT_SCOPE)
+set("CPACK_DEBIAN_SERVICE_PACKAGE_NAME" "aeonvoice-systemd-service" PARENT_SCOPE)

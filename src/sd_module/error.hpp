@@ -18,7 +18,7 @@
 
 #include "core/exception.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

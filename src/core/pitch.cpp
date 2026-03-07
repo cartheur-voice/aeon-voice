@@ -25,7 +25,7 @@ namespace
   const double threshold=1.5*octave/12.0;
 }
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace pitch
   {

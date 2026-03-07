@@ -35,7 +35,7 @@
   #define RHVOICE_IO_API RHVOICE_IMPORT_API
 #endif
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace io
   {

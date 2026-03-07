@@ -17,7 +17,7 @@
 #include "pulse.hpp"
 #include "playback_stream_impl.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace audio
   {
@@ -62,7 +62,7 @@ namespace RHVoice
       if(buffer_size!=0)
         attr.tlength=static_cast<double>(buffer_size)/1000*sample_rate;
       connection=pa_simple_new(server.empty()?0:server.c_str(),
-                               client_name.empty()?"RHVoice":client_name.c_str(),
+                               client_name.empty()?"AeonVoice":client_name.c_str(),
                                PA_STREAM_PLAYBACK,
                                device.empty()?0:device.c_str(),
                                "Speech",

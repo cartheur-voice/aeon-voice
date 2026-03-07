@@ -1,4 +1,4 @@
-/* Copyright (C) 2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2022  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU General Public License as published by */
@@ -25,7 +25,7 @@ extern "C"
   struct _HTS_ModelSet;
 }
 
-namespace RHVoice {
+namespace AeonVoice {
   class model_answer_cache
   {
   public:

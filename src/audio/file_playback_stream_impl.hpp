@@ -20,7 +20,7 @@
 #include <fstream>
 #include "playback_stream_impl.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace audio
   {

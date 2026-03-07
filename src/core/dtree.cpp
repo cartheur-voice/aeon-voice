@@ -17,7 +17,7 @@
 #include "core/exception.hpp"
 #include "core/dtree.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace
   {

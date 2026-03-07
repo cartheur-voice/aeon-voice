@@ -22,7 +22,7 @@
 #include "core/engine.hpp"
 #include "core/document.hpp"
 
-using namespace RHVoice;
+using namespace AeonVoice;
 
 namespace
 {

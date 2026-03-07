@@ -13,7 +13,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 define AbbrevTranslation   [{chrome}|{Chrome}|{чроме}] : {кроум} |  # "Chrome". Not an abbreviation, but this pronunciation wanted 
-  [{RHVoice}|{rhvoice}|{RHVOICE}] : {`ар`ечв`оис} |
+  [{AeonVoice}|{aeonvoice}|{RHVOICE}] : {`ар`ечв`оис} |
 	[{QR}|{qr}] : {кј`у`ар}  ;
 
 

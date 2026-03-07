@@ -21,7 +21,7 @@
 
 #include "exception.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class item;
   class feature_function;

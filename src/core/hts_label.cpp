@@ -16,7 +16,7 @@
 #include "core/voice.hpp"
 #include "core/hts_label.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   double hts_label::calculate_speech_param(double absolute_change,double relative_change,const numeric_property<double>& default_setting,const numeric_property<double>& min_setting,const numeric_property<double>& max_setting,bool clip) const
   {
@@ -75,7 +75,7 @@ namespace RHVoice
     const voice_params&voice_settings=utt.get_voice().get_info().settings;
     double absolute_rate=utt.get_absolute_rate();
     double relative_rate=utt.get_relative_rate();
-    bool clip_rate=(utt.get_flags()&RHVoice_synth_flag_dont_clip_rate)?false:true;
+    bool clip_rate=(utt.get_flags()&AeonVoice_synth_flag_dont_clip_rate)?false:true;
     double rate=calculate_speech_param(absolute_rate,
                                         relative_rate,
                                         voice_settings.default_rate,

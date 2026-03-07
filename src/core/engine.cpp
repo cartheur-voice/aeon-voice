@@ -1,4 +1,4 @@
-/* Copyright (C) 2012, 2014, 2019, 2021  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2012, 2014, 2019, 2021  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU Lesser General Public License as published by */
@@ -27,7 +27,7 @@ namespace
   const std::string tag("engine");
 }
 
-namespace RHVoice
+namespace AeonVoice
 {
   engine::init_params::init_params():
     data_path(DATA_PATH),
@@ -75,7 +75,7 @@ namespace RHVoice
     prefer_primary_language("prefer_primary_language",true),
     enable_bilingual("enable_bilingual", true)
   {
-    logger->log(tag,RHVoice_log_level_info,"creating a new engine");
+    logger->log(tag,AeonVoice_log_level_info,"creating a new engine");
     if(p.has_data_paths() && languages.empty())
       throw no_languages();
     cfg.set_logger(logger);
@@ -97,21 +97,27 @@ namespace RHVoice
     for(auto& v: voices)
       v.set_stream_settings(stream_settings);
     #ifdef WIN32
-    cfg.load(path::join(config_path,"RHVoice.ini"));
+    const std::string config_file(path::join(config_path,"AeonVoice.ini"));
+    const std::string legacy_config_file(path::join(config_path,"AeonVoice.ini"));
     #else
-    cfg.load(path::join(config_path,"RHVoice.conf"));
+    const std::string config_file(path::join(config_path,"AeonVoice.conf"));
+    const std::string legacy_config_file(path::join(config_path,"AeonVoice.conf"));
     #endif
+    if(path::isfile(config_file))
+      cfg.load(config_file);
+    else
+      cfg.load(legacy_config_file);
     if(p.has_data_paths() && languages.empty())
       throw no_languages();
     create_voice_profiles();
     #if ENABLE_PKG
     if(!p.pkg_path.empty())
       {
-        logger->log(tag,RHVoice_log_level_info,"getting the package client instance");
+        logger->log(tag,AeonVoice_log_level_info,"getting the package client instance");
         pkgc=pkg::package_client::get(p.pkg_path);
       }
     #endif
-    logger->log(tag,RHVoice_log_level_info,"engine created");
+    logger->log(tag,AeonVoice_log_level_info,"engine created");
   }
 
   voice_profile engine::create_voice_profile(const std::string& spec) const

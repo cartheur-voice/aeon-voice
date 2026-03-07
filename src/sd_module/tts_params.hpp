@@ -16,10 +16,10 @@
 #ifndef RHVOICE_SD_TTS_PARAMS_HPP
 #define RHVOICE_SD_TTS_PARAMS_HPP
 
-#include "RHVoice_common.h"
+#include "AeonVoice_common.h"
 #include "core/config.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {
@@ -40,9 +40,9 @@ namespace RHVoice
       numeric_property<int> rate;
       numeric_property<int> pitch;
       numeric_property<int> volume;
-      c_enum_property<RHVoice_punctuation_mode> punctuation_mode;
+      c_enum_property<AeonVoice_punctuation_mode> punctuation_mode;
       bool_property spelling_mode;
-      c_enum_property<RHVoice_capitals_mode> capitals_mode;
+      c_enum_property<AeonVoice_capitals_mode> capitals_mode;
       enum_string_property language_code;
       enum_property<voice_id_t> voice_id;
       enum_string_property voice_name;
@@ -51,19 +51,19 @@ namespace RHVoice
         rate("rate",0,-100,100),
         pitch("pitch",0,-100,100),
         volume("volume",0,-100,100),
-        punctuation_mode("punctuation_mode",RHVoice_punctuation_default),
+        punctuation_mode("punctuation_mode",AeonVoice_punctuation_default),
         spelling_mode("spelling_mode",false),
-        capitals_mode("cap_let_recogn",RHVoice_capitals_default),
+        capitals_mode("cap_let_recogn",AeonVoice_capitals_default),
         language_code("language"),
         voice_id("voice",voice_default),
         voice_name("synthesis_voice")
       {
-        punctuation_mode.define("none",RHVoice_punctuation_none);
-        punctuation_mode.define("some",RHVoice_punctuation_some);
-        punctuation_mode.define("all",RHVoice_punctuation_all);
-        capitals_mode.define("none",RHVoice_capitals_off);
-        capitals_mode.define("spell",RHVoice_capitals_word);
-        capitals_mode.define("icon",RHVoice_capitals_sound);
+        punctuation_mode.define("none",AeonVoice_punctuation_none);
+        punctuation_mode.define("some",AeonVoice_punctuation_some);
+        punctuation_mode.define("all",AeonVoice_punctuation_all);
+        capitals_mode.define("none",AeonVoice_capitals_off);
+        capitals_mode.define("spell",AeonVoice_capitals_word);
+        capitals_mode.define("icon",AeonVoice_capitals_sound);
         voice_id.define("male1",voice_male1);
         voice_id.define("male2",voice_male2);
         voice_id.define("male3",voice_male3);

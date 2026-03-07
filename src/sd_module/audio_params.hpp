@@ -18,7 +18,7 @@
 
 #include "core/config.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

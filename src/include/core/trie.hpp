@@ -24,7 +24,7 @@
 #include <stdexcept>
 #include "str.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   template<typename E,typename T,class L=str::to_lower>
   class trie

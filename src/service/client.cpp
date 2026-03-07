@@ -84,7 +84,7 @@ namespace
 
   params::params(int argc,const char* argv[])
   {
-    TCLAP::CmdLine cmd("RHVoice client");
+    TCLAP::CmdLine cmd("AeonVoice client");
     TCLAP::ValueArg<double> pitch_arg("p","pitch","Speech pitch",false,0,&speech_param_range,cmd);
     TCLAP::ValueArg<double> rate_arg("r","rate","Speech rate",false,0,&speech_param_range,cmd);
     TCLAP::ValueArg<double> volume_arg("v","volume","Speech volume",false,0,&speech_param_range,cmd);
@@ -135,7 +135,13 @@ namespace
     call_method("SetSpeakers",user_prefs.speakers);
   }
 
-  // FIXME: This should take into account the platform endianness
+  void write_le32(unsigned char* out,guint32 value)
+  {
+    out[0]=static_cast<unsigned char>(value&0xff);
+    out[1]=static_cast<unsigned char>((value>>8)&0xff);
+    out[2]=static_cast<unsigned char>((value>>16)&0xff);
+    out[3]=static_cast<unsigned char>((value>>24)&0xff);
+  }
 
   void write_wave_header()
   {
@@ -162,9 +168,9 @@ namespace
       /* Again using espeak as an example */
       0x00,0xf0,0xff,0x7f};     /* Subchunk2Size */
     /* Write actual sample rate */
-    *reinterpret_cast<guint32*>(header+24)=sample_rate;
+    write_le32(header+24,sample_rate);
     /* Write actual byte rate */
-    *reinterpret_cast<guint32*>(header+28)=byte_rate;
+    write_le32(header+28,byte_rate);
     std::cout.write(reinterpret_cast<char*>(&header[0]),sizeof(header));
     wave_header_written=true;
   }
@@ -176,7 +182,9 @@ namespace
     Glib::Variant<speech_fragment> vsamples;
     params.get_child(vsamples);
     speech_fragment samples=vsamples.get();
-    std::cout.write(reinterpret_cast<const char*>(&samples[0]),sizeof(gint16)*samples.size());
+    if(samples.empty())
+      return;
+    std::cout.write(reinterpret_cast<const char*>(samples.data()),sizeof(gint16)*samples.size());
   }
 
   void on_signal(const Glib::ustring& sender,const Glib::ustring& signal_name,const Glib::VariantContainerBase& params)
@@ -233,9 +241,9 @@ int main(int argc,const char* argv[])
       return 1;
     }
   Gio::DBus::Proxy::create(connection,
-                           RHVoice::service::well_known_name,
-                           RHVoice::service::object_path,
-                           RHVoice::service::interface_name,
+                           AeonVoice::service::well_known_name,
+                           AeonVoice::service::object_path,
+                           AeonVoice::service::interface_name,
                            sigc::ptr_fun(&on_dbus_proxy_available));
   main_loop->run();
   return 0;

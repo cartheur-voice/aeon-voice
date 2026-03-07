@@ -26,7 +26,7 @@
 #include "pause.hpp"
 #include "quit.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

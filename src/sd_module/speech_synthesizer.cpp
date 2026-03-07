@@ -19,7 +19,7 @@
 #include "io.hpp"
 #include "speech_synthesizer.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

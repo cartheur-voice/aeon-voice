@@ -17,9 +17,9 @@
 #define RHVOICE_EVENT_LOGGER_HPP
 
 #include <string>
-#include "RHVoice_common.h"
+#include "AeonVoice_common.h"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class event_logger
   {
@@ -32,7 +32,7 @@ namespace RHVoice
     {
     }
 
-    virtual void log(const std::string& tag,RHVoice_log_level level,const std::string& message) const
+    virtual void log(const std::string& tag,AeonVoice_log_level level,const std::string& message) const
     {
     }
 

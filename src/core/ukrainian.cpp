@@ -21,7 +21,7 @@
 #include "core/io.hpp"
 #include "core/ukrainian.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   ukrainian_info::ukrainian_info(const std::string& data_path,const std::string& userdict_path):
     language_info("Ukrainian",data_path,userdict_path)

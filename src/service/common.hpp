@@ -18,7 +18,7 @@
 
 #include <glibmm.h>
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace service
   {

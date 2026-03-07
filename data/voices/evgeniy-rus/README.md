@@ -11,6 +11,6 @@ You can send a request for integration of voice into any product to the laborato
 * Speaker: Evgeny Chebatkov (StandUp-comedian, voice actor)
 
 ## Contact us ##
-* E-mail: [rhvoice@tiflo.org](mailto:rhvoice@tiflo.org)
+* E-mail: [aeonvoice@tiflo.org](mailto:aeonvoice@tiflo.org)
 * Phone: [+7 952 280-89-89](tel:+79522808989)
-* Website: [RHVoice.su](https://rhvoice.su)
+* Website: [AeonVoice.su](https://aeonvoice.su)

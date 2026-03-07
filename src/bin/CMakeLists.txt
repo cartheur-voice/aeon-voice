@@ -16,33 +16,33 @@
 
 pkg_check_modules(DBUS REQUIRED dbus)
 
-add_executable("RHVoice-client" "${CMAKE_CURRENT_SOURCE_DIR}/rhvoice-client.c")
-target_include_directories("RHVoice-client" PRIVATE "${DBUS_INCLUDE_DIRS}")
-target_link_libraries("RHVoice-client" PRIVATE "RHVoice_core" "${DBUS_LIBRARIES}")
-harden("RHVoice-client")
-add_sanitizers("RHVoice-client")
-target_compile_definitions("RHVoice-client" PRIVATE "-DVERSION=\"${VERSION}\"")
+add_executable("AeonVoice-client" "${CMAKE_CURRENT_SOURCE_DIR}/aeonvoice-client.c")
+target_include_directories("AeonVoice-client" PRIVATE "${DBUS_INCLUDE_DIRS}")
+target_link_libraries("AeonVoice-client" PRIVATE "AeonVoice_core" "${DBUS_LIBRARIES}")
+harden("AeonVoice-client")
+add_sanitizers("AeonVoice-client")
+target_compile_definitions("AeonVoice-client" PRIVATE "-DVERSION=\"${VERSION}\"")
 
-#add_executable("RHVoice" "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
-#target_link_libraries("RHVoice" "RHVoice_core")
-#target_compile_definitions(RHVoice PRIVATE "-DPACKAGE=\"RHVoice\"")
-#harden("RHVoice")
-#add_sanitizers("RHVoice")
+#add_executable("AeonVoice" "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
+#target_link_libraries("AeonVoice" "AeonVoice_core")
+#target_compile_definitions(AeonVoice PRIVATE "-DPACKAGE=\"AeonVoice\"")
+#harden("AeonVoice")
+#add_sanitizers("AeonVoice")
 
 cpack_add_component(client
-	DISPLAY_NAME "RHVoice D-Bus service client"
-	DESCRIPTION "Provides a client allowing to speak text using RHVoice DBus client. Deprecated. Use speech-dispatcher."
+	DISPLAY_NAME "AeonVoice D-Bus service client"
+	DESCRIPTION "Provides a client allowing to speak text using AeonVoice DBus client. Deprecated. Use speech-dispatcher."
 	GROUP "binaries"
 	DEPENDS "core"
 )
 list(APPEND CPACK_COMPONENTS_ALL "client")
 
-install(TARGETS "RHVoice-client"
+install(TARGETS "AeonVoice-client"
 	RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
 	COMPONENT "client"
 )
 
-set("CPACK_DEBIAN_CLIENT_PACKAGE_NAME" "rhvoice-client")
+set("CPACK_DEBIAN_CLIENT_PACKAGE_NAME" "aeonvoice-client")
 set(CPACK_DEBIAN_CLIENT_PACKAGE_DEPENDS "${CPACK_DEBIAN_CORE_PACKAGE_NAME}, ${CPACK_DEBIAN_AUDIO_PACKAGE_NAME}")
 
 pass_through_cpack_vars()

@@ -373,7 +373,7 @@ class diphone_prompt_selector(prompt_selector):
 			for sent in sentences:
 				f_out.write(u"<s>{}</s>\n".format(sent))
 			f_out.write("</speak>\n")
-		subprocess.check_call(["RHVoice-transcribe-sentences","ssml","transcription"])
+		subprocess.check_call(["AeonVoice-transcribe-sentences","ssml","transcription"])
 		with codecs.open("transcription","r","utf-8") as f_in:
 			for s,l in zip(sentences,f_in):
 				phones=l.split()

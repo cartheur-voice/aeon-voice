@@ -22,7 +22,7 @@
 #include "lts.hpp"
 #include "language.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class english_info: public language_info
   {

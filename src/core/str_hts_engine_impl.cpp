@@ -1,4 +1,4 @@
-/* Copyright (C) 2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2022  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU General Public License as published by */
@@ -37,7 +37,7 @@ extern "C"
 
   void HTS_Audio_write(HTS_Audio * audio, short sample)
   {
-    static_cast<RHVoice::hts_engine_impl*>(audio->audio_interface)->on_new_sample(sample);
+    static_cast<AeonVoice::hts_engine_impl*>(audio->audio_interface)->on_new_sample(sample);
   }
 
   void HTS_Audio_flush(HTS_Audio * audio)
@@ -57,7 +57,7 @@ void HTS_SStreamSet_set_mean(HTS_SStreamSet * sss, size_t stream_index, size_t s
 void HTS_SStreamSet_set_vari(HTS_SStreamSet * sss, size_t stream_index, size_t state_index, size_t vector_index, double f);
 }
 
-namespace RHVoice
+namespace AeonVoice
 {
   str_hts_engine_impl::str_hts_engine_impl(const voice_info& info):
     hts_engine_impl("stream",info)

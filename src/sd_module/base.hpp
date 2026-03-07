@@ -24,7 +24,7 @@
 #include "tts_params.hpp"
 #include "audio_params.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

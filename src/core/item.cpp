@@ -24,7 +24,7 @@
 #include "core/language.hpp"
 #include "core/str.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   const value item::empty_value;
 

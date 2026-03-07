@@ -19,7 +19,7 @@
 #include <cmath>
 #include <vector>
 
-namespace RHVoice
+namespace AeonVoice
 {
   class tone
   {

@@ -32,7 +32,7 @@
 #include "core/document.hpp"
 #include "core/hts_labeller.hpp"
 
-using namespace RHVoice;
+using namespace AeonVoice;
 
 namespace
 {

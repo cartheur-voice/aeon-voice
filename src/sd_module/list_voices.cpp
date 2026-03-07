@@ -28,7 +28,7 @@ namespace
   #endif
 }
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

@@ -22,7 +22,7 @@
 #include "sample_rate.hpp"
 #include "speech_processor.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   template<typename S>
   class envelope_computer
@@ -33,7 +33,7 @@ namespace RHVoice
     {
 }
 
-    void init(RHVoice::sample_rate_t sr)
+    void init(AeonVoice::sample_rate_t sr)
     {
       attack_coef=std::exp(-1.0/(0.001*sr));
       release_coef=std::exp(-1.0/(0.01*sr));

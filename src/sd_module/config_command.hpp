@@ -19,7 +19,7 @@
 #include "core/config.hpp"
 #include "command.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

@@ -19,7 +19,7 @@
 #include <stdexcept>
 #include <string>
 
-namespace RHVoice
+namespace AeonVoice
 {
   class exception: public std::runtime_error
   {

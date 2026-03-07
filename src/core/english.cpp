@@ -21,7 +21,7 @@
 #include "core/item.hpp"
 #include "core/english.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace
   {

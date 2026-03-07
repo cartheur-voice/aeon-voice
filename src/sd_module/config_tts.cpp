@@ -18,7 +18,7 @@
 #include "config_tts.hpp"
 #include "io.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {
@@ -58,17 +58,17 @@ namespace RHVoice
             if(tts_settings.language_code.is_set())
               {
                 voice_profile voice1,voice2,voice3;
-                RHVoice_voice_gender gender=RHVoice_voice_gender_unknown;
+                AeonVoice_voice_gender gender=AeonVoice_voice_gender_unknown;
                 unsigned int index=0;
                 voice_id_t id=tts_settings.voice_id;
                 if(id>0)
                   {
-                    gender=RHVoice_voice_gender_female;
+                    gender=AeonVoice_voice_gender_female;
                     index=id;
                   }
                 else if(id<0)
                   {
-                    gender=RHVoice_voice_gender_male;
+                    gender=AeonVoice_voice_gender_male;
                     index=-id;
                   }
                 unsigned int count=0;
@@ -78,7 +78,7 @@ namespace RHVoice
                       {
                         if(voice3.empty())
                           voice3=*it;
-                        if((gender!=RHVoice_voice_gender_unknown)&&(it->primary()->get_gender()==gender))
+                        if((gender!=AeonVoice_voice_gender_unknown)&&(it->primary()->get_gender()==gender))
                           {
                             ++count;
                             if(voice2.empty())

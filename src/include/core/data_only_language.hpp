@@ -21,7 +21,7 @@
 #include "fst.hpp"
 #include "language.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class data_only_language_info: public language_info
   {

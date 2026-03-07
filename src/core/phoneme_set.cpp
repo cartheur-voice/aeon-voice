@@ -21,7 +21,7 @@
 #include "core/io.hpp"
 #include "core/phoneme_set.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   phoneme_set::phoneme_set(const std::string& file_path)
   {

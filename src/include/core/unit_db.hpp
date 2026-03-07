@@ -1,4 +1,4 @@
-/* Copyright (C) 2024  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2024  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU Lesser General Public License as published by */
@@ -22,7 +22,7 @@
 
 struct _HTS_Engine;
 
-namespace RHVoice
+namespace AeonVoice
 {
   class unit_db
   {

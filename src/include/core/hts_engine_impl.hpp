@@ -1,4 +1,4 @@
-/* Copyright (C) 2013, 2014, 2018, 2019, 2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2013, 2014, 2018, 2019, 2022  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU Lesser General Public License as published by */
@@ -31,7 +31,7 @@
 
 struct _HTS_Audio;
 extern "C" void HTS_Audio_write(_HTS_Audio * audio, short sample);
-namespace RHVoice
+namespace AeonVoice
 {
   class voice_info;
 

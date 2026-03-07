@@ -18,7 +18,7 @@
 
 #include "utf8.h"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace unicode
   {

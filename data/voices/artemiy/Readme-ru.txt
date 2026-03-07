@@ -12,6 +12,6 @@
 Диктор: Артемий Лебедев (дизайнер, блогер и путешественник)
 
 Связь
-E-mail: rhvoice@tiflo.org
+E-mail: aeonvoice@tiflo.org
 Телефон: +7 (952) 280-89-89
-Сайт: https://rhvoice.su
+Сайт: https://aeonvoice.su

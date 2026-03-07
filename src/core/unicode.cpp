@@ -16,7 +16,7 @@
 #include <algorithm>
 #include "core/unicode.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace unicode
   {

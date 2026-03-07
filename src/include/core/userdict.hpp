@@ -31,7 +31,7 @@
 #include "stress_pattern.hpp"
 #include "trie.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class language_info;
 

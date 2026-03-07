@@ -8,6 +8,6 @@ Zvonimir Stanecic AKA 9a5dsz — voice training
 Speaker: Slt (voice actor)
 
 Contact us
-E-mail: rhvoice@tiflo.org
+E-mail: aeonvoice@tiflo.org
 Phone: +7 (952) 280-89-89
-Website: https://rhvoice.su
+Website: https://aeonvoice.su

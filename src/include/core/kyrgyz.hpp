@@ -20,7 +20,7 @@
 #include "fst.hpp"
 #include "language.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class kyrgyz_info: public language_info
   {

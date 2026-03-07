@@ -19,7 +19,7 @@
 #include <bitset>
 #include "core/threading.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

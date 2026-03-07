@@ -20,7 +20,7 @@
 #include "hts_label.hpp"
 #include "events.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class hts_input
   {

@@ -30,7 +30,7 @@ hpp=license+"""
 #include \"fst.hpp\"
 #include \"language.hpp\"
 
-namespace RHVoice
+namespace AeonVoice
 {{
   class {name}_info: public language_info
   {{
@@ -76,7 +76,7 @@ cpp=license+"""
 #include \"core/item.hpp\"
 #include \"core/{name}.hpp\"
 
-namespace RHVoice
+namespace AeonVoice
 {{
   {name}_info::{name}_info(const std::string& data_path,const std::string& userdict_path):
     language_info(\"{Name}\",data_path,userdict_path)

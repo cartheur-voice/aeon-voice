@@ -26,7 +26,7 @@
 #include "utf.hpp"
 #include "str.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class abstract_property
   {

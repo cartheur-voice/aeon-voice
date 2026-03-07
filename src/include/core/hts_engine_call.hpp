@@ -23,7 +23,7 @@
 #include "hts_input.hpp"
 #include "speech_processing_chain.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class hts_engine_call
   {

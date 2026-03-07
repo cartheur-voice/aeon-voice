@@ -24,7 +24,7 @@
 #include "relation.hpp"
 #include "quality_setting.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class language;
   class voice;

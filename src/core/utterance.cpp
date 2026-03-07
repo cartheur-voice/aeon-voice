@@ -17,7 +17,7 @@
 #include "core/utterance.hpp"
 #include "core/relation.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   relation& utterance::add_relation(const std::string& name)
   {

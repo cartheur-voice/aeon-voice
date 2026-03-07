@@ -29,7 +29,7 @@
 #include "utf8.h"
 #include "utf.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace str
   {

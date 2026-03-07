@@ -18,7 +18,7 @@
 
 #include "property.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   enum sample_rate_t
     {

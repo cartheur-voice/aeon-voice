@@ -45,7 +45,7 @@ src=["main.cpp",
 	 "quit.cpp",
 	 "speech_synthesizer.cpp",
 	 "speech_player.cpp"]
-module=local_env.Program("sd_rhvoice",src)
+module=local_env.Program("sd_aeonvoice",src)
 local_env.Depends(module,libcore)
 local_env.Depends(module,libaudio)
 if local_env["PLATFORM"]!="win32":

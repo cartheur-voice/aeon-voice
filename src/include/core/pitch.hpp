@@ -25,7 +25,7 @@
 #include <sstream>
 #include "hts_label.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class hts_input;
 

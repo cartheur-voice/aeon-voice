@@ -24,7 +24,7 @@
 #include "core/io.hpp"
 #include "core/data_only_language.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   data_only_language_info::data_only_language_info(const std::string& data_path,const std::string& userdict_path):
     language_info(resource_description("language", data_path).name,data_path,userdict_path)

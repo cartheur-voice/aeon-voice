@@ -38,7 +38,7 @@
 #include <time.h>
 #include <unistd.h>
 #endif
-#include "RHVoice.h"
+#include "AeonVoice.h"
 
 using std::string;
 using std::istringstream;
@@ -95,7 +95,7 @@ static void write_wave_header()
 
 static int wave_header_written=0;
 
-int static callback(const short *samples,int num_samples,const RHVoice_event *events,int num_events,RHVoice_message msg)
+int static callback(const short *samples,int num_samples,const AeonVoice_event *events,int num_events,AeonVoice_message msg)
 {
   if(!samples)
     return 1;
@@ -174,8 +174,8 @@ namespace opt
   int variant=0;
   const char *voice_name=NULL;
   int voice=0;
-  RHVoice_message_type message_type=RHVoice_message_text;
-  RHVoice_punctuation_mode punct_mode=RHVoice_punctuation_none;
+  AeonVoice_message_type message_type=AeonVoice_message_text;
+  AeonVoice_punctuation_mode punct_mode=AeonVoice_punctuation_none;
   const char *punct_list=NULL;
   int opt_list_voices=0;
   int opt_list_variants=0;
@@ -207,14 +207,14 @@ namespace opt
 
   void show_version()
   {
-    cout << PACKAGE << " version " << RHVoice_get_version() << endl;
+    cout << PACKAGE << " version " << AeonVoice_get_version() << endl;
   }
 
   void show_help()
   {
     show_version();
     cout << "a speech synthesizer for Russian language\n";
-    cout << "usage: RHVoice [options]\n";
+    cout << "usage: AeonVoice [options]\n";
     cout << "reads text from a file or from stdin (expects UTF-8 encoding)\n";
     cout << "writes speech output to a file or to stdout\n";
     int w=40;
@@ -279,11 +279,11 @@ namespace opt
         {
           string type(arg);
           if(type=="text")
-            message_type=RHVoice_message_text;
+            message_type=AeonVoice_message_text;
           else if(type=="ssml")
-            message_type=RHVoice_message_ssml;
+            message_type=AeonVoice_message_ssml;
           else if(type=="characters")
-            message_type=RHVoice_message_characters;
+            message_type=AeonVoice_message_characters;
           else
             return "unknown input type";
         }
@@ -320,11 +320,11 @@ namespace opt
       case 'P':
         if(arg!=NULL)
           {
-            punct_mode=RHVoice_punctuation_some;
+            punct_mode=AeonVoice_punctuation_some;
             punct_list=strdup(arg);
           }
         else
-          punct_mode=RHVoice_punctuation_all;
+          punct_mode=AeonVoice_punctuation_all;
         break;
 
       case 'l':
@@ -400,7 +400,7 @@ static void handle_daemon_error(const char *msg)
 {
   syslog(LOG_ERR, "%s: %m", msg);
     cleanup_files();
-    RHVoice_terminate();
+    AeonVoice_terminate();
   exit(1);
 }
 
@@ -410,7 +410,7 @@ static void start_daemon()
     {
       int saved_errno = errno;
       cerr << "mkdir(" << daemon_dir << "): " << strerror(saved_errno) << '\n';
-      RHVoice_terminate();
+      AeonVoice_terminate();
       exit(1);
     }
   int pidfile;
@@ -429,14 +429,14 @@ static void start_daemon()
       int saved_errno = errno;
       cerr << "Could not create " << pidfile_name << " anew: "
            << strerror(saved_errno) << endl;
-      RHVoice_terminate();
+      AeonVoice_terminate();
       exit(1);
     }
   close(pidfile);
   signal(SIGTERM, cleanup_handler);
   signal(SIGCHLD, SIG_IGN);
 
-  openlog("RHVoice", LOG_PID, LOG_USER);
+  openlog("AeonVoice", LOG_PID, LOG_USER);
   if (daemon(0, 0) == -1)
     handle_daemon_error("daemon");
   daemon_running = true;
@@ -490,25 +490,25 @@ static void start_daemon()
 
 static void list_variants()
 {
-  int n=RHVoice_get_variant_count();
+  int n=AeonVoice_get_variant_count();
   if(n==0) return;
   cout << "List of variants:\n";
   int i;
   for(i=1;i<=n;i++)
     {
-      cout << RHVoice_get_variant_name(i) << endl;
+      cout << AeonVoice_get_variant_name(i) << endl;
     }
 }
 
 static void list_voices()
 {
-  int n=RHVoice_get_voice_count();
+  int n=AeonVoice_get_voice_count();
   if(n==0) return;
   cout << "List of voices:\n";
   int i;
   for(i=1;i<=n;i++)
     {
-      cout << RHVoice_get_voice_name(i) << endl;
+      cout << AeonVoice_get_voice_name(i) << endl;
     }
 }
 
@@ -536,7 +536,7 @@ static float convert_prosody_value(float val,float nmin,float nmax,float ndef)
 int main(int argc,char **argv)
 {
   using namespace opt;
-  RHVoice_message msg=NULL;
+  AeonVoice_message msg=NULL;
   unsigned int init_options=0;
   string text;
   char ch;
@@ -566,20 +566,26 @@ int main(int argc,char **argv)
         }
 
       if(start_daemon_flag)
-        init_options|=RHVoice_preload_voices;
+        init_options|=AeonVoice_preload_voices;
 
       if (daemon_dir.empty())
         {
-          daemon_dir = getenv("HOME");
+          const char* home = getenv("HOME");
+          if((home==NULL)||(home[0]=='\0'))
+            {
+              cerr << "HOME is not set; cannot determine the daemon directory" << endl;
+              exit(1);
+            }
+          daemon_dir = home;
           if (daemon_dir[daemon_dir.length()-1] != '/')
             daemon_dir += '/';
-          daemon_dir += ".rhvoice/";
+          daemon_dir += ".aeonvoice/";
         }
       else if (daemon_dir[daemon_dir.length()-1] != '/')
         daemon_dir += '/';
-      pidfile_name = new char[daemon_dir.length() + sizeof("rhvoice.pid")];
+      pidfile_name = new char[daemon_dir.length() + sizeof("aeonvoice.pid")];
       daemon_dir.copy(pidfile_name, string::npos);
-      strcpy(pidfile_name + daemon_dir.length(), "rhvoice.pid");
+      strcpy(pidfile_name + daemon_dir.length(), "aeonvoice.pid");
       socket_name = new char[daemon_dir.length() + sizeof("socket")];
       daemon_dir.copy(socket_name, string::npos);
       strcpy(socket_name + daemon_dir.length(), "socket");
@@ -592,7 +598,7 @@ int main(int argc,char **argv)
         }
 #endif
 
-      sample_rate=RHVoice_initialize(datadir,callback,cfgpath,init_options);
+      sample_rate=AeonVoice_initialize(datadir,callback,cfgpath,init_options);
       if(sample_rate==0) return 1;
       if(opt_list_variants||opt_list_voices)
         {
@@ -600,7 +606,7 @@ int main(int argc,char **argv)
             list_voices();
           if(opt_list_variants)
             list_variants();
-          RHVoice_terminate();
+          AeonVoice_terminate();
           return 0;
         }
 
@@ -622,48 +628,48 @@ if (start_daemon_flag)
         }
       if(text.empty())
         {
-          RHVoice_terminate();
+          AeonVoice_terminate();
           return 1;
         }
       if(rate!=-1)
-        RHVoice_set_rate(convert_prosody_value(rate,RHVoice_get_min_rate(),RHVoice_get_max_rate(),RHVoice_get_default_rate()));
+        AeonVoice_set_rate(convert_prosody_value(rate,AeonVoice_get_min_rate(),AeonVoice_get_max_rate(),AeonVoice_get_default_rate()));
       if(pitch!=-1)
-        RHVoice_set_pitch(convert_prosody_value(pitch,RHVoice_get_min_pitch(),RHVoice_get_max_pitch(),RHVoice_get_default_pitch()));
+        AeonVoice_set_pitch(convert_prosody_value(pitch,AeonVoice_get_min_pitch(),AeonVoice_get_max_pitch(),AeonVoice_get_default_pitch()));
       if(volume!=-1)
-        RHVoice_set_volume(convert_prosody_value(volume,0,RHVoice_get_max_volume(),RHVoice_get_default_volume()));
+        AeonVoice_set_volume(convert_prosody_value(volume,0,AeonVoice_get_max_volume(),AeonVoice_get_default_volume()));
       if(variant_name!=NULL)
         {
-          variant=RHVoice_find_variant(variant_name);
+          variant=AeonVoice_find_variant(variant_name);
           if(variant>0)
-            RHVoice_set_variant(variant);
+            AeonVoice_set_variant(variant);
         }
       if(voice_name!=NULL)
         {
-          voice=RHVoice_find_voice(voice_name);
+          voice=AeonVoice_find_voice(voice_name);
           if(voice>0)
-            RHVoice_set_voice(voice);
+            AeonVoice_set_voice(voice);
         }
-      if(punct_mode!=RHVoice_punctuation_none)
+      if(punct_mode!=AeonVoice_punctuation_none)
         {
-          RHVoice_set_punctuation_mode(punct_mode);
+          AeonVoice_set_punctuation_mode(punct_mode);
           if(punct_list!=NULL)
-            RHVoice_set_punctuation_list(punct_list);
+            AeonVoice_set_punctuation_list(punct_list);
         }
-      msg=RHVoice_new_message_utf8(reinterpret_cast<const uint8_t*>(text.data()),text.size(),message_type);
+      msg=AeonVoice_new_message_utf8(reinterpret_cast<const uint8_t*>(text.data()),text.size(),message_type);
       if(msg==NULL)
         {
-          RHVoice_terminate();
+          AeonVoice_terminate();
           return 1;
         }
-      RHVoice_speak(msg);
-      RHVoice_delete_message(msg);
-      RHVoice_terminate();
+      AeonVoice_speak(msg);
+      AeonVoice_delete_message(msg);
+      AeonVoice_terminate();
       return 0;
     }
   catch(...)
     {
-      if(msg!=NULL) RHVoice_delete_message(msg);
-      if(sample_rate!=0) RHVoice_terminate();
+      if(msg!=NULL) AeonVoice_delete_message(msg);
+      if(sample_rate!=0) AeonVoice_terminate();
       return 1;
     }
 }

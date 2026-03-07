@@ -18,7 +18,7 @@
 
 #include "speech_processor.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class speech_processing_chain
   {

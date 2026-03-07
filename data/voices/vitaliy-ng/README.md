@@ -9,6 +9,6 @@ This voice is distributed under [the Creative Commons Attribution-NonCommercial-
 * Speaker: Vitaliy Chuvaev (brandvoice of TV channel "Russia Today")
 
 ## Contact us ##
-* E-mail: [rhvoice@tiflo.org](mailto:rhvoice@tiflo.org)
+* E-mail: [aeonvoice@tiflo.org](mailto:aeonvoice@tiflo.org)
 * Phone: [+7 952 280-89-89](tel:+79522808989)
-* Website: [RHVoice.su](https://rhvoice.su)
+* Website: [AeonVoice.su](https://aeonvoice.su)

@@ -13,6 +13,6 @@ Beka Gozalishvili AKA Gozaltech — voice training
 Speaker: Yuri Zaborovsky (Soviet and Russian theater and film actor, audiobook reader)
 
 Contact us
-E-mail: rhvoice@tiflo.org
+E-mail: aeonvoice@tiflo.org
 Phone: +7 (952) 280-89-89
-Website: https://rhvoice.su
+Website: https://aeonvoice.su

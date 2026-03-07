@@ -23,7 +23,7 @@ namespace
   const std::size_t unspec_count=0x7ffff000;
 }
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace audio
   {

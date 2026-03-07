@@ -22,7 +22,7 @@
 #include "core/item.hpp"
 #include "core/esperanto.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace
   {

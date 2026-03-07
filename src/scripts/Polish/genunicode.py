@@ -78,7 +78,7 @@ graphs={
 
 def getTranscription(str):
 	inStr="<speak xml:lang=\""+lang2+"\"><s>"+str+"</s></speak>"
-	res=subprocess.run(["../../../local/bin/RHVoice-transcribe-sentences", "/dev/stdin", "/dev/stdout"], capture_output=True, input=inStr, text=True)
+	res=subprocess.run(["../../../local/bin/AeonVoice-transcribe-sentences", "/dev/stdin", "/dev/stdout"], capture_output=True, input=inStr, text=True)
 	res=res.stdout.strip()
 	if res.startswith("pau "):
 		res=res[4:]

@@ -20,7 +20,7 @@
 #include <fstream>
 #include <string>
 
-namespace RHVoice
+namespace AeonVoice
 {
   class ini_parser
   {

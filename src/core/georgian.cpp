@@ -19,7 +19,7 @@
 #include "core/item.hpp"
 #include "core/georgian.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace
   {

@@ -22,7 +22,7 @@
 #include "rules.hpp"
 #include "language.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class russian_info: public language_info
   {

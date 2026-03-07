@@ -26,7 +26,7 @@
 #include "config.hpp"
 #include "path.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   template<class T>
   class resource_info

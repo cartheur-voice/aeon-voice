@@ -23,9 +23,9 @@
 namespace
 {
 
-  bool prepare(RHVoice_parsed_label_string* p,const char* s)
+  bool prepare(AeonVoice_parsed_label_string* p,const char* s)
   {
-    RHVoice_parsed_label_string_init(p);
+    AeonVoice_parsed_label_string_init(p);
     std::fill(&(p->index[0]),&(p->index[0])+128,-1);
     if(s==0||s[0]==0)
       return false;
@@ -43,12 +43,12 @@ namespace
 }
     catch(const std::bad_alloc& e)
       {
-        RHVoice_parsed_label_string_clear(p);
+        AeonVoice_parsed_label_string_clear(p);
         return false;
 }
 }
 
-  inline void set(RHVoice_parsed_label_string* p,short i,char c,short* last)
+  inline void set(AeonVoice_parsed_label_string* p,short i,char c,short* last)
   {
     if(p->index[c]<0)
       {
@@ -66,14 +66,14 @@ namespace
 extern "C"
 {
 
-void RHVoice_parsed_label_string_init(RHVoice_parsed_label_string* l)
+void AeonVoice_parsed_label_string_init(AeonVoice_parsed_label_string* l)
 {
   l->label_string=0;
   l->label_string_length=0;
   l->links=0;
 }
 
-  void RHVoice_parsed_label_string_clear(RHVoice_parsed_label_string* l)
+  void AeonVoice_parsed_label_string_clear(AeonVoice_parsed_label_string* l)
   {
     if(l->links!=0)
       {
@@ -88,7 +88,7 @@ void RHVoice_parsed_label_string_init(RHVoice_parsed_label_string* l)
     l->label_string_length=0;
 }
 
-  int RHVoice_parse_label_string(const char* s,RHVoice_parsed_label_string* out)
+  int AeonVoice_parse_label_string(const char* s,AeonVoice_parsed_label_string* out)
   {
     if(!prepare(out,s))
       return 0;
@@ -113,7 +113,7 @@ void RHVoice_parsed_label_string_init(RHVoice_parsed_label_string* l)
     return 1;
 }
 
-  int RHVoice_question_match(const RHVoice_parsed_label_string* l,const char* q)
+  int AeonVoice_question_match(const AeonVoice_parsed_label_string* l,const char* q)
   {
     if(q==0)
       return 0;
@@ -171,11 +171,11 @@ void RHVoice_parsed_label_string_init(RHVoice_parsed_label_string* l)
     return 0;
 }
 
-  int RHVoice_parsed_label_string_copy(const RHVoice_parsed_label_string* from,RHVoice_parsed_label_string* to)
+  int AeonVoice_parsed_label_string_copy(const AeonVoice_parsed_label_string* from,AeonVoice_parsed_label_string* to)
   {
     if(from->label_string_length==0)
       {
-        RHVoice_parsed_label_string_clear(to);
+        AeonVoice_parsed_label_string_clear(to);
         return 1;
 }
     char* str=0;
@@ -200,7 +200,7 @@ void RHVoice_parsed_label_string_init(RHVoice_parsed_label_string* l)
         return 0;
 }
     std::copy(from->links,from->links+from->label_string_length,links);
-    RHVoice_parsed_label_string_clear(to);
+    AeonVoice_parsed_label_string_clear(to);
     to->label_string_length=from->label_string_length;
     to->label_string=str;
     to->links=links;
@@ -209,20 +209,20 @@ void RHVoice_parsed_label_string_init(RHVoice_parsed_label_string* l)
 }
 }
 
-namespace RHVoice
+namespace AeonVoice
 {
 
   void parsed_label_string::parse(const char* s)
     {
       if(data.label_string_length!=0)
         throw std::logic_error(std::string("Already parsed"));
-      if(!RHVoice_parse_label_string(s,&data))
+      if(!AeonVoice_parse_label_string(s,&data))
         throw std::runtime_error("Failed to parse");
 }
 
   void parsed_label_string::copy(const parsed_label_string& other)
     {
-      if(!RHVoice_parsed_label_string_copy(&(other.data),&data))
+      if(!AeonVoice_parsed_label_string_copy(&(other.data),&data))
         throw std::runtime_error("Cannot copy");
 }
 }

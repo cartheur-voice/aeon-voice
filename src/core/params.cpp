@@ -35,10 +35,10 @@ namespace
 #endif
 
 #ifndef DEFAULT_PUNCTUATION_MODE
-#define DEFAULT_PUNCTUATION_MODE RHVoice_punctuation_none
+#define DEFAULT_PUNCTUATION_MODE AeonVoice_punctuation_none
 #endif
 
-namespace RHVoice
+namespace AeonVoice
 {
   voice_params::voice_params():
     default_rate("default_rate",1,0.2,MAX_MAX_RATE),
@@ -131,18 +131,18 @@ namespace RHVoice
   verbosity_params::verbosity_params():
     punctuation_mode("punctuation_mode",DEFAULT_PUNCTUATION_MODE),
     punctuation_list("punctuation_list","+=<>~@#$%^&*|"),
-    capitals_mode("indicate_capitals",RHVoice_capitals_off)
+    capitals_mode("indicate_capitals",AeonVoice_capitals_off)
   {
-    punctuation_mode.define("none",RHVoice_punctuation_none);
-    punctuation_mode.define("some",RHVoice_punctuation_some);
-    punctuation_mode.define("all",RHVoice_punctuation_all);
-    capitals_mode.define("off",RHVoice_capitals_off);
-    capitals_mode.define("no",RHVoice_capitals_off);
-    capitals_mode.define("none",RHVoice_capitals_off);
-    capitals_mode.define("false",RHVoice_capitals_off);
-    capitals_mode.define("word",RHVoice_capitals_word);
-    capitals_mode.define("pitch",RHVoice_capitals_pitch);
-    capitals_mode.define("sound",RHVoice_capitals_sound);
+    punctuation_mode.define("none",AeonVoice_punctuation_none);
+    punctuation_mode.define("some",AeonVoice_punctuation_some);
+    punctuation_mode.define("all",AeonVoice_punctuation_all);
+    capitals_mode.define("off",AeonVoice_capitals_off);
+    capitals_mode.define("no",AeonVoice_capitals_off);
+    capitals_mode.define("none",AeonVoice_capitals_off);
+    capitals_mode.define("false",AeonVoice_capitals_off);
+    capitals_mode.define("word",AeonVoice_capitals_word);
+    capitals_mode.define("pitch",AeonVoice_capitals_pitch);
+    capitals_mode.define("sound",AeonVoice_capitals_sound);
   }
 
   void verbosity_params::default_to(const verbosity_params& other)

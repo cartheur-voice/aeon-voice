@@ -12,6 +12,6 @@ This voice is distributed under [the Creative Commons Attribution-NonCommercial-
 * Speaker: Yuri Zaborovsky (Soviet and Russian theater and film actor, audiobook reader)
 
 ## Contact us ##
-* E-mail: [rhvoice@tiflo.org](mailto:rhvoice@tiflo.org)
+* E-mail: [aeonvoice@tiflo.org](mailto:aeonvoice@tiflo.org)
 * Phone: [+7 952 280-89-89](tel:+79522808989)
-* Website: [RHVoice.su](https://rhvoice.su)
+* Website: [AeonVoice.su](https://aeonvoice.su)

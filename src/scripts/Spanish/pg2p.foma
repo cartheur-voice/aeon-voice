@@ -30,7 +30,7 @@ d @-> dh || vocal %# _ vocal ,,
 g @-> gh || vocal %# _ vocal ,, 
 v @-> vh || vocal %# _ vocal ; 
 
-# Here, to get a better prosody of the voice and phonetic transcription, we unstress the "enta y" prefix. For example, a speaker doesn't say tréinta y cinco, but treinta y cinco, withouth stressing in the e. So, we will fix this behavior in RHVoice Spanish phonetics.
+# Here, to get a better prosody of the voice and phonetic transcription, we unstress the "enta y" prefix. For example, a speaker doesn't say tréinta y cinco, but treinta y cinco, withouth stressing in the e. So, we will fix this behavior in AeonVoice Spanish phonetics.
 define StressedNumber 
 [v e1 i0 n t e0]:[v e0 i0 n t e0]|
 # Veinte in approximant (example: ciento veinte mil. O, V, e).

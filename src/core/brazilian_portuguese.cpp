@@ -19,7 +19,7 @@
 #include "core/item.hpp"
 #include "core/brazilian_portuguese.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   brazilian_portuguese_info::brazilian_portuguese_info(const std::string& data_path,const std::string& userdict_path):
     language_info("Brazilian-Portuguese",data_path,userdict_path)

@@ -1,6 +1,6 @@
-/* hts_engine for the RHVoice speech synthesis system, a modified version */
+/* hts_engine for the AeonVoice speech synthesis system, a modified version */
 /* of the original hts_engine, implementing streaming synthesis and other */
-/* features RHVoice needs. */
+/* features AeonVoice needs. */
 
 /* Copyright (C) 2022 Non-Routine LLC.  <lp@louderpages.org> */
 

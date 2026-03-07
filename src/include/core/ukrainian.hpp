@@ -21,7 +21,7 @@
 #include "language.hpp"
 #include "rules.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class ukrainian_info: public language_info
   {

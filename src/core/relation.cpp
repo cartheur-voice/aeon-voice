@@ -17,7 +17,7 @@
 #include "core/item.hpp"
 #include "core/utterance.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   item& relation::append(item& existing_item)
   {

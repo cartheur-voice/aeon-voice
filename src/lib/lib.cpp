@@ -25,14 +25,14 @@
 #include "core/language.hpp"
 #include "core/voice.hpp"
 #include "core/voice_profile.hpp"
-#include "RHVoice.h"
+#include "AeonVoice.h"
 
-using namespace RHVoice;
+using namespace AeonVoice;
 
-struct RHVoice_message_struct: public client
+struct AeonVoice_message_struct: public client
 {
   template<typename ch>
-  RHVoice_message_struct(const std::shared_ptr<engine>& engine_ptr,const RHVoice_callbacks& callbacks_,const ch* text,unsigned int length,RHVoice_message_type message_type,const RHVoice_synth_params* synth_params,void* user_data_);
+  AeonVoice_message_struct(const std::shared_ptr<engine>& engine_ptr,const AeonVoice_callbacks& callbacks_,const ch* text,unsigned int length,AeonVoice_message_type message_type,const AeonVoice_synth_params* synth_params,void* user_data_);
 
   bool play_speech(const short* samples,std::size_t count)
   {
@@ -87,24 +87,24 @@ struct RHVoice_message_struct: public client
   }
 
 private:
-  RHVoice_message_struct(const RHVoice_message_struct&);
-  RHVoice_message_struct& operator=(const RHVoice_message_struct&);
+  AeonVoice_message_struct(const AeonVoice_message_struct&);
+  AeonVoice_message_struct& operator=(const AeonVoice_message_struct&);
 
   std::unique_ptr<document> doc_ptr;
-  RHVoice_callbacks callbacks;
+  AeonVoice_callbacks callbacks;
   void* user_data;
 };
 
-struct RHVoice_tts_engine_struct
+struct AeonVoice_tts_engine_struct
 {
-  RHVoice_tts_engine_struct(const RHVoice_init_params* params);
+  AeonVoice_tts_engine_struct(const AeonVoice_init_params* params);
 
   unsigned int get_number_of_voices() const
   {
     return voice_info_array.size();
   }
 
-  const RHVoice_voice_info* get_voices() const
+  const AeonVoice_voice_info* get_voices() const
   {
     return (voice_info_array.empty()?0:&voice_info_array[0]);
   }
@@ -122,18 +122,18 @@ struct RHVoice_tts_engine_struct
   bool are_languages_compatible(const char* language1,const char* language2) const;
 
   template<typename ch>
-  RHVoice_message new_message(const ch* text,unsigned int length,RHVoice_message_type message_type,const RHVoice_synth_params* synth_params,void* user_data) const
+  AeonVoice_message new_message(const ch* text,unsigned int length,AeonVoice_message_type message_type,const AeonVoice_synth_params* synth_params,void* user_data) const
   {
-    return (new RHVoice_message_struct(engine_ptr,callbacks,text,length,message_type,synth_params,user_data));
+    return (new AeonVoice_message_struct(engine_ptr,callbacks,text,length,message_type,synth_params,user_data));
   }
 
 private:
-  RHVoice_tts_engine_struct(const RHVoice_tts_engine_struct&);
-  RHVoice_tts_engine_struct& operator=(const RHVoice_tts_engine_struct&);
+  AeonVoice_tts_engine_struct(const AeonVoice_tts_engine_struct&);
+  AeonVoice_tts_engine_struct& operator=(const AeonVoice_tts_engine_struct&);
 
-  struct convert_voice_info: public std::unary_function<const voice_info&,RHVoice_voice_info>
+  struct convert_voice_info: public std::unary_function<const voice_info&,AeonVoice_voice_info>
   {
-    RHVoice_voice_info operator()(const voice_info& info) const;
+    AeonVoice_voice_info operator()(const voice_info& info) const;
   };
 
   struct get_voice_profile_name: public std::unary_function<const voice_profile&,const char*>
@@ -145,12 +145,12 @@ private:
   };
 
   std::shared_ptr<engine> engine_ptr;
-  RHVoice_callbacks callbacks;
-  std::vector<RHVoice_voice_info> voice_info_array;
+  AeonVoice_callbacks callbacks;
+  std::vector<AeonVoice_voice_info> voice_info_array;
   std::vector<const char*> voice_profile_names_array;
 };
 
-RHVoice_tts_engine_struct::RHVoice_tts_engine_struct(const RHVoice_init_params* init_params)
+AeonVoice_tts_engine_struct::AeonVoice_tts_engine_struct(const AeonVoice_init_params* init_params)
 {
   if(!init_params)
     throw std::invalid_argument("No initialization parameters provided");
@@ -179,9 +179,9 @@ RHVoice_tts_engine_struct::RHVoice_tts_engine_struct(const RHVoice_init_params* 
   callbacks=init_params->callbacks;
 }
 
-RHVoice_voice_info RHVoice_tts_engine_struct::convert_voice_info::operator()(const voice_info& info) const
+AeonVoice_voice_info AeonVoice_tts_engine_struct::convert_voice_info::operator()(const voice_info& info) const
 {
-  RHVoice_voice_info result;
+  AeonVoice_voice_info result;
   const std::string& alpha2_code=info.get_language()->get_alpha2_code();
   result.language=(alpha2_code.empty()?info.get_language()->get_alpha3_code():alpha2_code).c_str();
   const std::string& country_code=info.get_alpha2_country_code().empty()?info.get_alpha3_country_code():info.get_alpha2_country_code();
@@ -194,7 +194,7 @@ RHVoice_voice_info RHVoice_tts_engine_struct::convert_voice_info::operator()(con
   return result;
 }
 
-bool RHVoice_tts_engine_struct::are_languages_compatible(const char* language1,const char* language2) const
+bool AeonVoice_tts_engine_struct::are_languages_compatible(const char* language1,const char* language2) const
 {
   if(!(language1&&language2))
     throw std::invalid_argument("A language name is a null pointer");
@@ -212,7 +212,7 @@ bool RHVoice_tts_engine_struct::are_languages_compatible(const char* language1,c
 }
 
 template<typename ch>
-RHVoice_message_struct::RHVoice_message_struct(const std::shared_ptr<engine>& engine_ptr,const RHVoice_callbacks& callbacks_,const ch* text,unsigned int length,RHVoice_message_type message_type,const RHVoice_synth_params* synth_params,void* user_data_):
+AeonVoice_message_struct::AeonVoice_message_struct(const std::shared_ptr<engine>& engine_ptr,const AeonVoice_callbacks& callbacks_,const ch* text,unsigned int length,AeonVoice_message_type message_type,const AeonVoice_synth_params* synth_params,void* user_data_):
   callbacks(callbacks_),
   user_data(user_data_)
 {
@@ -229,16 +229,16 @@ RHVoice_message_struct::RHVoice_message_struct(const std::shared_ptr<engine>& en
     throw std::invalid_argument("The voice with this name does not exist or has been disabled by the user");
   switch(message_type)
     {
-    case RHVoice_message_text:
+    case AeonVoice_message_text:
       doc_ptr=document::create_from_plain_text(engine_ptr,text,text+length,content_text,profile);
       break;
-    case RHVoice_message_ssml:
+    case AeonVoice_message_ssml:
       doc_ptr=document::create_from_ssml(engine_ptr,text,text+length,profile);
       break;
-    case RHVoice_message_characters:
+    case AeonVoice_message_characters:
       doc_ptr=document::create_from_plain_text(engine_ptr,text,text+length,content_chars,profile);
       break;
-    case RHVoice_message_key:
+    case AeonVoice_message_key:
       doc_ptr=document::create_from_plain_text(engine_ptr,text,text+length,content_key,profile);
       break;
     default:
@@ -257,7 +257,7 @@ RHVoice_message_struct::RHVoice_message_struct(const std::shared_ptr<engine>& en
     doc_ptr->verbosity_settings.punctuation_list.set_from_string(synth_params->punctuation_list);
 }
 
-event_mask RHVoice_message_struct::get_supported_events() const
+event_mask AeonVoice_message_struct::get_supported_events() const
 {
   event_mask result=0;
   if(callbacks.process_mark)
@@ -277,16 +277,16 @@ event_mask RHVoice_message_struct::get_supported_events() const
   return result;
 }
 
-const char* RHVoice_get_version()
+const char* AeonVoice_get_version()
 {
   return VERSION;
 }
 
-RHVoice_tts_engine RHVoice_new_tts_engine(const RHVoice_init_params* init_params)
+AeonVoice_tts_engine AeonVoice_new_tts_engine(const AeonVoice_init_params* init_params)
 {
   try
     {
-      return (new RHVoice_tts_engine_struct(init_params));
+      return (new AeonVoice_tts_engine_struct(init_params));
     }
   catch(const std::exception& e)
     {
@@ -294,32 +294,32 @@ RHVoice_tts_engine RHVoice_new_tts_engine(const RHVoice_init_params* init_params
     }
 }
 
-void RHVoice_delete_tts_engine(RHVoice_tts_engine tts_engine)
+void AeonVoice_delete_tts_engine(AeonVoice_tts_engine tts_engine)
 {
   delete tts_engine;
 }
 
-unsigned int RHVoice_get_number_of_voices(RHVoice_tts_engine tts_engine)
+unsigned int AeonVoice_get_number_of_voices(AeonVoice_tts_engine tts_engine)
 {
   return(tts_engine?(tts_engine->get_number_of_voices()):0);
 }
 
-const RHVoice_voice_info* RHVoice_get_voices(RHVoice_tts_engine tts_engine)
+const AeonVoice_voice_info* AeonVoice_get_voices(AeonVoice_tts_engine tts_engine)
 {
   return (tts_engine?(tts_engine->get_voices()):0);
 }
 
-unsigned int RHVoice_get_number_of_voice_profiles(RHVoice_tts_engine tts_engine)
+unsigned int AeonVoice_get_number_of_voice_profiles(AeonVoice_tts_engine tts_engine)
 {
   return(tts_engine?(tts_engine->get_number_of_voice_profiles()):0);
 }
 
-char const * const * RHVoice_get_voice_profiles(RHVoice_tts_engine tts_engine)
+char const * const * AeonVoice_get_voice_profiles(AeonVoice_tts_engine tts_engine)
 {
   return (tts_engine?(tts_engine->get_voice_profiles()):0);
 }
 
-int RHVoice_are_languages_compatible(RHVoice_tts_engine tts_engine,const char* language1,const char* language2)
+int AeonVoice_are_languages_compatible(AeonVoice_tts_engine tts_engine,const char* language1,const char* language2)
 {
   try
     {
@@ -331,7 +331,7 @@ int RHVoice_are_languages_compatible(RHVoice_tts_engine tts_engine,const char* l
     }
 }
 
-RHVoice_message RHVoice_new_message(RHVoice_tts_engine tts_engine,const char* text,unsigned int length,RHVoice_message_type message_type,const RHVoice_synth_params* synth_params,void* user_data)
+AeonVoice_message AeonVoice_new_message(AeonVoice_tts_engine tts_engine,const char* text,unsigned int length,AeonVoice_message_type message_type,const AeonVoice_synth_params* synth_params,void* user_data)
 {
   try
     {
@@ -343,7 +343,7 @@ RHVoice_message RHVoice_new_message(RHVoice_tts_engine tts_engine,const char* te
     }
 }
 
-RHVoice_message RHVoice_new_message_w(RHVoice_tts_engine tts_engine,const wchar_t* text,unsigned int length,RHVoice_message_type message_type,const RHVoice_synth_params* synth_params,void* user_data)
+AeonVoice_message AeonVoice_new_message_w(AeonVoice_tts_engine tts_engine,const wchar_t* text,unsigned int length,AeonVoice_message_type message_type,const AeonVoice_synth_params* synth_params,void* user_data)
 {
   try
     {
@@ -355,12 +355,12 @@ RHVoice_message RHVoice_new_message_w(RHVoice_tts_engine tts_engine,const wchar_
     }
 }
 
-void RHVoice_delete_message(RHVoice_message message)
+void AeonVoice_delete_message(AeonVoice_message message)
 {
   delete message;
 }
 
-int RHVoice_speak(RHVoice_message message)
+int AeonVoice_speak(AeonVoice_message message)
 {
   try
     {

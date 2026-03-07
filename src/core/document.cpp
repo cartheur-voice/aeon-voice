@@ -1,4 +1,4 @@
-/* Copyright (C) 2012, 2014, 2019, 2020, 2021  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2012, 2014, 2019, 2020, 2021  Olga Yakovleva <olga@aeonvoice.org> */
 /* Copyright (C) 2022 Non-Routine LLC.  <lp@louderpages.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
@@ -17,7 +17,7 @@
 #include "core/voice.hpp"
 #include "core/document.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   void sentence::append_token::execute(utterance& u) const
   {
@@ -332,8 +332,8 @@ namespace RHVoice
 
   void sentence::apply_verbosity_settings(utterance& u) const
   {
-    if((parent->verbosity_settings.punctuation_mode!=RHVoice_punctuation_none)||
-       (parent->verbosity_settings.capitals_mode!=RHVoice_capitals_off))
+    if((parent->verbosity_settings.punctuation_mode!=AeonVoice_punctuation_none)||
+       (parent->verbosity_settings.capitals_mode!=AeonVoice_capitals_off))
       {
         relation& tokstruct_rel=u.get_relation("TokStructure");
         for(relation::iterator parent_token_iter=tokstruct_rel.begin();parent_token_iter!=tokstruct_rel.end();++parent_token_iter)
@@ -346,21 +346,21 @@ namespace RHVoice
                 const std::string& name=token_iter->get("name").as<std::string>();
                 utf8::uint32_t c=utf8::peek_next(name.begin(),name.end());
                 if((pos=="sym")&&
-                   (((parent->verbosity_settings.punctuation_mode==RHVoice_punctuation_all)&&
+                   (((parent->verbosity_settings.punctuation_mode==AeonVoice_punctuation_all)&&
                      (str::ispunct(c)||str::issym(c)))||
-                    ((parent->verbosity_settings.punctuation_mode==RHVoice_punctuation_some)&&
+                    ((parent->verbosity_settings.punctuation_mode==AeonVoice_punctuation_some)&&
                      parent->verbosity_settings.punctuation_list.includes(c))))
                       token_iter->set<verbosity_t>("verbosity",verbosity_name);
-                if(parent->verbosity_settings.capitals_mode!=RHVoice_capitals_off)
+                if(parent->verbosity_settings.capitals_mode!=AeonVoice_capitals_off)
                   {
                     verbosity_t verbosity_level=token_iter->get("verbosity").as<verbosity_t>();
                     if((verbosity_level&verbosity_spell)&&
                        (!(verbosity_level&verbosity_full_name))&&
                        str::isupper(c))
                       {
-                        if(parent->verbosity_settings.capitals_mode==RHVoice_capitals_pitch)
+                        if(parent->verbosity_settings.capitals_mode==AeonVoice_capitals_pitch)
                           verbosity_level|=verbosity_pitch;
-                        else if(parent->verbosity_settings.capitals_mode==RHVoice_capitals_sound)
+                        else if(parent->verbosity_settings.capitals_mode==AeonVoice_capitals_sound)
                           verbosity_level|=verbosity_sound;
                         else
                           verbosity_level|=verbosity_full_name;

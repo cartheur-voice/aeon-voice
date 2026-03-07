@@ -14,6 +14,6 @@ Beka Gozalishvili AKA Gozaltech — voice training
 Speaker: Aleksander Karlov (TV and radio broadcaster, audiobook reader)
 
 Contact us
-E-mail: rhvoice@tiflo.org
+E-mail: aeonvoice@tiflo.org
 Phone: +7 (952) 280-89-89
-Website: https://rhvoice.su
+Website: https://aeonvoice.su

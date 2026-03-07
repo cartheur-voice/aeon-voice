@@ -19,7 +19,7 @@
 #include <string>
 #include <functional>
 #include <set>
-#include "RHVoice_common.h"
+#include "AeonVoice_common.h"
 
 #include "str.hpp"
 #include "property.hpp"
@@ -30,7 +30,7 @@
 #include "hts_engine_pool.hpp"
 #include "hts_engine_call.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class utterance;
   class client;
@@ -81,7 +81,7 @@ private:
       return sample_rate;
     }
 
-    RHVoice_voice_gender get_gender() const
+    AeonVoice_voice_gender get_gender() const
     {
       return gender;
     }
@@ -146,7 +146,7 @@ private:
     std::string alpha2_country_code;
     std::string alpha3_country_code;
     sample_rate_property sample_rate;
-    enum_property<RHVoice_voice_gender> gender;
+    enum_property<AeonVoice_voice_gender> gender;
     std::string id;
     bool_property enabled,preferred;
     string_property country;

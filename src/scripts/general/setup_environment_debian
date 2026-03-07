@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Asking user where to install the RHVoice building environment
+# Asking user where to install the AeonVoice building environment
 
-echo "Please specify the path you want to setup RHVoice environment"
+echo "Please specify the path you want to setup AeonVoice environment"
 read environment_path
 
 # Removing previously installed environment
@@ -144,17 +144,17 @@ hts_installation () {
     rm -r hts_engine_API-1.10
 }
 
-# Cloning and building the RHVoice
+# Cloning and building the AeonVoice
 
 build_rh_voice () {
     echo "Installing some additional packages"
     pip install matplotlib argparse cython pysoundfile
     pip install numpy scipy webrtcvad pyworld
     sudo apt install libparallel-forkmanager-perl jq -y
-    echo "Cloning RHVoice"
-    git clone --recurse https://github.com/RHVoice/RHVoice.git
-    echo "Building RHVoice for development"
-    cd RHVoice
+    echo "Cloning AeonVoice"
+    git clone --recurse https://github.com/AeonVoice/AeonVoice.git
+    echo "Building AeonVoice for development"
+    cd AeonVoice
     scons dev=True
     cd ..
     # Setting permissions to praat
@@ -174,10 +174,10 @@ copy_bin () {
     cd ../
 }
 
-# Changing ./RHVoice/src/scripts/general/training.cfg with new paths update
+# Changing ./AeonVoice/src/scripts/general/training.cfg with new paths update
 
 create_training_cfg () {
-    cd $environment_path/RHVoice/src/scripts/general
+    cd $environment_path/AeonVoice/src/scripts/general
     jq --arg pwd "$(pwd)" --arg working_dir "$environment_path" \
     '.festdir=$working_dir+"/festival/"|
     .bindir=$working_dir+"/bin"|

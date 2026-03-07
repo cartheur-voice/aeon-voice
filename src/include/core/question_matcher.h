@@ -28,13 +28,13 @@ typedef struct
   short label_string_length;
   short index[128];
   short* links;
-} RHVoice_parsed_label_string;
+} AeonVoice_parsed_label_string;
 
-  int RHVoice_parse_label_string(const char* str,RHVoice_parsed_label_string* out);
-  void RHVoice_parsed_label_string_init(RHVoice_parsed_label_string* l);
-  void RHVoice_parsed_label_string_clear(RHVoice_parsed_label_string* l);
-  int RHVoice_parsed_label_string_copy(const RHVoice_parsed_label_string* from,RHVoice_parsed_label_string* to);
-  int RHVoice_question_match(const RHVoice_parsed_label_string* l,const char* q);
+  int AeonVoice_parse_label_string(const char* str,AeonVoice_parsed_label_string* out);
+  void AeonVoice_parsed_label_string_init(AeonVoice_parsed_label_string* l);
+  void AeonVoice_parsed_label_string_clear(AeonVoice_parsed_label_string* l);
+  int AeonVoice_parsed_label_string_copy(const AeonVoice_parsed_label_string* from,AeonVoice_parsed_label_string* to);
+  int AeonVoice_question_match(const AeonVoice_parsed_label_string* l,const char* q);
 #ifdef __cplusplus
 }
 #endif
@@ -45,7 +45,7 @@ typedef struct
 
 #ifdef __cplusplus
 
-namespace RHVoice
+namespace AeonVoice
 {
   struct parsed_label_string
   {
@@ -71,7 +71,7 @@ namespace RHVoice
       clear();
 }
 
-    const RHVoice_parsed_label_string* get_data() const
+    const AeonVoice_parsed_label_string* get_data() const
     {
       return &data;
 }
@@ -80,24 +80,24 @@ namespace RHVoice
 
     bool match(const char* q) const
     {
-      return (RHVoice_question_match(&data,q)!=0);
+      return (AeonVoice_question_match(&data,q)!=0);
 }
 
   private:
 
     void init()
     {
-      RHVoice_parsed_label_string_init(&data);
+      AeonVoice_parsed_label_string_init(&data);
 }
 
     void clear()
     {
-      RHVoice_parsed_label_string_clear(&data);
+      AeonVoice_parsed_label_string_clear(&data);
     }
 
     void copy(const parsed_label_string& other);
 
-    RHVoice_parsed_label_string data;
+    AeonVoice_parsed_label_string data;
   };
 }
 #endif

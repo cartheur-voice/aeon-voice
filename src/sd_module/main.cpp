@@ -17,6 +17,6 @@
 
 int main(int argc,const char* argv[])
 {
-  RHVoice::sd::module mod;
+  AeonVoice::sd::module mod;
   return mod.run();
 }

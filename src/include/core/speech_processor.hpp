@@ -20,7 +20,7 @@
 #include "client.hpp"
 #include "sample_rate.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class speech_processor
   {

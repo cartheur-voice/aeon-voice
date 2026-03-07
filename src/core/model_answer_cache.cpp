@@ -1,4 +1,4 @@
-/* Copyright (C) 2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2022  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU General Public License as published by */
@@ -17,7 +17,7 @@
 #include "HTS_engine.h"
 #include "core/model_answer_cache.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   model_answer_cache::model_answer_cache(_HTS_ModelSet* _ms):
     ms(_ms)
@@ -69,16 +69,16 @@ namespace RHVoice
   }
 }
 
-  size_t RHVoice_model_answer_cache_get(RHVoice_model_answer_cache_t cache, const char* label, size_t state)
+  size_t AeonVoice_model_answer_cache_get(AeonVoice_model_answer_cache_t cache, const char* label, size_t state)
   {
     if(!cache.impl)
       return 0;
-    return reinterpret_cast<RHVoice::model_answer_cache*>(cache.impl)->get(label, state, cache.index);
+    return reinterpret_cast<AeonVoice::model_answer_cache*>(cache.impl)->get(label, state, cache.index);
   }
 
-void RHVoice_model_answer_cache_put(RHVoice_model_answer_cache_t cache, const char* label, size_t state, size_t value)
+void AeonVoice_model_answer_cache_put(AeonVoice_model_answer_cache_t cache, const char* label, size_t state, size_t value)
 {
   if(!cache.impl)
     return;
-  reinterpret_cast<RHVoice::model_answer_cache*>(cache.impl)->put(label, state, cache.index, value);
+  reinterpret_cast<AeonVoice::model_answer_cache*>(cache.impl)->put(label, state, cache.index, value);
 }

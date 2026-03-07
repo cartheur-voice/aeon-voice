@@ -19,7 +19,7 @@
 #include "core/str.hpp"
 #include "core/ini_parser.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   ini_parser::ini_parser(const std::string& file_path,bool standard):
     instream(new std::ifstream),

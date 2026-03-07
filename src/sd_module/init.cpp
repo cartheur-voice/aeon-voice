@@ -20,7 +20,7 @@
 #include "init.hpp"
 #include "io.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {
@@ -51,7 +51,7 @@ namespace RHVoice
             return action_abort;
           }
         reply r;
-        r("299-RHVoice initialized");
+        r("299-AeonVoice initialized");
         r("299 OK LOADED SUCCESSFULLY");
         return action_continue;
       }

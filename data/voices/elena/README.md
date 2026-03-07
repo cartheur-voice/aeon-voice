@@ -10,4 +10,4 @@ This voice is distributed under [GPL v3](https://www.gnu.org/licenses/gpl-3.0.ht
 
 ## Contact us ##
 
-* RHVoice Lab's site: [rhvoice.su](https://rhvoice.su)
+* AeonVoice Lab's site: [aeonvoice.su](https://aeonvoice.su)

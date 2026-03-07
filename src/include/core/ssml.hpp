@@ -1,4 +1,4 @@
-/* Copyright (C) 2012, 2021  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2012, 2021  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU Lesser General Public License as published by */
@@ -22,7 +22,7 @@
 #include "xml.hpp"
 #include "str.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace ssml
   {
@@ -376,7 +376,7 @@ namespace RHVoice
       bool enter(xml::handler_args<ch>& args)
       {
         const std::string a=xml::get_attribute_value(args.node,"alphabet");
-        if(a.empty() || a=="x-RHVoice")
+        if(a.empty() || a=="x-AeonVoice")
           {
             xml::text_iterator<const ch*> start, end;
             auto r=xml::get_attribute_value_range(args.node,"ph", start, end);

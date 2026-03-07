@@ -29,7 +29,7 @@
 
 #include "file_playback_stream_impl.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace audio
   {

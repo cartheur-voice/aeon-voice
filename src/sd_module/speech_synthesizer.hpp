@@ -23,7 +23,7 @@
 #include "tts_message.hpp"
 #include "speech_player.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

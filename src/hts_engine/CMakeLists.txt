@@ -17,15 +17,15 @@
 file(GLOB_RECURSE SRCFILES "${CMAKE_CURRENT_SOURCE_DIR}/HTS_*.c")
 
 # core/str_hts_engine_impl.cpp contains an impl of the methods defined in HTS_audio.c
-# RHVoice build will fail if hts_engine is built and linked as a shared library on Windows.
-# TBH some refactoring is needed in order to provide these functions properly, but for now it is easier to compile hts_engine as an OBJECT to be linked to the RHVoice_core. It may be suboptimal though, and surely is dirty.
+# AeonVoice build will fail if hts_engine is built and linked as a shared library on Windows.
+# TBH some refactoring is needed in order to provide these functions properly, but for now it is easier to compile hts_engine as an OBJECT to be linked to the AeonVoice_core. It may be suboptimal though, and surely is dirty.
 add_library(libhts_engine OBJECT "${SRCFILES}")
 #target_compile_definitions(libhts_engine PRIVATE "-DAUDIO_PLAY_NONE") # Don't activate this before the proper refactoring of HTS_engine is done!!!
 
 set(LIBHTS_VERSION_MAJOR 1)
 set(LIBHTS_VERSION_MINOR 06)
 set(LIBHTS_VERSION_PATCH 0)
-set(LIBHTS_VERSION "${LIBHTS_VERSION_MAJOR}.${LIBHTS_VERSION_MINOR}-RHVoice")
+set(LIBHTS_VERSION "${LIBHTS_VERSION_MAJOR}.${LIBHTS_VERSION_MINOR}-AeonVoice")
 set_target_properties(libhts_engine PROPERTIES VERSION "${LIBHTS_VERSION}" SOVERSION "${LIBHTS_VERSION_MAJOR}")
 
 set(CPACK_COMPONENT_LIBHTS_ENGINE_VERSION_MAJOR "${LIBHTS_VERSION_MAJOR}")
@@ -44,7 +44,7 @@ set_target_properties("libhts_engine" PROPERTIES PREFIX "")
 
 cpack_add_component(libhts_engine
 	DISPLAY_NAME "HTS engine"
-	DESCRIPTION "hts_engine is software to synthesize speech waveform from HMMs trained by the HMM-based speech synthesis system (HTS). This software is released under the Modified BSD license. This component contains a modified version of HTS engine, for the modifications see the RHVoice GitHub repo."
+	DESCRIPTION "hts_engine is software to synthesize speech waveform from HMMs trained by the HMM-based speech synthesis system (HTS). This software is released under the Modified BSD license. This component contains a modified version of HTS engine, for the modifications see the AeonVoice GitHub repo."
 	GROUP "third_party_libs"
 )
 #list(APPEND CPACK_COMPONENTS_ALL "libhts_engine")

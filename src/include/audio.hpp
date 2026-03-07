@@ -24,7 +24,7 @@
 #include "core/api.hpp"
 
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace audio
   {

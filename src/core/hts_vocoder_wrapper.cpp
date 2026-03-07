@@ -1,4 +1,4 @@
-/* Copyright (C) 2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2022  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU General Public License as published by */
@@ -19,7 +19,7 @@
 #include "core/hts_vocoder_wrapper.hpp"
 #include "HTS_hidden.h"
 
-namespace RHVoice
+namespace AeonVoice
 {
   hts_vocoder_wrapper::hts_vocoder_wrapper()
   {}

@@ -18,7 +18,7 @@
 
 #include "audio.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace audio
   {

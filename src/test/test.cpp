@@ -16,7 +16,7 @@
 #include "core/client.hpp"
 #include "audio.hpp"
 
-using namespace RHVoice;
+using namespace AeonVoice;
 
 namespace
 {

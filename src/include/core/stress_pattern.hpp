@@ -20,7 +20,7 @@
 #include <string>
 #include "item.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class stress_pattern
   {

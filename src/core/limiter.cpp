@@ -15,7 +15,7 @@
 
 #include "core/limiter.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   limiter::limiter(double volume):
     threshold(-amp2db(volume)-1),

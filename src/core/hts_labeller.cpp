@@ -28,7 +28,7 @@
 #include "core/voice.hpp"
 #include "core/hts_labeller.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace
   {
@@ -1841,4 +1841,4 @@ define_feature(std::shared_ptr<feature_function>(new hts_next_syl_coda_length));
     define_feature(std::shared_ptr<feature_function>(new hts_syl_vowel_ph_flag_feat("prev_prev_","R:Syllable.p.p.",name)));
 }
 }
- 
+

@@ -1,4 +1,4 @@
-/* Copyright (C) 2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2022  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU General Public License as published by */
@@ -23,10 +23,10 @@ typedef struct
 {
   void* impl;
   size_t index;
-} RHVoice_model_answer_cache_t;
+} AeonVoice_model_answer_cache_t;
  
-  size_t RHVoice_model_answer_cache_get(RHVoice_model_answer_cache_t cache, const char* label, size_t state);
-  void RHVoice_model_answer_cache_put(RHVoice_model_answer_cache_t cache, const char* label, size_t state, size_t value);
+  size_t AeonVoice_model_answer_cache_get(AeonVoice_model_answer_cache_t cache, const char* label, size_t state);
+  void AeonVoice_model_answer_cache_put(AeonVoice_model_answer_cache_t cache, const char* label, size_t state, size_t value);
   #ifdef __cplusplus
 }
 #endif

@@ -1,4 +1,4 @@
-/* Copyright (C) 2012, 2014, 2016, 2019, 2021  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2012, 2014, 2016, 2019, 2021  Olga Yakovleva <olga@aeonvoice.org> */
 /* Copyright (C) 2022 Non-Routine LLC.  <lp@louderpages.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
@@ -39,7 +39,7 @@
 #include "core/data_only_language.hpp"
 #include <iostream>
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace
   {
@@ -1961,15 +1961,15 @@ const language* language::get_item_second_language(const item& i) const
 register_language<vietnamese_info>("Vietnamese",1);
     for(std::vector<std::string>::const_iterator it1=language_paths.begin();it1!=language_paths.end();++it1)
       {
-        logger.log(tag,RHVoice_log_level_info,std::string("Path: ")+(*it1));
+        logger.log(tag,AeonVoice_log_level_info,std::string("Path: ")+(*it1));
         resource_description desc("language",*it1);
-        logger.log(tag,RHVoice_log_level_info,std::string("Language resource: ")+desc.name.get()+std::string(", format: ")+str::to_string(desc.format.get())+std::string(", revision: ")+str::to_string(desc.revision.get()));
+        logger.log(tag,AeonVoice_log_level_info,std::string("Language resource: ")+desc.name.get()+std::string(", format: ")+str::to_string(desc.format.get())+std::string(", revision: ")+str::to_string(desc.revision.get()));
         if(desc.data_only && !desc.name.get().empty())
           register_language<data_only_language_info>(desc.name,1);
         Creators::const_iterator it2=creators.find(language_id(desc.name,desc.format));
         if(it2==creators.end())
           {
-            logger.log(tag,RHVoice_log_level_warning,"Unsupported language format");
+            logger.log(tag,AeonVoice_log_level_warning,"Unsupported language format");
             continue;
           }
         version_info ver(desc.format,desc.revision);

@@ -24,7 +24,7 @@
 #include "core/item.hpp"
 #include "core/russian.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace
   {

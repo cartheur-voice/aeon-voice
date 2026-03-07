@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; mode: Python; indent-tabs-mode: t -*-
 
-# Copyright (C) 2012, 2013, 2017, 2021 - 2024 Olga Yakovleva <olga@rhvoice.org>
+# Copyright (C) 2012, 2013, 2017, 2021 - 2024 Olga Yakovleva <olga@aeonvoice.org>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -41,12 +41,12 @@ import pyworld
 
 version_pattern=re.compile(r"(?m)^\s*\$ver\s*=\s*'(\d+)'\s*;\s*$")
 scriptdir=os.path.abspath(os.path.dirname(__file__))
-RHVoice_bindir=os.path.normpath(os.path.join(scriptdir,"..","..","..","local","bin"))
+AeonVoice_bindir=os.path.normpath(os.path.join(scriptdir,"..","..","..","local","bin"))
 datadir=os.path.normpath(os.path.join(scriptdir,"..","..","..","data"))
 langdir=os.path.join(datadir,"languages")
 voxdir=os.path.join(datadir,"voices")
 workdir=os.path.abspath(".")
-dataset="RHVoice"
+dataset="AeonVoice"
 parser=argparse.ArgumentParser(description="A few helper commands augmenting the standard HTS demo script")
 subparsers=parser.add_subparsers()
 
@@ -323,7 +323,7 @@ class htk_segmenter(task):
 		self.lex={"SILENCE":[["pau"]]}
 		phoneset=set()
 		trans_path=os.path.join(self.workdir,"transcription")
-		subprocess.check_call([os.path.join(RHVoice_bindir,"RHVoice-transcribe-sentences"),"-b","ssil",self.settings["text"],trans_path])
+		subprocess.check_call([os.path.join(AeonVoice_bindir,"AeonVoice-transcribe-sentences"),"-b","ssil",self.settings["text"],trans_path])
 		i=-1
 		with open(trans_path,"r") as f:
 			for line in f:
@@ -734,8 +734,8 @@ class labeller(task):
 		for dir in [labdir,testdir]:
 			if not os.path.isdir(dir):
 				os.mkdir(dir)
-		subprocess.check_call([os.path.join(RHVoice_bindir,"RHVoice-make-hts-labels"),"-l",os.path.join("data","labels","mono"),self.settings["text"],labdir])
-		subprocess.check_call([os.path.join(RHVoice_bindir,"RHVoice-make-hts-labels"),"-p","test",self.settings["test"],testdir])
+		subprocess.check_call([os.path.join(AeonVoice_bindir,"AeonVoice-make-hts-labels"),"-l",os.path.join("data","labels","mono"),self.settings["text"],labdir])
+		subprocess.check_call([os.path.join(AeonVoice_bindir,"AeonVoice-make-hts-labels"),"-p","test",self.settings["test"],testdir])
 		os.chdir("data")
 		subprocess.check_call(["make","mlf"])
 		subprocess.check_call(["make","list"])

@@ -18,7 +18,7 @@
 
 #include <string>
 
-namespace RHVoice
+namespace AeonVoice
 {
   enum event_flag
     {

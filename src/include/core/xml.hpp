@@ -28,7 +28,7 @@
 
 #ifndef RHVOICE_XML_HPP
 #define RHVOICE_XML_HPP
-namespace RHVoice
+namespace AeonVoice
 {
   class document;
 

@@ -1,4 +1,4 @@
-/* Copyright (C) 2021, 2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2021, 2022  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU Lesser General Public License as published by */
@@ -27,10 +27,10 @@
 #include "url_builder.hpp"
 
 #ifndef PKG_DIR_URL
-#define PKG_DIR_URL "https://rhvoice.org/download/packages-1.16.json"
+#define PKG_DIR_URL "https://aeonvoice.org/download/packages-1.16.json"
 #endif
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace pkg
   {

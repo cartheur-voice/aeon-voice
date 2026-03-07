@@ -1,8 +1,8 @@
-/* hts_engine for the RHVoice speech synthesis system, a modified version */
+/* hts_engine for the AeonVoice speech synthesis system, a modified version */
 /* of the original hts_engine, implementing streaming synthesis and other */
-/* features RHVoice needs. */
+/* features AeonVoice needs. */
 
-/* Copyright (C) 2016-2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2016-2022  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU General Public License as published by */
@@ -148,7 +148,7 @@ static void HTS_Label_load(HTS_Label * label, size_t sampling_rate, size_t fperi
          lstring = (HTS_LabelString *) HTS_calloc(1, sizeof(HTS_LabelString));
          label->head = lstring;
       }
-      RHVoice_parsed_label_string_init(&(lstring->parsed));
+      AeonVoice_parsed_label_string_init(&(lstring->parsed));
       if (isdigit_string(buff)) {       /* has frame infomation */
          start = atof(buff);
          HTS_get_token_from_fp(fp, buff);
@@ -163,7 +163,7 @@ static void HTS_Label_load(HTS_Label * label, size_t sampling_rate, size_t fperi
       lstring->next = NULL;
       lstring->name = HTS_strdup(buff);
       lstring->dur_mod=1.0;
-      if(!RHVoice_parse_label_string(lstring->name,&(lstring->parsed)))
+      if(!AeonVoice_parse_label_string(lstring->name,&(lstring->parsed)))
         HTS_error(1,"Cannot parse label string\n");
    }
    HTS_Label_check_time(label);
@@ -204,7 +204,7 @@ void HTS_Label_load_from_strings(HTS_Label * label, size_t sampling_rate, size_t
          lstring = (HTS_LabelString *) HTS_calloc(1, sizeof(HTS_LabelString));
          label->head = lstring;
       }
-      RHVoice_parsed_label_string_init(&(lstring->parsed));
+      AeonVoice_parsed_label_string_init(&(lstring->parsed));
       data_index = 0;
       if (isdigit_string(lines[i])) {   /* has frame infomation */
          HTS_get_token_from_string(lines[i], &data_index, buff);
@@ -222,7 +222,7 @@ void HTS_Label_load_from_strings(HTS_Label * label, size_t sampling_rate, size_t
       }
       lstring->dur_mod=1.0;
       lstring->next = NULL;
-      if(!RHVoice_parse_label_string(lstring->name,&(lstring->parsed)))
+      if(!AeonVoice_parse_label_string(lstring->name,&(lstring->parsed)))
         HTS_error(1,"Cannot parse label string\n");
    }
    HTS_Label_check_time(label);
@@ -247,7 +247,7 @@ const char *HTS_Label_get_string(HTS_Label * label, size_t index)
    return lstring->name;
 }
 
-const RHVoice_parsed_label_string* HTS_Label_get_parsed(HTS_Label * label, size_t index)
+const AeonVoice_parsed_label_string* HTS_Label_get_parsed(HTS_Label * label, size_t index)
 {
    size_t i;
    HTS_LabelString *lstring = label->head;
@@ -306,7 +306,7 @@ void HTS_Label_clear(HTS_Label * label)
    for (lstring = label->head; lstring; lstring = next_lstring) {
       next_lstring = lstring->next;
       HTS_free(lstring->name);
-      RHVoice_parsed_label_string_clear(&(lstring->parsed));
+      AeonVoice_parsed_label_string_clear(&(lstring->parsed));
       HTS_free(lstring);
    }
    HTS_Label_initialize(label);

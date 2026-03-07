@@ -10,6 +10,18 @@ if(WITH_CLI11)
 	target_compile_definitions(AeonVoice-test PRIVATE WITH_CLI11)
 endif(WITH_CLI11)
 
+if(BUILD_TESTING)
+	add_test(
+		NAME AeonVoice_SmokeSynthesis
+		COMMAND "${CMAKE_COMMAND}" -E env
+			"RHVOICE_DATA_PATH=${CMAKE_SOURCE_DIR}/data"
+			"RHVOICE_CONFIG_PATH=${CMAKE_SOURCE_DIR}/config"
+			"$<TARGET_FILE:AeonVoice-test>"
+			"-i" "${CMAKE_SOURCE_DIR}/README.md"
+			"-o" "${CMAKE_CURRENT_BINARY_DIR}/AeonVoice-smoke.wav"
+	)
+endif()
+
 cpack_add_component(test
 	DISPLAY_NAME "Standalone CLI application"
 	DESCRIPTION "Provides a CLI application that allows you to synthesize speech using AeonVoice"

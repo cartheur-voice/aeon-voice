@@ -23,7 +23,7 @@ local_env.Prepend(LIBS=local_env["libcore"])
 src=["lib.cpp"]
 if env["PLATFORM"]=="win32":
     src.append("lib.def")
-lib=local_env.BuildLibrary("RHVoice",src)
+lib=local_env.BuildLibrary("AeonVoice",src)
 local_env.Depends(lib,libcore)
 if env["PLATFORM"]!="win32":
     local_env.InstallLibrary(lib)

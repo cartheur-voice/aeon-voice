@@ -4,10 +4,7 @@ import os
 from SCons.Script import *
 
 def exists(env):
-    if env["PLATFORM"]=="win32":
-        return False
-    else:
-        return True
+    return True
 
 def Install(env,src,instpath,instname=None,sysdir=True,mode=0o644,shlib=False):
     destpath=env.subst("$DESTDIR"+instpath)

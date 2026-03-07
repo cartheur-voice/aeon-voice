@@ -1,7 +1,7 @@
 #include "audio.hpp"
 #include "playback_stream_impl.hpp"
 
-using namespace RHVoice::audio;
+using namespace AeonVoice::audio;
 
 
 error::error(const std::string& msg):

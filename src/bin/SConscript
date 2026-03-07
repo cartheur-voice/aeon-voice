@@ -20,18 +20,18 @@ Import("env")
 if env["PLATFORM"]!="win32":
     client_env = env.Clone()
     client_env["LIBS"] = []
-    client = client_env.Program("RHVoice-client", ["rhvoice-client.c"])
+    client = client_env.Program("AeonVoice-client", ["aeonvoice-client.c"])
     client_env.InstallProgram(client)
 
 local_env=env.Clone()
 if local_env["PLATFORM"]!="win32" and env["enable_shared"]=="yes":
     local_env["LIBS"]=[]
-local_env.Prepend(LIBS="RHVoice")
+local_env.Prepend(LIBS="AeonVoice")
 local_env.Prepend(LIBPATH=os.path.join("..","lib"))
 if local_env["PLATFORM"]=="win32":
     local_env.Append(LINKFLAGS="-static-libgcc")
     local_env.Append(LINKFLAGS="-static-libstdc++")
-program=local_env.Program("RHVoice",["main.cpp"])
+program=local_env.Program("AeonVoice",["main.cpp"])
 if local_env["PLATFORM"]!="win32":
     local_env.InstallProgram(program)
 else:

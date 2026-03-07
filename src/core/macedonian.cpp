@@ -21,7 +21,7 @@
 #include "core/io.hpp"
 #include "core/macedonian.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   macedonian_info::macedonian_info(const std::string& data_path,const std::string& userdict_path):
     language_info("Macedonian",data_path,userdict_path)

@@ -24,7 +24,7 @@
 #include "relation.hpp"
 #include "item.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class event
   {

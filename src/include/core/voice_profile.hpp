@@ -20,7 +20,7 @@
 #include <vector>
 #include "voice.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class voice_profile
   {

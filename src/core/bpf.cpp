@@ -52,7 +52,7 @@ extern "C"
     std::ifstream f;
 try
   {
-    RHVoice::io::open_ifstream(f,path,false);
+    AeonVoice::io::open_ifstream(f,path,false);
     if(!(f>>bpf->number))
       throw std::runtime_error("Cannot read number of filters");
     if(!(f>>bpf->length))

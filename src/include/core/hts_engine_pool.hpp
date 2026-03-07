@@ -1,4 +1,4 @@
-/* Copyright (C) 2012, 2013, 2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2012, 2013, 2022  Olga Yakovleva <olga@aeonvoice.org> */
 /* Copyright (C) 2022 Non-Routine LLC.  <lp@louderpages.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
@@ -23,7 +23,7 @@
 #include "str_hts_engine_impl.hpp"
 #include "quality_setting.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class voice_info;
 

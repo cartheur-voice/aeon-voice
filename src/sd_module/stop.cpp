@@ -16,7 +16,7 @@
 #include "stop.hpp"
 #include "state.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

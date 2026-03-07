@@ -27,7 +27,7 @@
 #include "property.hpp"
 #include "event_logger.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class config
   {

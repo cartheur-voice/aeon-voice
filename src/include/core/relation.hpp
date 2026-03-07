@@ -22,7 +22,7 @@
 #include "item.hpp"
 
 
-namespace RHVoice
+namespace AeonVoice
 {
   class utterance;
 

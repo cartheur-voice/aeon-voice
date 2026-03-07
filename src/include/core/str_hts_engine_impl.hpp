@@ -1,4 +1,4 @@
-/* Copyright (C) 2022  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2022  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU General Public License as published by */
@@ -27,7 +27,7 @@
 struct _HTS_Engine;
 struct _HTS_Model;
 
-namespace RHVoice
+namespace AeonVoice
 {
   class voice_info;
 

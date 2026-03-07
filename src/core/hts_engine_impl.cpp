@@ -1,4 +1,4 @@
-/* Copyright (C) 2013, 2014, 2018, 2019, 2022  Olga Yakovleva <olga@rhvoice.prg> */ 
+/* Copyright (C) 2013, 2014, 2018, 2019, 2022  Olga Yakovleva <olga@aeonvoice.prg> */ 
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU Lesser General Public License as published by */
@@ -20,7 +20,7 @@
 #include "core/voice.hpp"
 #include "core/hts_engine_impl.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   hts_engine_impl::hts_engine_impl(const std::string& impl_name,const voice_info& info_):
     info(info_),

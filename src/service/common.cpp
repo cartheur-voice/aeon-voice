@@ -15,12 +15,12 @@
 
 #include "common.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace service
   {
-    const Glib::ustring well_known_name("com.github.OlgaYakovleva.RHVoice");
-    const Glib::ustring interface_name("com.github.OlgaYakovleva.RHVoice");
-    const Glib::ustring object_path("/com/github/OlgaYakovleva/RHVoice");
+    const Glib::ustring well_known_name("com.github.OlgaYakovleva.AeonVoice");
+    const Glib::ustring interface_name("com.github.OlgaYakovleva.AeonVoice");
+    const Glib::ustring object_path("/com/github/OlgaYakovleva/AeonVoice");
   }
 }

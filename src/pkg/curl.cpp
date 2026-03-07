@@ -1,4 +1,4 @@
-/* Copyright (C) 2021  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2021  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU Lesser General Public License as published by */
@@ -32,7 +32,7 @@ struct curl_ok_t
     throw std::runtime_error(curl_easy_strerror(code));
   }
 
-  curl_ok_t(RHVoice::curl::easy_handle& h):
+  curl_ok_t(AeonVoice::curl::easy_handle& h):
     handle(h.get())
   {
     curl_easy_setopt(handle, CURLOPT_ERRORBUFFER, buf.data());
@@ -52,7 +52,7 @@ private:
 
   constexpr auto curl_opt_yes{1l};
   constexpr auto curl_opt_no{0l};
-  const std::string user_agent{"RHVoice"};
+  const std::string user_agent{"AeonVoice"};
   constexpr auto connect_timeout{10l};
   constexpr auto low_speed_limit{1024l};
   constexpr auto low_speed_time{60l};
@@ -62,7 +62,7 @@ private:
     const auto count=size*nmemb;
     if(count==0)
       return 0;
-    auto& callback=*reinterpret_cast<RHVoice::curl::write_callback_t*>(userdata);
+    auto& callback=*reinterpret_cast<AeonVoice::curl::write_callback_t*>(userdata);
     bool res=callback(ptr, count);
     if(!res)
       return 0;
@@ -71,13 +71,13 @@ private:
 
   extern "C" int progress_callback(void *clientp,   double dltotal,   double dlnow,   double ultotal,   double ulnow)
   {
-    auto& callback=*reinterpret_cast<RHVoice::curl::progress_callback_t*>(clientp);
+    auto& callback=*reinterpret_cast<AeonVoice::curl::progress_callback_t*>(clientp);
     auto cont=callback(dltotal, dlnow);
     return cont?0:-1;
   }
 }
 
-namespace RHVoice
+namespace AeonVoice
 {
   curl::curl()
   {

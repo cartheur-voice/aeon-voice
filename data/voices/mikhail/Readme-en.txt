@@ -10,6 +10,6 @@ Beka Gozalishvili AKA Gozaltech — voice training
 Speaker: Mikhail Sokolov (radio host on "Avtoradio")
 
 Contact us
-E-mail: rhvoice@tiflo.org
+E-mail: aeonvoice@tiflo.org
 Phone: +7 (952) 280-89-89
-Website: https://rhvoice.su
+Website: https://aeonvoice.su

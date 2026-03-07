@@ -16,7 +16,7 @@
 
 define AbbrevTranslation 
 [{chrome}|{Chrome}|{цхроме}|{Цхроме}] : {кром} | 
-[{RHVoice}|{rhvoice}|{рхвоице}|{РХВоице}] : {`ерх`ав`ојс} | 
+[{AeonVoice}|{aeonvoice}|{рхвоице}|{РХВоице}] : {`ерх`ав`ојс} | 
 [{http}|{HTTP}] : {х`ат`ет`еп`е} | 
 [{https}|{HTTPS}] : {х`ат`ет`еп`е`ес} | 
 [{FTP}|{ftp}] : {`ефт`еп`е} | 

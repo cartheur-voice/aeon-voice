@@ -19,7 +19,7 @@
 #include <string.h>
 #include "io.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

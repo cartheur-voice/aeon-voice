@@ -19,7 +19,7 @@
 #include "core/item.hpp"
 #include "core/kyrgyz.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   kyrgyz_info::kyrgyz_info(const std::string& data_path,const std::string& userdict_path):
     language_info("Kyrgyz",data_path,userdict_path)

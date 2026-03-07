@@ -1,4 +1,4 @@
-/* Copyright (C) 2012, 2013, 2014, 2018, 2019, 2021  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2012, 2013, 2014, 2018, 2019, 2021  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* Copyright (C) 2022 Non-Routine LLC.  <lp@louderpages.org> */
 
@@ -41,7 +41,7 @@
 #include "str.hpp"
 #include "pitch.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class utterance;
   class item;

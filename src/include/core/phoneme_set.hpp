@@ -22,7 +22,7 @@
 #include <map>
 #include "rapidxml/rapidxml.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
 
   typedef std::set<std::string> phoneme_feature_set;

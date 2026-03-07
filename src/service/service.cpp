@@ -51,7 +51,7 @@ namespace
 
   const Glib::ustring introspection_xml(
                                         "<node>"
-                                        "<interface name='com.github.OlgaYakovleva.RHVoice'>"
+                                        "<interface name='com.github.OlgaYakovleva.AeonVoice'>"
                                         "<method name='SpeakText'>"
                                         "<arg name='text' type='s' direction='in'/>"
                                         "</method>"
@@ -90,7 +90,7 @@ namespace
   Glib::RefPtr<Glib::MainLoop> main_loop;
   Glib::ThreadPool thread_pool;
   session_map sessions;
-  std::shared_ptr<RHVoice::engine> global_engine_ref;
+  std::shared_ptr<AeonVoice::engine> global_engine_ref;
 
   struct quit_main_loop
   {
@@ -245,8 +245,8 @@ namespace
 
     void emit_signal(const Glib::ustring& signal_name)
     {
-      connection->emit_signal(RHVoice::service::object_path,
-                              RHVoice::service::interface_name,
+      connection->emit_signal(AeonVoice::service::object_path,
+                              AeonVoice::service::interface_name,
                               signal_name,
                               name);
     }
@@ -256,8 +256,8 @@ namespace
     {
       Glib::Variant<T> var_arg=Glib::Variant<T>::create(arg);
       Glib::VariantContainerBase var_args=Glib::VariantContainerBase::create_tuple(var_arg);
-      connection->emit_signal(RHVoice::service::object_path,
-                              RHVoice::service::interface_name,
+      connection->emit_signal(AeonVoice::service::object_path,
+                              AeonVoice::service::interface_name,
                               signal_name,
                               name,
                               var_args);
@@ -298,7 +298,7 @@ namespace
     Glib::ustring name;
   };
 
-  class task: public RHVoice::client
+  class task: public AeonVoice::client
   {
   public:
     void run();
@@ -308,12 +308,12 @@ namespace
     task(session& parent_session,const Glib::ustring& text_);
 
     session& parent;
-    std::shared_ptr<RHVoice::engine> local_engine_ref;
-    RHVoice::voice_profile speakers;
+    std::shared_ptr<AeonVoice::engine> local_engine_ref;
+    AeonVoice::voice_profile speakers;
     Glib::ustring text;
 
   private:
-    virtual std::unique_ptr<RHVoice::document> create_document() const=0;
+    virtual std::unique_ptr<AeonVoice::document> create_document() const=0;
     double pitch,rate,volume;
   };
 
@@ -343,7 +343,7 @@ namespace
     }
 
   private:
-    std::unique_ptr<RHVoice::document> create_document() const;
+    std::unique_ptr<AeonVoice::document> create_document() const;
   };
 
   session::session(const Glib::RefPtr<Gio::DBus::Connection>& connection_,const Glib::ustring& name_):
@@ -433,7 +433,7 @@ namespace
   {
     try
       {
-        std::unique_ptr<RHVoice::document> doc=create_document();
+        std::unique_ptr<AeonVoice::document> doc=create_document();
         if(!parent.is_stopping())
           {
             doc->speech_settings.absolute.rate=rate;
@@ -461,9 +461,9 @@ namespace
       }
   }
 
-  std::unique_ptr<RHVoice::document> text_task::create_document() const
+  std::unique_ptr<AeonVoice::document> text_task::create_document() const
   {
-    return RHVoice::document::create_from_plain_text(local_engine_ref,text.begin(),text.end(),RHVoice::content_text,speakers);
+    return AeonVoice::document::create_from_plain_text(local_engine_ref,text.begin(),text.end(),AeonVoice::content_text,speakers);
   }
 
   void on_bus_acquired(const Glib::RefPtr<Gio::DBus::Connection>& connection,const Glib::ustring& name)
@@ -472,8 +472,8 @@ namespace
       return;
     try
       {
-        registered_id=connection->register_object(RHVoice::service::object_path,
-                                                  introspection_data->lookup_interface(RHVoice::service::interface_name),
+        registered_id=connection->register_object(AeonVoice::service::object_path,
+                                                  introspection_data->lookup_interface(AeonVoice::service::interface_name),
                                                     interface_vtable);
       }
     catch(const Glib::Error& ex)
@@ -569,7 +569,7 @@ int main()
   std::locale::global(std::locale::classic());
   try
     {
-      global_engine_ref=RHVoice::engine::create();
+      global_engine_ref=AeonVoice::engine::create();
     }
   catch(const std::exception& e)
     {
@@ -587,7 +587,7 @@ int main()
       return 1;
     }
   const guint id=Gio::DBus::own_name(Gio::DBus::BUS_TYPE_SESSION,
-                                     RHVoice::service::well_known_name,
+                                     AeonVoice::service::well_known_name,
                                      sigc::ptr_fun(&on_bus_acquired),
                                      sigc::ptr_fun(&on_name_acquired),
                                      sigc::ptr_fun(&on_name_lost));

@@ -25,7 +25,7 @@
 #include "exception.hpp"
 #include "value.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class relation;
 

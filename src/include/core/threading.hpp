@@ -24,7 +24,7 @@
 #include "exception.hpp"
 #endif
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace threading
   {

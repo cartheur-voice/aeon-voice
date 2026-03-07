@@ -19,7 +19,7 @@
 #include "core/item.hpp"
 #include "core/tatar.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   tatar_info::tatar_info(const std::string& data_path,const std::string& userdict_path):
     language_info("Tatar",data_path,userdict_path)

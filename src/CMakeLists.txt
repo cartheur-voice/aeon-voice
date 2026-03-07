@@ -50,12 +50,6 @@ if (BUILD_TESTS)
 	add_subdirectory("test")
 endif(BUILD_TESTS)
 
-IF (WIN32)
-	#add_subdirectory("sapi")
-	#add_subdirectory("nvda-addon")
-	#add_subdirectory("wininst")
-endif()
-
 if(BUILD_SERVICE)
 	add_subdirectory("service")
 endif(BUILD_SERVICE)

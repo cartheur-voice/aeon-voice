@@ -22,7 +22,7 @@
 #include "userdict_parser.h"
 #include "userdict_parser.c"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace userdict
   {

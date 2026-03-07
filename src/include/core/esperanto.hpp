@@ -21,7 +21,7 @@
 #include "fst.hpp"
 #include "language.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class esperanto_info: public language_info
   {

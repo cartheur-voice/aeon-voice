@@ -22,7 +22,7 @@
 #include "core/voice.hpp"
 #include "core/event_logger.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   voice::voice(const voice_info& info_):
     info(info_),
@@ -38,14 +38,14 @@ namespace RHVoice
 
   voice_info::voice_info(unsigned int fmt,const std::string& data_path,language_list& languages):
     format(fmt),
-    gender("gender",RHVoice_voice_gender_unknown),
+    gender("gender",AeonVoice_voice_gender_unknown),
     enabled("enabled",true),
     preferred("preferred",false),
     country("country"),
     extra_utt_types("extra_utt_types")
   {
-    gender.define("male",RHVoice_voice_gender_male);
-    gender.define("female",RHVoice_voice_gender_female);
+    gender.define("male",AeonVoice_voice_gender_male);
+    gender.define("female",AeonVoice_voice_gender_female);
     set_data_path(data_path);
     string_property name("name");
     string_property android_id("android_id");
@@ -103,22 +103,22 @@ namespace RHVoice
       {
         if(path::isdir(*it))
           {
-            logger.log(tag,RHVoice_log_level_info,std::string("Path: ")+(*it));
+            logger.log(tag,AeonVoice_log_level_info,std::string("Path: ")+(*it));
             std::shared_ptr<voice_info> v;
             version_info ver;
             try
               {
                 resource_description desc("voice",*it);
-                logger.log(tag,RHVoice_log_level_info,std::string("Voice resource: ")+desc.name.get()+std::string(", format: ")+str::to_string(desc.format.get())+std::string(", revision: ")+str::to_string(desc.revision.get()));
+                logger.log(tag,AeonVoice_log_level_info,std::string("Voice resource: ")+desc.name.get()+std::string(", format: ")+str::to_string(desc.format.get())+std::string(", revision: ")+str::to_string(desc.revision.get()));
                 ver=version_info(desc.format,desc.revision);
                 if(desc.format>=3&&can_add(desc.name,ver))
                   v.reset(new voice_info(desc.format,*it,languages));
                 else
-                  logger.log(tag,RHVoice_log_level_error,"Unsupported voice format");
+                  logger.log(tag,AeonVoice_log_level_error,"Unsupported voice format");
               }
             catch(...)
               {
-                logger.log(tag,RHVoice_log_level_error,"Voice info creation failed");
+                logger.log(tag,AeonVoice_log_level_error,"Voice info creation failed");
               }
             if(v)
               add(v,ver);

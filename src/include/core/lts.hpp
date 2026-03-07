@@ -22,7 +22,7 @@
 #include <map>
 #include <istream>
 
-namespace RHVoice
+namespace AeonVoice
 {
   class lts
   {

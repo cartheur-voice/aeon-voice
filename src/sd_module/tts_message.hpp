@@ -19,7 +19,7 @@
 #include "tts_params.hpp"
 #include "core/voice_profile.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {
@@ -38,9 +38,9 @@ namespace RHVoice
         rate(0),
         pitch(0),
         volume(0),
-        punctuation_mode(RHVoice_punctuation_default),
+        punctuation_mode(AeonVoice_punctuation_default),
         spelling_mode(false),
-        capitals_mode(RHVoice_capitals_default)
+        capitals_mode(AeonVoice_capitals_default)
       {
       }
 
@@ -58,9 +58,9 @@ namespace RHVoice
       std::string content;
       voice_profile profile;
       double rate,pitch,volume;
-      RHVoice_punctuation_mode punctuation_mode;
+      AeonVoice_punctuation_mode punctuation_mode;
       bool spelling_mode;
-      RHVoice_capitals_mode capitals_mode;
+      AeonVoice_capitals_mode capitals_mode;
     };
   }
 }

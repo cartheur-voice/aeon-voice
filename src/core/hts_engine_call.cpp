@@ -30,7 +30,7 @@
 #include "core/limiter.hpp"
 #include "core/hts_engine_call.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace
   {

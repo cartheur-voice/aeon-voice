@@ -1,4 +1,4 @@
-/* Copyright (C) 2021  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2021  Olga Yakovleva <olga@aeonvoice.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
 /* it under the terms of the GNU Lesser General Public License as published by */
@@ -27,7 +27,7 @@
 #include "boost/interprocess/sync/file_lock.hpp"
 #include "boost/optional.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace pkg
   {

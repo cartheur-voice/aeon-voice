@@ -17,7 +17,7 @@
 #include "io.hpp"
 #include "config_command.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

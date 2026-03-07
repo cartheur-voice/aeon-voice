@@ -23,7 +23,7 @@ namespace
   const std::string tag("config");
 }
 
-namespace RHVoice
+namespace AeonVoice
 {
   bool config::set(const std::string& name,const std::string& value)
   {
@@ -58,24 +58,24 @@ namespace RHVoice
   {
     try
       {
-        logger->log(tag,RHVoice_log_level_info,"trying to load configuration file "+file_path);
+        logger->log(tag,AeonVoice_log_level_info,"trying to load configuration file "+file_path);
         for(ini_parser p(file_path);!p.done();p.next())
           {
             if(p.get_section().empty())
               {
-                logger->log(tag,RHVoice_log_level_trace,p.get_key()+"="+p.get_value());
+                logger->log(tag,AeonVoice_log_level_trace,p.get_key()+"="+p.get_value());
                 set(p.get_key(),p.get_value());
               }
           }
-        logger->log(tag,RHVoice_log_level_info,"configuration file processed");
+        logger->log(tag,AeonVoice_log_level_info,"configuration file processed");
       }
     catch(const io::open_error& e)
       {
-        logger->log(tag,RHVoice_log_level_warning,e.what());
+        logger->log(tag,AeonVoice_log_level_warning,e.what());
       }
     catch(const std::exception& e)
       {
-        logger->log(tag,RHVoice_log_level_warning,e.what());
+        logger->log(tag,AeonVoice_log_level_warning,e.what());
         throw;
       }
   }

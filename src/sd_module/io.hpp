@@ -21,7 +21,7 @@
 #include "core/property.hpp"
 #include "error.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace sd
   {

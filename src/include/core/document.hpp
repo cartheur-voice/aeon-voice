@@ -1,4 +1,4 @@
-/* Copyright (C) 2012, 2019, 2020, 2021  Olga Yakovleva <olga@rhvoice.org> */
+/* Copyright (C) 2012, 2019, 2020, 2021  Olga Yakovleva <olga@aeonvoice.org> */
 /* Copyright (C) 2022 Non-Routine LLC.  <lp@louderpages.org> */
 
 /* This program is free software: you can redistribute it and/or modify */
@@ -38,7 +38,7 @@
 
 #ifndef RHVOICE_DOCUMENT_HPP
 #define RHVOICE_DOCUMENT_HPP
-namespace RHVoice
+namespace AeonVoice
 {
   typedef std::pair<language_list::const_iterator,voice_list::const_iterator> language_voice_pair;
   class document;

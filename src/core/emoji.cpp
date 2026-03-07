@@ -16,7 +16,7 @@
 #include <algorithm>
 #include "core/emoji.hpp"
 
-namespace RHVoice
+namespace AeonVoice
 {
   namespace
   {

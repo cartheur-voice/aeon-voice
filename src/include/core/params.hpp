@@ -18,9 +18,9 @@
 
 #include "config.hpp"
 #include "property.hpp"
-#include "RHVoice_common.h"
+#include "AeonVoice_common.h"
 
-namespace RHVoice
+namespace AeonVoice
 {
   class voice_params
   {
@@ -87,9 +87,9 @@ namespace RHVoice
   class verbosity_params
   {
   public:
-    c_enum_property<RHVoice_punctuation_mode> punctuation_mode;
+    c_enum_property<AeonVoice_punctuation_mode> punctuation_mode;
     charset_property punctuation_list;
-    c_enum_property<RHVoice_capitals_mode> capitals_mode;
+    c_enum_property<AeonVoice_capitals_mode> capitals_mode;
 
     verbosity_params();
     void register_self(config& cfg,const std::string& prefix=std::string());

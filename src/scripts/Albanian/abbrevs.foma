@@ -15,7 +15,7 @@
 define AbbrevTranslation   [{chrome}|{Chrome}] : {krom} |  # "Chrome". Not an abbreviation, but this pronunciation wanted 
   [{bbc}|{BBC}]: {bibis`i} |  # British pronunciation
   [{UNDP}|{undp}] : {j`u`end`ip`i} |  # English pronunciation, 
-  [{RHVoice}|{rhvoice}|{RHVOICE}] : {`ar`eiçv`ois} |
+  [{AeonVoice}|{aeonvoice}|{RHVOICE}] : {`ar`eiçv`ois} |
 	[{Google}|{GOOGLE}|{google}] : {g`ugëll} |
 	{Play} : {pll`ej} |
 	{Store} : {st`or} |
