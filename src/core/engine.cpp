@@ -35,10 +35,8 @@ namespace AeonVoice
     logger(new event_logger)
   {
     char* data_path_env = getenv("AEONVOICE_DATA_PATH");
-    if (!data_path_env) data_path_env = getenv("RHVOICE_DATA_PATH");
     if (data_path_env) data_path = data_path_env;
     char* config_path_env = getenv("AEONVOICE_CONFIG_PATH");
-    if (!config_path_env) config_path_env = getenv("RHVOICE_CONFIG_PATH");
     if (config_path_env) config_path = config_path_env;
   }
 
