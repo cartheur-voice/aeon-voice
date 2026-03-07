@@ -33,6 +33,16 @@ prosody (rate, pitch, volume) for the toy persona.
 If you want to train a truly new voice identity from your own recordings, follow:
 `/doc/CustomVoice.md`
 
+Prerequisites:
+
+- Linux (`amd64` or `arm64`)
+- Build tools: `gcc/g++`, `make`, `scons`, `pkg-config`
+- Runtime audio tool for quick listening: `aplay` (from `alsa-utils`)
+- For quick voice tuning (existing profiles): successful `scons -j4` build
+- For custom voice training: `scons dev=True -j4` (builds `local/bin/AeonVoice-make-hts-labels` and `local/bin/AeonVoice-transcribe-sentences`)
+- For custom voice training (external toolchain): HTK, HTS 2.2 binaries, SPTK tools, Festival, Praat
+- Python modules for training helpers: `numpy`, `scipy`, `pyworld`
+
 Custom voice training utilities are built with:
 
 ```bash
