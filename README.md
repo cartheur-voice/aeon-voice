@@ -23,11 +23,15 @@ Voices are built from recordings of natural speech, as such they have small foot
 
 * [Compilation](/doc/Compilation.md)
 * [Configuration](/doc/Configuration.md)
+* [Creating A Custom Voice](/doc/CustomVoice.md)
 
 ## How to create a voice
 
-For this project, "create a voice" means selecting a base speaker profile and tuning prosody
-(rate, pitch, volume) for the toy persona.
+For this quick workflow, "create a voice" means selecting a base speaker profile and tuning
+prosody (rate, pitch, volume) for the toy persona.
+
+If you want to train a truly new voice identity from your own recordings, follow:
+`/doc/CustomVoice.md`
 
 ### 1. Build the project
 
