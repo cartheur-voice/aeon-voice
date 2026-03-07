@@ -52,6 +52,16 @@ Expected binary/path mapping:
 | Festival data/tools | `festdir` | `<festdir>/examples` must exist |
 | Praat binary | `praat_path` | executable file path to `praat` |
 
+Where to get these toolchains/binaries:
+
+- HTK (contains `HLEd`, `HVite`): https://htk.eng.cam.ac.uk/download.shtml
+- HTS releases/patches (`HTS-2.2/2.3_for_HTK-3.4.1`): https://hts.sp.nitech.ac.jp/?Download=
+- hts_engine API (`hts_engine_API-1.10`): https://sourceforge.net/projects/hts-engine/files/hts_engine%20API/hts_engine_API-1.10/
+- SPTK (contains `mcep`, `pitch`): https://sourceforge.net/projects/sp-tk/files/SPTK/
+- Festival source: https://github.com/festvox/festival
+- Festival downloads mirror: https://festvox.org/festival/downloads.html
+- Praat: https://praat.org/praat
+
 Fill required training config fields before running the helper workflow:
 
 ```bash
