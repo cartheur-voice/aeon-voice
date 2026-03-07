@@ -40,6 +40,18 @@ Validate environment at any time:
 src/scripts/general/check_training_env.sh src/scripts/general/training.cfg
 ```
 
+Expected binary/path mapping:
+
+| Purpose | `training.cfg` field | Expected binary/path |
+|---|---|---|
+| AeonVoice label utility | n/a (repo-local) | `local/bin/AeonVoice-make-hts-labels` |
+| AeonVoice transcription utility | n/a (repo-local) | `local/bin/AeonVoice-transcribe-sentences` |
+| HTS/SPTK command set | `bindir` | `HCompV`, `mcep`, `pitch` |
+| HTK tools | `htk_bindir` | `HLEd`, `HVite` |
+| HTS 2.2 tools | `hts22_bindir` | `HHEd` |
+| Festival data/tools | `festdir` | `<festdir>/examples` must exist |
+| Praat binary | `praat_path` | executable file path to `praat` |
+
 Fill required training config fields before running the helper workflow:
 
 ```bash
@@ -233,3 +245,17 @@ For portability across codebases:
 - Store reference samples in `docs/voice-samples/<character>/`
 - Keep a README with profile/parameters/scripts used
 - Version voice model revisions using `revision=` in `voice.info`
+
+## TODO
+
+- Verify full host availability of external HTK/SPTK/Festival/HTS toolchain on target training machine(s).
+- Execute and document one complete end-to-end HTS training run (not only bootstrap/validation), including runtime and produced artifacts.
+
+### Verification Notes (Current Host)
+
+- `check_training_env.sh` currently fails because `training.cfg` still has unset required paths (`bindir`, `htk_bindir`, `hts22_bindir`, `praat_path`, `festdir`).
+- Required external commands currently missing on this host: `HCompV`, `mcep`, `pitch`, `HLEd`, `HVite`, `HHEd`, `festival`, `praat`.
+- Required AeonVoice helper binaries currently missing: `local/bin/AeonVoice-make-hts-labels`, `local/bin/AeonVoice-transcribe-sentences`.
+- Toolchain setup is mixed:
+  - Apt-available/common: `python3`, `python3-pip`, `jq`, `scons`, `sox`, `praat`, general build deps.
+  - Commonly manual/source installs: HTK/HTS/SPTK/Festival components (especially HTK).
