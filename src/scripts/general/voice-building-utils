@@ -37,8 +37,6 @@ from scipy.signal import firwin,lfilter,kaiserord
 from scipy.io import wavfile
 import pathlib
 
-import pyworld
-
 version_pattern=re.compile(r"(?m)^\s*\$ver\s*=\s*'(\d+)'\s*;\s*$")
 scriptdir=os.path.abspath(os.path.dirname(__file__))
 AeonVoice_bindir=os.path.normpath(os.path.join(scriptdir,"..","..","..","local","bin"))
@@ -49,6 +47,15 @@ workdir=os.path.abspath(".")
 dataset="AeonVoice"
 parser=argparse.ArgumentParser(description="A few helper commands augmenting the standard HTS demo script")
 subparsers=parser.add_subparsers()
+
+_pyworld=None
+
+def get_pyworld():
+	global _pyworld
+	if _pyworld is None:
+		import pyworld as _loaded_pyworld
+		_pyworld=_loaded_pyworld
+	return _pyworld
 
 class task(object):
 	@property
@@ -835,6 +842,7 @@ class f0_extracter(task):
 		assert(method in ["world_dio","world_harvest"])
 		samples=numpy.fromfile(raw_path,numpy.int32).astype(float)
 		samples/=(2**31)
+		pyworld=get_pyworld()
 		if method.endswith("_dio"):
 			f0s, times = pyworld.dio(samples, self.settings["sample_rate"], min_f0, max_f0)
 		else:
@@ -1770,6 +1778,7 @@ class mgc_extractor(task):
 		mf0=numpy.median(f0s[f0s!=0])
 		f0s[f0s==0]=mf0
 		times=numpy.arange(len(f0s))*0.005
+		pyworld=get_pyworld()
 		sp=pyworld.cheaptrick(speech, f0s, times, sample_rate,f0_floor=self.settings["lower_f0"])
 		fft_len=(sp.shape[1]-1)*2
 		sp=numpy.sqrt(sp)*32768.0

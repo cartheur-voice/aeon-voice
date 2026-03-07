@@ -70,6 +70,19 @@ if [[ -z "$BINDIR" ]]; then
   BINDIR="$WORKDIR/bin"
 fi
 
+link_cmd_into_bindir() {
+  local cmd_name="$1"
+  local dest="$BINDIR/$cmd_name"
+  if [[ -x "$dest" ]]; then
+    return
+  fi
+  local src
+  src="$(command -v "$cmd_name" || true)"
+  if [[ -n "$src" ]]; then
+    ln -sf "$(realpath "$src")" "$dest"
+  fi
+}
+
 install_packages() {
   if [[ "$SKIP_APT" -eq 1 ]]; then
     echo "Skipping apt package installation."
@@ -137,6 +150,13 @@ prepare_paths() {
   mkdir -p "$BINDIR"
 }
 
+populate_bindir() {
+  # These are expected by training.cfg["bindir"] and validation checks.
+  link_cmd_into_bindir HCompV
+  link_cmd_into_bindir mcep
+  link_cmd_into_bindir pitch
+}
+
 validate() {
   "$REPO_PATH/src/scripts/general/check_training_env.sh" "$REPO_PATH/src/scripts/general/training.cfg"
 }
@@ -145,6 +165,7 @@ prepare_paths
 install_packages
 install_python_packages
 build_aeonvoice_dev
+populate_bindir
 write_training_cfg
 validate
 

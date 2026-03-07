@@ -40,6 +40,19 @@ Validate environment at any time:
 src/scripts/general/check_training_env.sh src/scripts/general/training.cfg
 ```
 
+Fill required training config fields before running the helper workflow:
+
+```bash
+jq '
+  .wavedir="/absolute/path/to/recordings" |
+  .text="/absolute/path/to/train.ssml" |
+  .test="/absolute/path/to/test.ssml" |
+  .speaker="henrywarm" |
+  .outdir="/absolute/path/to/aeon-voice/data/voices"
+' src/scripts/general/training.cfg > /tmp/training.cfg && \
+mv /tmp/training.cfg src/scripts/general/training.cfg
+```
+
 ## 1. Define The Voice Target
 
 Before recording, define:
@@ -107,6 +120,15 @@ python3 ../../src/scripts/general/voice-building-utils init
 ```
 
 This copies the HTS training skeleton and default config into the workspace.
+
+Required `training.cfg` fields used by `voice-building-utils`:
+
+- `wavedir`
+- `text`
+- `test`
+- `speaker`
+- `language`
+- `outdir`
 
 ## 5. Labels And Linguistic Features
 

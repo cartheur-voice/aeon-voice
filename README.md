@@ -51,6 +51,9 @@ Validation helper:
 src/scripts/general/check_training_env.sh src/scripts/general/training.cfg
 ```
 
+For custom training, also set required fields in `src/scripts/general/training.cfg`
+(`wavedir`, `text`, `test`, `speaker`, `outdir`) as documented in `/doc/CustomVoice.md`.
+
 ### 1. Build the project
 
 ```bash

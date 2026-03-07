@@ -39,6 +39,9 @@ require_file() {
 require_cmd python3
 require_cmd jq
 
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+repo_root="$(realpath "$script_dir/../../..")"
+
 bindir="$(jq -r '.bindir // empty' "$cfg_path")"
 htk_bindir="$(jq -r '.htk_bindir // empty' "$cfg_path")"
 hts22_bindir="$(jq -r '.hts22_bindir // empty' "$cfg_path")"
@@ -56,6 +59,8 @@ require_file "$bindir/pitch"
 require_file "$htk_bindir/HLEd"
 require_file "$htk_bindir/HVite"
 require_file "$hts22_bindir/HHEd"
+require_file "$repo_root/local/bin/AeonVoice-make-hts-labels"
+require_file "$repo_root/local/bin/AeonVoice-transcribe-sentences"
 
 if [[ ! -x "$praat_path" ]]; then
   echo "ERROR: praat not executable: $praat_path" >&2
@@ -66,5 +71,13 @@ if [[ ! -d "$festdir/examples" ]]; then
   echo "ERROR: festival examples dir missing: $festdir/examples" >&2
   exit 1
 fi
+
+python3 - <<'PY'
+import importlib.util
+required = ["numpy", "scipy", "pyworld"]
+missing = [m for m in required if importlib.util.find_spec(m) is None]
+if missing:
+    raise SystemExit("ERROR: missing python modules: " + ", ".join(missing))
+PY
 
 echo "OK: training environment looks consistent."
