@@ -33,6 +33,24 @@ prosody (rate, pitch, volume) for the toy persona.
 If you want to train a truly new voice identity from your own recordings, follow:
 `/doc/CustomVoice.md`
 
+Custom voice training utilities are built with:
+
+```bash
+scons dev=True -j4
+```
+
+Debian training environment helper:
+
+```bash
+src/scripts/general/setup_environment_debian --help
+```
+
+Validation helper:
+
+```bash
+src/scripts/general/check_training_env.sh src/scripts/general/training.cfg
+```
+
 ### 1. Build the project
 
 ```bash

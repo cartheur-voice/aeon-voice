@@ -4,13 +4,41 @@ This guide is for creating a **new trained voice** (not only tuning `-r/-t/-v`).
 
 ## Scope
 
-This repo contains runtime synthesis and integration tools, but not a full end-to-end trainer.
-Typical workflow:
+This repo includes:
 
-1. Record and prepare a high-quality dataset.
-2. Train HTS-compatible models in an external training pipeline.
-3. Package the trained model into `data/voices/<voice_id>/`.
-4. Validate with `AeonVoice-test`.
+1. HTS demo training scaffold in `src/scripts/hts/`
+2. AeonVoice voice-building helpers in `src/scripts/general/voice-building-utils`
+3. Runtime integration/validation in AeonVoice itself
+
+Training still depends on external toolchains (HTK/SPTK/Festival/HTS binaries).
+
+## 0. Prerequisites
+
+Build AeonVoice in development mode so helper binaries are produced:
+
+```bash
+scons dev=True -j4
+```
+
+`dev=True` is required for:
+
+- `local/bin/AeonVoice-make-hts-labels`
+- `local/bin/AeonVoice-transcribe-sentences`
+
+Optional Debian helper (recommended):
+
+```bash
+src/scripts/general/setup_environment_debian \
+  --workdir /opt/aeonvoice-train \
+  --htk-bindir /opt/aeonvoice-train/htk341/bin \
+  --hts22-bindir /opt/aeonvoice-train/hts22/bin
+```
+
+Validate environment at any time:
+
+```bash
+src/scripts/general/check_training_env.sh src/scripts/general/training.cfg
+```
 
 ## 1. Define The Voice Target
 
@@ -68,7 +96,19 @@ Minimum checks:
 
 Hold out a fixed eval set (for example, 100 lines) and never train on it.
 
-## 4. Labels And Linguistic Features
+## 4. Initialize Training Workspace
+
+Create an empty workspace and initialize the HTS scaffold:
+
+```bash
+mkdir -p work/henry-train
+cd work/henry-train
+python3 ../../src/scripts/general/voice-building-utils init
+```
+
+This copies the HTS training skeleton and default config into the workspace.
+
+## 5. Labels And Linguistic Features
 
 You need HTS labels for training.
 
@@ -76,11 +116,25 @@ This repo includes label generation utility source (`src/utils/make-hts-labels.c
 
 - `AeonVoice-make-hts-labels`
 
-If your build does not produce this binary, generate labels with your external HTS training toolchain.
+Generate labels and supporting files:
 
-## 5. Train External HTS Voice Models
+```bash
+python3 ../../src/scripts/general/voice-building-utils label
+```
 
-Train duration/acoustic models in your HTS-compatible pipeline, then export model artifacts expected by AeonVoice.
+## 6. Train HTS Voice Models
+
+Run HTS training from the initialized workspace:
+
+```bash
+./configure
+make
+```
+
+Or use helper subcommands from `voice-building-utils` for staged workflows
+(`segment`, `extract-f0`, `make-questions`, `realign`, `export-voice`).
+
+After training/export, package artifacts expected by AeonVoice.
 
 For each target sample rate directory (commonly `16000/` and/or `24000/`), package:
 
@@ -97,7 +151,7 @@ For each target sample rate directory (commonly `16000/` and/or `24000/`), packa
 
 Use existing voices in `data/voices/` as reference package layout.
 
-## 6. Add The Voice To This Repo
+## 7. Add The Voice To This Repo
 
 Create:
 
@@ -127,7 +181,7 @@ gain=1.0
 key=173
 ```
 
-## 7. Validate In Runtime
+## 8. Validate In Runtime
 
 ```bash
 export AEONVOICE_DATA_PATH="$(pwd)/data"
@@ -139,7 +193,7 @@ echo "Hello, I am Henry. I am right here with you." \
 aplay /tmp/henrywarm.wav
 ```
 
-## 8. Iterate Toward Character Quality
+## 9. Iterate Toward Character Quality
 
 If voice identity is right but delivery is off:
 
@@ -150,7 +204,7 @@ If timbre/prosody is still wrong:
 - Add more targeted recordings for the missing emotional style.
 - Retrain the model.
 
-## 9. Versioning And Reuse
+## 10. Versioning And Reuse
 
 For portability across codebases:
 
