@@ -25,6 +25,9 @@ Voices are built from recordings of natural speech, as such they have small foot
 * [Configuration](/doc/Configuration.md)
 * [Creating A Custom Voice](/doc/CustomVoice.md)
 
+Ancillary toolchain scaffold for custom voice dependencies:
+- `ancillary/toolchain-sources/`
+
 ## How to create a voice
 
 For this quick workflow, "create a voice" means selecting a base speaker profile and tuning
