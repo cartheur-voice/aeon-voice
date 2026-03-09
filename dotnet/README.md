@@ -48,3 +48,14 @@ CI workflow: `.github/workflows/nuget-pack.yml`
 - Publishes to NuGet.org on `v*` tags or manual dispatch with `publish=true`
 
 Set repository secret `NUGET_API_KEY` before publishing.
+
+Optional signing in CI:
+
+- `NUGET_SIGN_CERT_BASE64`: base64-encoded `.pfx` content
+- `NUGET_SIGN_CERT_PASSWORD`: password for that `.pfx`
+
+Encode a `.pfx` file for GitHub secret value:
+
+```bash
+base64 -w 0 /path/to/nuget-signing.pfx
+```
