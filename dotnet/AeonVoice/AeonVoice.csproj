@@ -7,8 +7,9 @@
     <IsPackable>true</IsPackable>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>AeonVoice</PackageId>
-    <Version>0.1.0</Version>
-    <Authors>Aeon Team</Authors>
+    <Version>0.1.2</Version>
+    <Authors>The Cartheur Team</Authors>
+    <Company>Cartheur Research</Company>
     <Description>Managed .NET wrapper for the AeonVoice native speech synthesis engine.</Description>
     <RepositoryUrl>https://github.com/cartheur-voice/aeon-voice</RepositoryUrl>
     <PackageLicenseExpression>LGPL-2.1-or-later</PackageLicenseExpression>
