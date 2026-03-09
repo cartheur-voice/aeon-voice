@@ -1,14 +1,37 @@
 # AeonVoice.Native
 
-This package carries native binaries used by the managed `AeonVoice` package.
+Native runtime assets for AeonVoice .NET consumption.
 
-## Included runtime identifiers
+This package contains platform-specific shared libraries used by the managed `AeonVoice` package.
+
+## Included runtimes
 
 - `linux-x64`
 - `linux-arm64`
 
-## Notes
+## Package contents
 
-- Place shared libraries under `runtimes/<rid>/native/` before running `dotnet pack`.
-- Typical primary binary name: `libAeonVoice.so`.
-- Depending on how you build AeonVoice, dependent libraries may also be required.
+Libraries are delivered under:
+
+- `runtimes/linux-x64/native/`
+- `runtimes/linux-arm64/native/`
+
+Typical libraries include:
+
+- `libAeonVoice.so*`
+- `libAeonVoice_core.so*`
+- `libAeonVoice_audio.so*`
+
+## Usage
+
+Install this package directly only if you are wiring interop manually.  
+Most users should install `AeonVoice`, which references this package automatically.
+
+## Important
+
+`AeonVoice.Native` provides binaries only.  
+Voice/language resource data is not bundled by default and must be provided separately.
+
+## License
+
+See repository license files and voice/resource-specific licenses.
