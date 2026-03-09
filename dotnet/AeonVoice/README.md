@@ -41,11 +41,11 @@ SynthesisResult result = engine.SynthesizeToPcm16(
 `result.SampleRate` is the output sample rate.  
 `result.Samples` is signed 16-bit mono PCM.
 
-## Voice profiles (English female renamed)
+## Voice profiles (English female)
 
-- `Leena` (was `Slt`)
-- `Helen` (was `Clb`)
-- `Daria` (was `Lyubov`)
+- `Leena`
+- `Helen`
+- `Daria`
 
 ## Runtime data requirements
 
