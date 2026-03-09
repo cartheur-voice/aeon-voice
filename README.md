@@ -87,7 +87,7 @@ export LD_LIBRARY_PATH="$(pwd)/build/linux/core:$(pwd)/build/linux/audio:$(pwd)/
 ```bash
 echo "Hello, I am Henry. I am right here with you." \
   | build/linux/test/AeonVoice-test \
-      -p Slt \
+      -p Leena \
       -r 90 \
       -t 94 \
       -v 108 \
@@ -95,7 +95,7 @@ echo "Hello, I am Henry. I am right here with you." \
 ```
 
 Parameters:
-- `-p`: voice profile (examples: `Slt`, `Clb`, `Lyubov`, `Alan`, `Ksp`, `Evgeniy-Eng`)
+- `-p`: voice profile (examples: `Leena`, `Helen`, `Daria`, `Alan`, `Ksp`, `Evgeniy-Eng`)
 - `-r`: rate (100 is default; lower is slower)
 - `-t`: pitch (100 is default; lower is deeper)
 - `-v`: volume (100 is default)

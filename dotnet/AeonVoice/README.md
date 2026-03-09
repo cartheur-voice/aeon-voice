@@ -8,7 +8,7 @@ Managed .NET wrapper for the AeonVoice native library.
 using AeonVoice;
 
 using var engine = new AeonVoiceEngine(dataPath: "/path/to/data", configPath: "/path/to/config");
-SynthesisResult result = engine.SynthesizeToPcm16("Hello from AeonVoice", voiceProfile: "Slt");
+SynthesisResult result = engine.SynthesizeToPcm16("Hello from AeonVoice", voiceProfile: "Leena");
 ```
 
 `result.Samples` contains 16-bit PCM mono samples and `result.SampleRate` is the sample rate selected by the engine.

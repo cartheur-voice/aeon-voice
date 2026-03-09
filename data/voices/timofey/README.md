@@ -2,10 +2,7 @@
 This voice is distributed under [the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
 ## Team ##
-* Artem Plaksin AKA maniyax — general leadership
-* Sergey Parshakov AKA Electrik — Editing of speaker recordings, sound processing and voice training
-* Zvonimir stanecic AKA 9a5dsz — package preparation
-* Speaker: Timofey Tuev (voice actor)
+* AeonVoice contributors
 
 ## Contact us ##
 * E-mail: [aeonvoice@tiflo.org](mailto:aeonvoice@tiflo.org)

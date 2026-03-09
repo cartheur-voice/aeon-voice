@@ -4,11 +4,7 @@ This voice is distributed under the Creative Commons Attribution-NonCommercial-N
 You can send a request for integration of voice into any product to the laboratory's e-mail address. If the approval is given by the speaker and our team you will get the appropriate permission.
 
 Team
-Artem Plaksin AKA maniyax — general leadership
-Sergey Parshakov AKA Electrik — Editing of speaker recordings, sound processing and voice training
-Zvonimir stanecic AKA 9a5dsz — package preparation
-
-Speaker: Timofey Tuev (voice actor)
+AeonVoice contributors
 
 Contact us
 E-mail: aeonvoice@tiflo.org

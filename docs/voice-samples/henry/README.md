@@ -18,22 +18,22 @@ Male:
 ## Settings Used
 
 - `henry-warm-gentle-clb.wav`
-  - profile: `Clb`
+  - profile: `Helen`
   - rate: `92`
   - pitch: `95`
   - volume: `108`
 - `henry-warm-storytime-clb.wav`
-  - profile: `Clb`
+  - profile: `Helen`
   - rate: `88`
   - pitch: `93`
   - volume: `110`
 - `henry-warm-gentle-slt.wav`
-  - profile: `Slt`
+  - profile: `Leena`
   - rate: `90`
   - pitch: `94`
   - volume: `108`
 - `henry-warm-sleepy-lyubov.wav`
-  - profile: `Lyubov`
+  - profile: `Daria`
   - rate: `86`
   - pitch: `92`
   - volume: `106`

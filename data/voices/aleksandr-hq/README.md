@@ -7,10 +7,7 @@ This version may contain issues that are not present in the original voice. Sinc
 This voice is distributed under [the Creative Commons Attribution-ShareAlike 4.0 International Public License](https://creativecommons.org/licenses/by-sa/4.0/)
 
 ## Team ##
-* Artem Plaksin AKA maniyax — general leadership
-* Sergey Parshakov AKA Electrik — Editing of speaker recordings
-* Beka Gozalishvili AKA Gozaltech — voice training
-* Speaker: Aleksander Karlov (TV and radio broadcaster, audiobook reader)
+* AeonVoice contributors
 
 ## Contact us ##
 * E-mail: [aeonvoice@tiflo.org](mailto:aeonvoice@tiflo.org)

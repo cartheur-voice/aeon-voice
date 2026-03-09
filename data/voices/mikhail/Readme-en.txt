@@ -2,12 +2,7 @@ License
 This voice is distributed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International Public License: https://creativecommons.org/licenses/by-nc-nd/4.0/
 
 Team
-Artem Plaksin AKA maniyax — general leadership
-Denis Shishkin AKA Outsider — sound processing
-Sergey Parshakov AKA Electrik — Editing of speaker recordings and sound processing
-Beka Gozalishvili AKA Gozaltech — voice training
-
-Speaker: Mikhail Sokolov (radio host on "Avtoradio")
+AeonVoice contributors
 
 Contact us
 E-mail: aeonvoice@tiflo.org
