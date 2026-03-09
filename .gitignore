@@ -41,3 +41,7 @@ external/libs/boost/include/boost/
 
 # Generated header files
 src/include/core/config.h
+
+# .NET build artifacts
+dotnet/**/bin/
+dotnet/**/obj/

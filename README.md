@@ -1,5 +1,7 @@
 # aeon-voice
 
+[![NuGet Pack](https://github.com/cartheur-voice/aeon-voice/actions/workflows/nuget-pack.yml/badge.svg)](https://github.com/cartheur-voice/aeon-voice/actions/workflows/nuget-pack.yml)
+
 The voice of artificial animals.
 
 ## Background
@@ -113,3 +115,18 @@ Store approved samples in-repo so they can be reused by other codebases.
 Current example set:
 - `docs/voice-samples/henry/README.md`
 - `docs/voice-samples/henry/*.wav`
+
+## .NET / NuGet packaging
+
+A starter .NET packaging scaffold is available in `dotnet/`:
+
+- `dotnet/AeonVoice.Native` for native runtime assets
+- `dotnet/AeonVoice` for the managed wrapper
+
+See `dotnet/README.md` for staging native libraries and running `dotnet pack`.
+
+Release flow:
+
+1. Push a tag like `v0.1.0`.
+2. Workflow `.github/workflows/nuget-pack.yml` builds native runtimes and packs both NuGet packages.
+3. If repository secret `NUGET_API_KEY` is set, it publishes to NuGet.org automatically for `v*` tags.
