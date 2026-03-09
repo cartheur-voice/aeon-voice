@@ -93,7 +93,7 @@ typedef struct
     /* from the list, if it detects the corresponding language. The */
     /* detection algorithm is not very smart at the moment. It will not */
     /* handle languages with common letters. For example, if you set this */
-    /* field to "CLB+Spomenka", it will always choose CLB for latin */
+    /* field to "Helen+Spomenka", it will always choose Helen for latin */
     /* letters. Spomenka might still be used, if Esperanto is requested */
     /* through SSML. */
     const char* voice_profile;

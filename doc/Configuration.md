@@ -122,7 +122,7 @@ A voice profile is written as a sequence of names of voices separated by the `+`
 Example:
 
 ```ini
-voice_profiles=anna+slt,aleksandr+alan
+voice_profiles=anna+leena,aleksandr+alan
 ```
 
 #### Language switching

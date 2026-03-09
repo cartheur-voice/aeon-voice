@@ -33,12 +33,12 @@ set("VOICE_mikhail_LANG" "ru")
 set("VOICE_vsevolod_LANG" "ru")
 
 set("VOICE_evgeniy-eng_LANG" "en")
-set("VOICE_lyubov_LANG" "en")
+set("VOICE_daria_LANG" "en")
 set("VOICE_alan_LANG" "en")
 set("VOICE_bdl_LANG" "en")
-set("VOICE_clb_LANG" "en")
+set("VOICE_helen_LANG" "en")
 set("VOICE_ksp_LANG" "en")
-set("VOICE_slt_LANG" "en")
+set("VOICE_leena_LANG" "en")
 
 cpack_add_component_group("data"
 	DISPLAY_NAME "Data files"

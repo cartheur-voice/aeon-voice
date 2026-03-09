@@ -5,10 +5,10 @@ These are warm voice samples for the first toy character, **Henry**.
 ## Files
 
 Female:
-- `docs/voice-samples/henry/henry-warm-gentle-clb.wav`
-- `docs/voice-samples/henry/henry-warm-gentle-slt.wav`
-- `docs/voice-samples/henry/henry-warm-storytime-clb.wav`
-- `docs/voice-samples/henry/henry-warm-sleepy-lyubov.wav`
+- `docs/voice-samples/henry/henry-warm-gentle-helen.wav`
+- `docs/voice-samples/henry/henry-warm-gentle-leena.wav`
+- `docs/voice-samples/henry/henry-warm-storytime-helen.wav`
+- `docs/voice-samples/henry/henry-warm-sleepy-daria.wav`
 
 Male:
 - `docs/voice-samples/henry/henry-warm-gentle-alan.wav`
@@ -17,22 +17,22 @@ Male:
 
 ## Settings Used
 
-- `henry-warm-gentle-clb.wav`
+- `henry-warm-gentle-helen.wav`
   - profile: `Helen`
   - rate: `92`
   - pitch: `95`
   - volume: `108`
-- `henry-warm-storytime-clb.wav`
+- `henry-warm-storytime-helen.wav`
   - profile: `Helen`
   - rate: `88`
   - pitch: `93`
   - volume: `110`
-- `henry-warm-gentle-slt.wav`
+- `henry-warm-gentle-leena.wav`
   - profile: `Leena`
   - rate: `90`
   - pitch: `94`
   - volume: `108`
-- `henry-warm-sleepy-lyubov.wav`
+- `henry-warm-sleepy-daria.wav`
   - profile: `Daria`
   - rate: `86`
   - pitch: `92`
