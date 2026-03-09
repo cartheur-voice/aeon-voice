@@ -1,0 +1,16 @@
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/bin/Release/net8.0/AeonVoice.deps.json
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/bin/Release/net8.0/AeonVoice.dll
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/bin/Release/net8.0/AeonVoice.pdb
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/bin/Release/net8.0/AeonVoice.Native.dll
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/bin/Release/net8.0/AeonVoice.Native.pdb
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/obj/Release/net8.0/AeonVoice.csproj.AssemblyReference.cache
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/obj/Release/net8.0/AeonVoice.GeneratedMSBuildEditorConfig.editorconfig
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/obj/Release/net8.0/AeonVoice.AssemblyInfoInputs.cache
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/obj/Release/net8.0/AeonVoice.AssemblyInfo.cs
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/obj/Release/net8.0/AeonVoice.csproj.CoreCompileInputs.cache
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/obj/Release/net8.0/AeonVoice.sourcelink.json
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/obj/Release/net8.0/AeonVoice.csproj.Up2Date
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/obj/Release/net8.0/AeonVoice.dll
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/obj/Release/net8.0/refint/AeonVoice.dll
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/obj/Release/net8.0/AeonVoice.pdb
+/home/cartheur/ame/aiventure/prototype/aeon-voice/dotnet/AeonVoice/obj/Release/net8.0/ref/AeonVoice.dll

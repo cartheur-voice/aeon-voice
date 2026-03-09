@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>AeonVoice</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Aeon Team</Authors>
+    <Description>Managed .NET wrapper for the AeonVoice native speech synthesis engine.</Description>
+    <RepositoryUrl>https://github.com/cartheur-voice/aeon-voice</RepositoryUrl>
+    <PackageLicenseExpression>LGPL-2.1-or-later</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.jpg</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../AeonVoice.Native/AeonVoice.Native.csproj" />
+    <None Include="README.md" Pack="true" PackagePath="/" />
+    <None Include="../../icon.jpg" Pack="true" PackagePath="/" Link="icon.jpg" />
+  </ItemGroup>
+</Project>

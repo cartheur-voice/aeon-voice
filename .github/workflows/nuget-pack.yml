@@ -1,0 +1,146 @@
+name: NuGet Pack
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'Publish to NuGet.org'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  build-native:
+    name: Build Native (${{ matrix.rid }})
+    runs-on: ${{ matrix.runner }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - rid: linux-x64
+            runner: ubuntu-24.04
+          - rid: linux-arm64
+            runner: ubuntu-24.04-arm
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            build-essential \
+            pkg-config \
+            scons
+
+      - name: Build AeonVoice native libraries
+        run: scons -j"$(nproc)"
+
+      - name: Stage native runtime assets
+        run: ./dotnet/scripts/stage-native.sh "${{ matrix.rid }}" ./build/linux
+
+      - name: Upload native runtime artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-${{ matrix.rid }}
+          path: dotnet/AeonVoice.Native/runtimes/${{ matrix.rid }}/native/*
+          if-no-files-found: error
+
+  pack:
+    name: Pack NuGet Packages
+    runs-on: ubuntu-24.04
+    needs: build-native
+
+    outputs:
+      package_version: ${{ steps.version.outputs.package_version }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Download linux-x64 native artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: native-linux-x64
+          path: dotnet/AeonVoice.Native/runtimes/linux-x64/native
+
+      - name: Download linux-arm64 native artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: native-linux-arm64
+          path: dotnet/AeonVoice.Native/runtimes/linux-arm64/native
+
+      - name: Resolve package version
+        id: version
+        shell: bash
+        run: |
+          if [[ "${GITHUB_REF}" == refs/tags/v* ]]; then
+            v="${GITHUB_REF#refs/tags/v}"
+          else
+            v="0.1.0-ci.${GITHUB_RUN_NUMBER}"
+          fi
+          echo "package_version=$v" >> "$GITHUB_OUTPUT"
+          echo "Using version: $v"
+
+      - name: Pack native package
+        run: |
+          dotnet pack dotnet/AeonVoice.Native/AeonVoice.Native.csproj \
+            -c Release \
+            -o ./artifacts/nupkgs \
+            /p:Version=${{ steps.version.outputs.package_version }}
+
+      - name: Pack managed package
+        run: |
+          dotnet pack dotnet/AeonVoice/AeonVoice.csproj \
+            -c Release \
+            -o ./artifacts/nupkgs \
+            /p:Version=${{ steps.version.outputs.package_version }}
+
+      - name: Upload NuGet artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nupkgs-${{ steps.version.outputs.package_version }}
+          path: artifacts/nupkgs/*.nupkg
+          if-no-files-found: error
+
+  publish:
+    name: Publish to NuGet.org
+    runs-on: ubuntu-24.04
+    needs: pack
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && github.event.inputs.publish == 'true')
+
+    steps:
+      - name: Download packed artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: nupkgs-${{ needs.pack.outputs.package_version }}
+          path: artifacts/nupkgs
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Push packages to NuGet.org
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          dotnet nuget push artifacts/nupkgs/*.nupkg \
+            --source https://api.nuget.org/v3/index.json \
+            --api-key "$NUGET_API_KEY" \
+            --skip-duplicate

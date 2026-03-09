@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <IsPackable>true</IsPackable>
+    <NoWarn>$(NoWarn);NU5128</NoWarn>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <PackageId>AeonVoice.Native</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Aeon Team</Authors>
+    <Description>Native binaries for AeonVoice runtime consumption from .NET.</Description>
+    <RepositoryUrl>https://github.com/cartheur-voice/aeon-voice</RepositoryUrl>
+    <PackageLicenseExpression>LGPL-2.1-or-later</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.jpg</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="/" />
+    <None Include="../../icon.jpg" Pack="true" PackagePath="/" Link="icon.jpg" />
+    <None Include="runtimes/**/*" Pack="true" PackagePath="%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+</Project>
