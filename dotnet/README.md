@@ -1,19 +1,25 @@
-# .NET and NuGet packaging scaffold
+# .NET and NuGet packaging
 
-This directory contains a starter layout to publish AeonVoice for .NET consumers.
+This directory contains the .NET packages used to distribute AeonVoice to .NET consumers.
 
 ## Projects
 
-- `AeonVoice.Native`: native runtime assets package (`runtimes/<rid>/native/*`)
-- `AeonVoice`: managed wrapper package that P/Invokes the native library
+- `AeonVoice.Native`: native runtime package (`runtimes/<rid>/native/*`) plus bundled runtime resources.
+- `AeonVoice`: managed wrapper package that P/Invokes AeonVoice native libraries.
 
-## Suggested workflow
+## Local packaging workflow
 
-1. Build native libraries with your normal build.
-2. Stage `.so` files into the native package:
+1. Build native libraries:
+
+```bash
+scons -j"$(nproc)"
+```
+
+2. Stage native libraries into NuGet runtime folders:
 
 ```bash
 ./dotnet/scripts/stage-native.sh linux-x64 ./build/linux
+./dotnet/scripts/stage-native.sh linux-arm64 ./build/linux
 ```
 
 3. Pack native package:
@@ -30,25 +36,32 @@ dotnet pack dotnet/AeonVoice/AeonVoice.csproj -c Release
 
 ## Consumption
 
-From another .NET project:
+In another .NET project:
 
 ```bash
 dotnet add package AeonVoice
 ```
 
-Then use `AeonVoiceEngine` to synthesize text to PCM16 samples.
+`AeonVoice` depends on `AeonVoice.Native` automatically.
 
-## GitHub Actions
+## CI and publishing
 
-CI workflow: `.github/workflows/nuget-pack.yml`
+Workflow: `.github/workflows/nuget-pack.yml`
 
-- Builds native libraries for `linux-x64` and `linux-arm64`
+- Builds native assets for `linux-x64` and `linux-arm64`
 - Packs `AeonVoice.Native` and `AeonVoice`
 - Uploads `.nupkg` artifacts on PR/push
-- Publishes to NuGet.org on `v*` tags or manual dispatch with `publish=true`
+- Publishes on tag pushes `v*` (or manual dispatch with `publish=true`)
 
-Set repository secret `NUGET_API_KEY` before publishing.
+Trusted Publishing is used (OIDC via `NuGet/login@v1`), not static API key publishing.
 
-Publishing in CI requires:
+Required repository secret:
+- `NUGET_USER` (NuGet.org profile name used by `NuGet/login@v1`)
 
-- `NUGET_API_KEY`: NuGet.org API key with push permissions
+## Versioning behavior
+
+- Tag push `vX.Y.Z` => package version `X.Y.Z`
+- Non-tag runs => CI version `0.1.0-ci.<run_number>`
+- Tags are not auto-incremented; each release requires a new tag push.
+
+For a concrete release runbook, see [`docs/releasing.md`](../docs/releasing.md).
