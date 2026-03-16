@@ -1,3 +1,18 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 #Do not edit, file automatically generated.
 #
 #For g2p:
@@ -266,7 +281,6 @@ define UnicodeToNativeTranslit
 [%ʮ|%ʮ] -> {h} || _ ,,
 [%ʯ|%ʯ] -> {h} || _ ;
 
-
 #For tok (single char to single letter):
 define UnicodeToNativeTranslitTok 
 [%à] -> a || _ ,,
@@ -532,7 +546,6 @@ define UnicodeToNativeTranslitTok
 [%ʠ|%ʠ] -> q || _ ,,
 [%ʮ|%ʮ] -> h || _ ,,
 [%ʯ|%ʯ] -> h || _ ;
-
 
 #For spelling:
 define UnicodeSpell 
@@ -856,7 +869,6 @@ define UnicodeSpell
 [[%ʮ|%ʮ]:[obrácené há s malým hákem]]|
 [[%ʯ|%ʯ]:[obrácené há s malým hákem a ocáskem]];
 
-
 #For lseq:
 define UnicodeLseq 
 %à:[a s ts aa r k o u d o l e v a]|
@@ -1178,7 +1190,6 @@ define UnicodeLseq
 %ʭ:[z u b nj ii n aa r a z]|
 %ʮ:[o b r aa c e n ee h aa s m a l yy m h aa k e m]|
 %ʯ:[o b r aa c e n ee h aa s m a l yy m h aa k e m a o c aa s k e m];
-
 
 #For downcase:
 define UnicodeDowncase 

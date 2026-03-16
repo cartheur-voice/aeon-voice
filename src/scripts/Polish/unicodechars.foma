@@ -1,3 +1,18 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 #Do not edit, file automatically generated.
 #
 #For g2p:
@@ -725,7 +740,6 @@ define UnicodeToNativeTranslit
 [%🇾|%🇾] -> {y} || _ ,,
 [%🇿|%🇿] -> {z} || _ ;
 
-
 #For tok (single char to single letter):
 define UnicodeToNativeTranslitTok 
 [%ß|%ẞ] -> s || _ ,,
@@ -1450,7 +1464,6 @@ define UnicodeToNativeTranslitTok
 [%🇽|%🇽] -> x || _ ,,
 [%🇾|%🇾] -> y || _ ,,
 [%🇿|%🇿] -> z || _ ;
-
 
 #For spelling:
 define UnicodeSpell 
@@ -2177,7 +2190,6 @@ define UnicodeSpell
 [[%🇾|%🇾]:[igrek]]|
 [[%🇿|%🇿]:[zet]];
 
-
 #For lseq:
 define UnicodeLseq 
 %ß:[sh a r f e s e s]|
@@ -2902,7 +2914,6 @@ define UnicodeLseq
 %🇽:[i k s]|
 %🇾:[i g r e k]|
 %🇿:[z e t];
-
 
 #For downcase:
 define UnicodeDowncase 

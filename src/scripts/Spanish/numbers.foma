@@ -1,17 +1,19 @@
-# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 # This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Lesser General Public License as published by
-# the Free Software Foundation, either version 2.1 of the License, or
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Lesser General Public License for more details.
+# GNU General Public License for more details.
 
-# You should have received a copy of the GNU Lesser General Public License
+# You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# Copyright (C) 2024-2025  Mateo Cedillo <angelitomateocedillo@gmail.com>
 
 source romans.foma
 
@@ -92,7 +94,6 @@ define FemaleOrdUnit
 8:octava | 
 9:novena ; 
 
-
 define Teen 
 1:once | 
 2:doce | 
@@ -136,7 +137,6 @@ define FemaleOrdTen
 7:septagésima | 
 8:octogésima | 
 9:nonagésima ; 
-
 
 define Hundred 
 1:ciento | 
@@ -284,7 +284,6 @@ uno -> un || _ [mil|millón|billón|trillón] ;
 # And when a day starts with 01, convert it to primero.
 #{01} -> primero || .#. _ Separator months Separator Year ; 
 
-
 define NumberRules 
 Number .o. 
 #DateRule .o. 
@@ -317,7 +316,6 @@ define ZeroRule
 %0 : cero | 
 [%0 MaleOrdChar] : cerésimo | 
 [%0 FemaleOrdChar] : cerésima ; 
-
 
 regex 
 ProcNumChar | ZeroRule | NumberRules ; 

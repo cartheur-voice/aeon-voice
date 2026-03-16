@@ -1,7 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8; mode: Python; indent-tabs-mode: t -*-
-
-# Copyright (C) 2012, 2013, 2017, 2021 - 2024 Olga Yakovleva <olga@aeonvoice.org>
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,6 +12,11 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+#!/usr/bin/env python3
+# -*- coding: utf-8; mode: Python; indent-tabs-mode: t -*-
+
+# Copyright (C) 2012, 2013, 2017, 2021 - 2024 Olga Yakovleva <olga@aeonvoice.org>
 
 import collections
 import sys
@@ -1798,7 +1800,6 @@ class mgc_extractor(task):
 		for name in sorted(os.listdir(self.raw_dir)):
 			base,ext=os.path.splitext(name)
 			self.process(base)
-
 
 if __name__=="__main__":
 	for cls in [initializer,configurator,recordings_importer,labeller,f0_extracter,questions_maker,f0_range_computer,synthesizer,realigner,htk_segmenter,lpf_maker,voice_exporter,bap_extractor,mgc_extractor]:

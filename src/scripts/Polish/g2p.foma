@@ -1,17 +1,19 @@
-# Copyright (C) 2021 - 2022 Grzegorz Zlotowicz  <grzezlo@gmail.com>
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 # This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Lesser General Public License as published by
-# the Free Software Foundation, either version 2.1 of the License, or
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Lesser General Public License for more details.
+# GNU General Public License for more details.
 
-# You should have received a copy of the GNU Lesser General Public License
+# You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# Copyright (C) 2021 - 2022 Grzegorz Zlotowicz  <grzezlo@gmail.com>
 
 define InitialTranscribe 
 a:a | 
@@ -81,7 +83,6 @@ e _ a t z ,
 {po} _ [a|e|u|ih],
 #odżywić, nieodżałowany, niewspółodżywiony, współoskarżyć
 .#. (n i e) (v s p u w) o _ VowelPhonem ;
-
 
 define processMultigraphs2 
 #Convert rest of "rz" to zh phonem:
@@ -197,7 +198,6 @@ n _ b ,,
 x i e @-> k si e || _ ,,
 #quasi:
 q u a s i @-> k f a zi2 || _ ;
-
 
 define UnflagExceptions [
 dz2:[d z] |

@@ -1,3 +1,18 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 # Copyright (C) 2021  Non-Routine LLC (inq@louderpages.org)
 
 # This program is free software: you can redistribute it and/or modify
@@ -54,7 +69,6 @@ define Hundred 1:njëqind |
 7:shtatëqind |
 8:tetëqind |
 9:nëntëqind;
-
 
 define TenOrHundredSymbol ten|hnd ; 
 
@@ -280,12 +294,9 @@ define tiOrdHundred
 8:tetëqindti |
 9:nëntëqindti;
 
-
-
 # ----------------------------
 define NZDigit 1|2|3|4|5|6|7|8|9 ; 
 define Digit %0|NZDigit ; 
-
 
 source OrdinalSuffixes.foma
 
@@ -343,7 +354,6 @@ define SeparateHundreds [..] -> hnd ||  Digit _ Digit^2 ?* wnum;
 define Mark100s hnd -> hnd0 || 1 _ {00} ; 
 
 define SeparateTens [..] -> ten ||  Digit _ Digit ?* wnum; 
-
 
 define RemoveZeros %0  (TenOrHundredSymbol) @-> 0 || _ ?* wnum |.#.; 
 
@@ -435,7 +445,6 @@ SeparateTens  .o.
  .o. 	[dp:0|dec:0|wnum:0] -> || _ 
  ;
 	
-
 
 source romans.foma
 regex ConvertRomanToDecimal .o. [ArabicNumber | Time] .o. tagRules

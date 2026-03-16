@@ -1,7 +1,4 @@
-#!/usr/bin/python
-# -*- coding: utf-8; mode: Python; indent-tabs-mode: t -*-
-
-# Copyright (C) 2019  Olga Yakovleva <yakovleva.o.v@gmail.com>
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,6 +12,9 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+#!/usr/bin/python
+# -*- coding: utf-8; mode: Python; indent-tabs-mode: t -*-
 
 import sys
 import os
@@ -179,7 +179,6 @@ def write_script_source(path):
 			fp.write("[ {} : {} ]".format(format_cp(cp),format_name(name)))
 		fp.write(" ; \n\n")
 		fp.write("regex Emoji;\nwrite att " + os.path.join(tempdir.name, "emoji.att") + "\n")
-
 
 for lang_name, lang_props in sorted(languages.items()):
 	tempdir = tempfile.TemporaryDirectory()

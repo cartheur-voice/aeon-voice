@@ -1,3 +1,18 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 # Copyright (C) 2021 Non-Routine LLC.  <lp@louderpages.org>
 
 # This program is free software: you can redistribute it and/or modify
@@ -11,8 +26,6 @@
 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 
 define nogenderUnit 
 %0: нула |
@@ -99,7 +112,6 @@ define NeuterDefOrdUnit
 7:седмото  | 
 8:осмото | 
 9:деветтото ; 
-
 
 define Teen 
 1:единаесет| #, една,едно
@@ -255,7 +267,6 @@ define NeuterDefOrdTen
 8:осумдесеттото | 
 9:деведесеттото ;
 
-
 define Hundred 
 1:сто | 
 2:двесте | 
@@ -335,11 +346,9 @@ define NeuterDefOrdHundred
 
 define TenOrHundredSymbol ten|hnd ; 
 
-
 # ----------------------------
 define NZDigit 1|2|3|4|5|6|7|8|9 ; 
 define Digit %0|NZDigit ; 
-
 
 source OrdinalSuffixes.foma
 
@@ -356,7 +365,6 @@ define tagNumberTypes
 	UnformattedNumber @-> ... wnum || .#. _ (%. Digit+)  .#.  ,,   # foreign DP 1.02
 	# UnformattedNumber @-> ... wnum || .#. _ (%. [Digit^{1,2} | Digit^>3])  .#.  ,,   # foreign DP 1.02
 	[FormattedNumber|UnformattedNumber] @-> ... wnum ord || .#. _ [%. | OrdSuffix] .#. ;   #  number (has to be without commas) followed by ordinal marker
-
 
 # We expect this code to be protected from strings contain other than digits, commas and periods.
 # We will, however, catch non-numbers which has slipped through, like  20.0.1  or 20,11,111
@@ -401,7 +409,6 @@ hnd -> hnd0 || 1 _ {00} ;
 
 define SeparateTens 
 [..] -> ten ||  Digit _ Digit ?* wnum; 
-
 
 define RemoveZeros 
 %0  (TenOrHundredSymbol) @-> 0 || _ ?* wnum; 
@@ -487,7 +494,6 @@ SeparateTens  .o.
    .o. Translate   .o. [ [ord OrdSuffix]:0 -> || wnum _ .#. ]
 	
    .o. 	[dp:0|dec:0|wnum:0] -> || _;
-
 
 source romans.foma
 regex ConvertRomanToDecimal .o. ArabicNumber .o. tagRules .o. NumberRules ; 

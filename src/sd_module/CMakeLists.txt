@@ -1,5 +1,4 @@
 # -*- mode: Python; indent-tabs-mode: t; tab-width: 4 -*-
-# Copyright (C) 2012, 2018  Olga Yakovleva <yakovleva.o.v@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,7 +28,6 @@ if (NOT modulebindir)
 	set(modulebindir "${libdir}/speech-dispatcher-modules")
 endif()
 set(SPEECH_DISPATCHER_MODULES_DIR "${modulebindir}" CACHE PATH "Speech Dispatcher's module directory path")
-
 
 cpack_add_component(sd_module
 	DISPLAY_NAME "AeonVoice speech-dispatcher middleware module"

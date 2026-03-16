@@ -1,9 +1,22 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 # Process this file with autoconf to produce a configure script.
 AC_INIT(HTS-demo_CMU-ARCTIC-SLT, 2.3, hts-users@sp.nitech.ac.jp)
 AC_COPYRIGHT(Copyright 2001-2015 Nagoya Institute of Technology)
 AC_COPYRIGHT(Copyright 2001-2008 Tokyo Institute of Technology)
-
-
 
 # Checks for programs.
 # awk
@@ -20,8 +33,6 @@ AC_PATH_PROG([WC], [wc], [/usr/bin], [$PATH:/usr/bin])
 if test ! -f "$WC"; then
 	AC_MSG_ERROR(Can't find wc)
 fi
-
-
 
 # festival
 # festival search path
@@ -40,8 +51,6 @@ AC_PATH_PROG([DUMPFEATS], [dumpfeats], [:], [${fest_search_path}:$PATH])
 if test ! -f "$DUMPFEATS"; then
 	AC_MSG_ERROR(Can't find dumpfeats of festival)
 fi
-
-
 
 # SPTK commands
 # SPTK search path
@@ -253,8 +262,6 @@ if test ! -f "$IFFTR"; then
 	AC_MSG_ERROR(Can't find ifftr of SPTK)
 fi
 
-
-
 # MATLAB
 # MATLAB search path
 AC_ARG_WITH(matlab-search-path,
@@ -271,8 +278,6 @@ if test ! -f "$MATLAB"; then
 	fi
 fi
 MATLAB="$MATLAB -nodisplay -nosplash -nojvm"
-
-
 
 # STRAIGHT
 # STRAIGHT search path
@@ -307,8 +312,6 @@ if test ! -f "$STRAIGHT/exstraightsynth.p"  -a ! -f "$STRAIGHT/exstraightsynth.m
 	fi
 fi
 AC_SUBST(STRAIGHT)
-
-
 
 # HTS commands
 # HTS search path
@@ -364,8 +367,6 @@ if test ! -f "$HSMMALIGN"; then
 	AC_MSG_ERROR(Can't find HSMMAlign of HTS)
 fi
 
-
-
 # hts_engine API
 # hts_engine search path
 AC_ARG_WITH(hts-engine-search-path,
@@ -384,8 +385,6 @@ if test ! -f "$ENGINE"; then
 	fi
 fi
 
-
-
 # fullcontext label format
 AC_ARG_VAR([FULLCONTEXT_FORMAT],[full context label format (default=HTS_TTS_ENG)])
 AC_ARG_VAR([FULLCONTEXT_VERSION],[version of full context label format (default=1.0)])
@@ -400,8 +399,6 @@ fi
 
 AC_SUBST(FULLCONTEXT_FORMAT)
 AC_SUBST(FULLCONTEXT_VERSION)
-
-
 
 # speaker and dataset names
 AC_ARG_VAR([DATASET],[dataset (default=cmu_us_arctic)])
@@ -418,8 +415,6 @@ fi
 AC_SUBST(DATASET)
 AC_SUBST(SPEAKER)
 
-
-
 # version number and question set name
 AC_ARG_VAR([VER],[version number of this setting (default=1)])
 AC_ARG_VAR([QNUM],[question set number (default='001')])
@@ -435,12 +430,8 @@ fi
 AC_SUBST(VER)
 AC_SUBST(QNUM)
 
-
-
 # current directory
 AC_SUBST(PWD)
-
-
 
 # setting of mel-generalized cepstral analysis, F0 extraction, and postfiltering related settings
 # parse command-line arguments
@@ -561,8 +552,6 @@ if test $GAMMA -lt 0; then
 	AC_MSG_ERROR(Cannot use MGC coefficients if GAMMA<0!)
 fi
 
-
-
 # substitute variables
 AC_SUBST(USEUTT)
 AC_SUBST(USESTRAIGHT)
@@ -583,8 +572,6 @@ AC_SUBST(PSTFILTER_LSP)
 AC_SUBST(IMPLEN)
 AC_SUBST(MGCVSIZE)
 AC_SUBST(BAPVSIZE)
-
-
 
 # number of windows
 # parse command-line arguments
@@ -622,8 +609,6 @@ AC_SUBST(LF0STRST)
 AC_SUBST(LF0STREN)
 AC_SUBST(BAPSTRST)
 AC_SUBST(BAPSTREN)
-
-
 
 # model training settings
 # parse command-line arguments
@@ -718,7 +703,6 @@ AC_SUBST(NBAPTRANSBLK)
 AC_SUBST(MGCBANDWIDTH)
 AC_SUBST(LF0BANDWIDTH)
 AC_SUBST(BAPBANDWIDTH)
-
 
 # parameter generation algorithm settings
 # parse command-line arguments
@@ -821,8 +805,6 @@ AC_SUBST(OPTKIND)
 AC_SUBST(NOSILGV)
 AC_SUBST(CDGV)
 AC_SUBST(USEMSPF)
-
-
 
 # output data/Makefile and scripts/Config.pm
 AC_OUTPUT(data/Makefile scripts/Config.pm Makefile)

@@ -1,3 +1,18 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 #Do not edit, file automatically generated.
 #
 #For pg2p:
@@ -30,7 +45,6 @@ define NormalizeCharactersBase
 [%ź|%Ź|%ẑ|%Ẑ|%ż|%Ż|%𝐳|%𝐙|%𝑧|%𝑍|%𝒛|%𝒁|%𝓏|%𝒵|%𝔃|%𝓩|%𝔷|%𝕫|%𝖟|%𝖅|%𝗓|%𝖹|%𝘇|%𝗭|%𝘻|%𝘡|%𝙯|%𝙕|%𝚣|%𝚉|%ƶ|%Ƶ|%ȥ|%Ȥ|%ɀ|%Ɀ|%ʐ|%ʑ|%ｚ|%Ｚ] -> {z} || _ ,,
 [%ƻ] -> {2} || _ ;
 
-
 #For tok (character(s) to single letter):
 define UnicodeToNativeTranslitTok 
 [%à|%â|%ầ|%Ầ|%ấ|%Ấ|%ẫ|%Ẫ|%ẩ|%Ẩ|%ã|%ā|%Ā|%ă|%Ă|%ằ|%Ằ|%ắ|%Ắ|%ẵ|%Ẵ|%ẳ|%Ẳ|%ȧ|%Ȧ|%ǡ|%Ǡ|%ả|%Ả|%å|%ǻ|%Ǻ|%ǎ|%Ǎ|%ȁ|%Ȁ|%ȃ|%Ȃ|%ą|%Ą|%𝐚|%𝐀|%𝑎|%𝐴|%𝒂|%𝑨|%𝒶|%𝒜|%𝓪|%𝓐|%𝔞|%𝔄|%𝕒|%𝔸|%𝖆|%𝕬|%𝖺|%𝖠|%𝗮|%𝗔|%𝘢|%𝘈|%𝙖|%𝘼|%𝚊|%𝙰|%ⱥ|%Ⱥ|%ɐ|%Ɐ|%ａ|%Ａ] -> a || _ ,,
@@ -60,7 +74,6 @@ define UnicodeToNativeTranslitTok
 [%ỳ|%Ỳ|%ŷ|%Ŷ|%ỹ|%Ỹ|%ȳ|%Ȳ|%ẏ|%Ẏ|%ÿ|%Ÿ|%ỷ|%Ỷ|%ẙ|%𝐲|%𝐘|%𝑦|%𝑌|%𝒚|%𝒀|%𝓎|%𝒴|%𝔂|%𝓨|%𝔶|%𝔜|%𝕪|%𝕐|%𝖞|%𝖄|%𝗒|%𝖸|%𝘆|%𝗬|%𝘺|%𝘠|%𝙮|%𝙔|%𝚢|%𝚈|%ƴ|%Ƴ|%ɏ|%Ɏ|%ʎ|%ʏ|%ｙ|%Ｙ] -> y || _ ,,
 [%ź|%Ź|%ẑ|%Ẑ|%ż|%Ż|%𝐳|%𝐙|%𝑧|%𝑍|%𝒛|%𝒁|%𝓏|%𝒵|%𝔃|%𝓩|%𝔷|%𝕫|%𝖟|%𝖅|%𝗓|%𝖹|%𝘇|%𝗭|%𝘻|%𝘡|%𝙯|%𝙕|%𝚣|%𝚉|%ƶ|%Ƶ|%ȥ|%Ȥ|%ɀ|%Ɀ|%ʐ|%ʑ|%ｚ|%Ｚ] -> z || _ ,,
 [%ƻ] -> 2 || _ ;
-
 
 #For spelling:
 define UnicodeSpell 
@@ -799,7 +812,6 @@ define UnicodeSpell
 [[%｜]:[zvislá plná šírka]]|
 [[%～]:[vlnovka plná šírka]];
 
-
 #For lseq:
 define UnicodeLseq 
 [%à]:[aa s p iir r ii z v u k o m]|
@@ -1533,7 +1545,6 @@ define UnicodeLseq
 [%｛|%｝]:[z l o zh e n aa p iil l n aa sh ii r k a]|
 [%｜]:[z v i s l aa p iil l n aa sh ii r k a]|
 [%～]:[v iil l n o u k a p iil l n aa sh ii r k a];
-
 
 #For downcase:
 define UnicodeDowncase 

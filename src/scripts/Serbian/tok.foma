@@ -1,3 +1,18 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 # Copyright (C) 2023 Darko Milosevic  <daremc86@gmail.com>
 
 # This program is free software: you can redistribute it and/or modify
@@ -11,7 +26,6 @@
 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 
 source cyrillic_alphabet.foma
 source latin_alphabet.foma
@@ -54,7 +68,6 @@ NZDigit Digit* @-> ... num  ,,
 \[Letter | Digit | num] @-> ... sym  || _ [\num | .#.]   # again, protect Roman Numerals like V. with a dot 
 ; 
 
-
 define UntagLargeNumbers 
 num -> dig || Digit^16 _ ; 
 
@@ -72,8 +85,6 @@ lseq -> word || [.#.|word|lseq|num|dig|sym] Abbreviation _ ;
 # retrieve decimals
 define DecimalNumbers  
 [num %, sym] -> %,  || .#. Digit+  _ Digit+ num .#. ;  # pass 12,34 as a number
-
-
 
 define GeneralTokenizer 
 [[\eos]+ (eos)] .o. # Define what we expect as input, so the priority union works properly

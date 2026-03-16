@@ -1,8 +1,8 @@
-# Copyright (C) 2023 Darko Milosevic <daremc86@gmail.com>, Zvonimir Stanecic
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 2.1 of the License, or
+# the Free Software Foundation, either version 3 of the License, or
 # (at your option) any later version.
 
 # This program is distributed in the hope that it will be useful,
@@ -12,6 +12,8 @@
 
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# Copyright (C) 2023 Darko Milosevic <daremc86@gmail.com>, Zvonimir Stanecic
 
 define InitialTranscribe 
 # Now, we should define some phonemes which represents something symillar as schwa for vocalize R and L
@@ -109,7 +111,6 @@ ax0 -> iii0 || _ r ;
 
 define vowelizeL  l -> [iii0 l]  || pc _ pcx ,,
 ax0 -> iii0 || _ l ; 
-
 
 source stress.foma
 source unicodechars.foma

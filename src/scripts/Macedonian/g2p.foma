@@ -1,3 +1,18 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 # Copyright (C) 2021 Non-Routine LLC.  <lp@louderpages.org>
 
 # This program is free software: you can redistribute it and/or modify
@@ -11,8 +26,6 @@
 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
 
 # CyrAlphabet defines all letters including apostrophe for schwa and vocalic R
 # CyrA also defines a stress mark for forcing  stress
@@ -57,9 +70,7 @@ define InitialLetterMapping
 
 define InitialTranscription InitialLetterMapping @-> ; 
 
-
  source stress_in_text.foma
-
 
 # we define how to mark an unstressed vowel as stressed. 
 # Note that an 'r' phoneme between two consonants can be treated as a semi-vowel to
@@ -83,7 +94,6 @@ ax0 -> i0 || _ r ;
 # If there is still no stress, then put the stress on the first front syllable.
 # TBW:  Special -ki ending to a word moves stress to second last syllable
 # Note, double vowels exist, we treat them HERE as long vowels, not two.
-
 
 define markedStressRule StressMark tgStress -> ||   _ ;  #  convert any unstresssed vowel preceded by a stress mark
 define adverbkiStressRule tgStress -> ||  .#. noStress* _ j kj ii0 .#.;
@@ -128,7 +138,6 @@ InitialTranscription
 #.o. SoftenLRule 
 .o. vowelizeR ; 
 
-
 # To be written
 # In order to handle words which are in the stress dictionary which might be in uppercase and/or latin
 # we need to take the Downcase .o. LatinConvert out of TranscriptionRules
@@ -141,6 +150,5 @@ define Rules
   [ApplyStressDictionary .o. TranscriptionRules .o. StressRules]] 
 .o. SoftenLRule 
 	;
-
 
 regex Rules ; 

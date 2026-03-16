@@ -1,3 +1,18 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
 # Copyright (C) 2021 Non-Routine LLC.  <lp@louderpages.org>
 
 # This program is free software: you can redistribute it and/or modify
@@ -24,7 +39,6 @@ define units {I}:1|{II}:2|{III}:3|{IV}:4|{V}:5|{VI}:6|{VII}:7|{VIII}:8|{IX}:9|0:
 #define RomanNumeral [thns.u hnds.u tens.u units.u] | [V %.]|[X %.]|[I %.] - [M|D|C|L|X|V|I] ;
 # we will insist on a period after it.
 define RomanNumeral [tens.u units.u] - [X|V|I] ;
-
 
 define DD 1|2|3|4|5|6|7|8|9|%0;
 
