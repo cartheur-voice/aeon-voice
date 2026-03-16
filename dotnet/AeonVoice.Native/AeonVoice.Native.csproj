@@ -10,7 +10,7 @@
     <Company>Cartheur Research</Company>
     <Description>Native binaries for AeonVoice runtime consumption from .NET.</Description>
     <RepositoryUrl>https://github.com/cartheur-voice/aeon-voice</RepositoryUrl>
-    <PackageLicenseExpression>LGPL-2.1-or-later</PackageLicenseExpression>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.jpg</PackageIcon>
   </PropertyGroup>
