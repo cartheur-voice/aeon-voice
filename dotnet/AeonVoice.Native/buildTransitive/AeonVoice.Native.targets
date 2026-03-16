@@ -1,0 +1,12 @@
+<Project>
+  <ItemGroup>
+    <_AeonVoiceResource Include="$(MSBuildThisFileDirectory)..\contentFiles\any\any\aeonvoice\**\*" />
+  </ItemGroup>
+
+  <Target Name="AeonVoice_CopyResources" AfterTargets="Build" Condition="'@(_AeonVoiceResource)' != ''">
+    <Copy
+      SourceFiles="@(_AeonVoiceResource)"
+      DestinationFiles="@(_AeonVoiceResource->'$(OutDir)aeonvoice\%(RecursiveDir)%(Filename)%(Extension)')"
+      SkipUnchangedFiles="true" />
+  </Target>
+</Project>

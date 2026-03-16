@@ -29,8 +29,13 @@ Most users should install `AeonVoice`, which references this package automatical
 
 ## Important
 
-`AeonVoice.Native` provides binaries only.  
-Voice/language resource data is not bundled by default and must be provided separately.
+`AeonVoice.Native` provides native binaries plus a minimal runtime data bundle:
+- `data/languages/English`
+- `data/voices/leena`
+- `config/AeonVoice.conf`
+- `config/dicts/english`
+
+These files are packaged as `contentFiles` and copied to consumer output under `aeonvoice/` via `buildTransitive` targets.
 
 ## License
 

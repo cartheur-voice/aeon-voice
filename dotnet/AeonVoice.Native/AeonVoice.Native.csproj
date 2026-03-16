@@ -5,7 +5,7 @@
     <NoWarn>$(NoWarn);NU5128</NoWarn>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <PackageId>AeonVoice.Native</PackageId>
-    <Version>0.1.2</Version>
+    <Version>0.1.5</Version>
     <Authors>The Cartheur Team</Authors>
     <Company>Cartheur Research</Company>
     <Description>Native binaries for AeonVoice runtime consumption from .NET.</Description>
@@ -19,5 +19,10 @@
     <None Include="README.md" Pack="true" PackagePath="/" />
     <None Include="../../icon.jpg" Pack="true" PackagePath="/" Link="icon.jpg" />
     <None Include="runtimes/**/*" Pack="true" PackagePath="%(RecursiveDir)%(Filename)%(Extension)" />
+    <None Include="buildTransitive/AeonVoice.Native.targets" Pack="true" PackagePath="buildTransitive/AeonVoice.Native.targets" />
+    <None Include="../../data/languages/English/**/*" Pack="true" PackagePath="contentFiles/any/any/aeonvoice/data/languages/English/%(RecursiveDir)%(Filename)%(Extension)" />
+    <None Include="../../data/voices/leena/**/*" Pack="true" PackagePath="contentFiles/any/any/aeonvoice/data/voices/leena/%(RecursiveDir)%(Filename)%(Extension)" />
+    <None Include="../../config/AeonVoice.conf" Pack="true" PackagePath="contentFiles/any/any/aeonvoice/config/AeonVoice.conf" />
+    <None Include="../../config/dicts/english/**/*" Pack="true" PackagePath="contentFiles/any/any/aeonvoice/config/dicts/english/%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 </Project>

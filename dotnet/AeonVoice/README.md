@@ -29,9 +29,7 @@ dotnet add package AeonVoice
 ```csharp
 using AeonVoice;
 
-using var engine = new AeonVoiceEngine(
-    dataPath: "/path/to/aeonvoice/data",
-    configPath: "/path/to/aeonvoice/config");
+using var engine = new AeonVoiceEngine();
 
 SynthesisResult result = engine.SynthesizeToPcm16(
     text: "Hello from AeonVoice",
@@ -44,21 +42,32 @@ SynthesisResult result = engine.SynthesizeToPcm16(
 ## Voice profiles (English female)
 
 - `Leena`
-- `Helen`
-- `Daria`
 
 ## Runtime data requirements
 
-This package does **not** bundle language/voice resource packs by default.
+This package now includes a minimal runtime data set for `Leena` voice and English language resources.
 
-You must provide AeonVoice runtime resources via:
+By default, `AeonVoiceEngine` auto-detects packaged resources from the application output directory:
 
-1. Constructor paths (`dataPath`, `configPath`), or
-2. Environment variables:
-   - `AEONVOICE_DATA_PATH`
-   - `AEONVOICE_CONFIG_PATH`
+1. `./aeonvoice/data`
+2. `./aeonvoice/config`
 
-If resources are missing, engine initialization will fail.
+These files are copied automatically by NuGet build targets from `AeonVoice.Native`.
+
+If you store resources elsewhere, you can override with constructor args:
+
+```csharp
+using var engine = new AeonVoiceEngine(
+    dataPath: "/custom/path/data",
+    configPath: "/custom/path/config");
+```
+
+Or environment variables:
+
+- `AEONVOICE_DATA_PATH`
+- `AEONVOICE_CONFIG_PATH`
+
+If resources are missing or you use a different voice pack, engine initialization will fail.
 
 ## Troubleshooting
 
@@ -68,8 +77,8 @@ If resources are missing, engine initialization will fail.
 - On Linux, verify dependency resolution for `.so` files.
 
 ### Engine creation fails
-- Verify valid resource folders.
-- Ensure selected voice profile exists in your installed data.
+- Verify `aeonvoice/data` and `aeonvoice/config` exist under your app output.
+- Ensure selected voice profile exists in installed resources (`Leena` is bundled).
 
 ## License
 

@@ -1,5 +1,6 @@
 using System.Runtime.InteropServices;
 using System.Text;
+using System.IO;
 
 namespace AeonVoice;
 
@@ -16,6 +17,24 @@ public sealed class AeonVoiceEngine : IDisposable
 
     public AeonVoiceEngine(string? dataPath = null, string? configPath = null, IReadOnlyList<string>? resourcePaths = null)
     {
+        if (string.IsNullOrWhiteSpace(dataPath))
+        {
+            string packagedDataPath = Path.Combine(AppContext.BaseDirectory, "aeonvoice", "data");
+            if (Directory.Exists(packagedDataPath))
+            {
+                dataPath = packagedDataPath;
+            }
+        }
+
+        if (string.IsNullOrWhiteSpace(configPath))
+        {
+            string packagedConfigPath = Path.Combine(AppContext.BaseDirectory, "aeonvoice", "config");
+            if (Directory.Exists(packagedConfigPath))
+            {
+                configPath = packagedConfigPath;
+            }
+        }
+
         _setSampleRateCallback = OnSetSampleRate;
         _playSpeechCallback = OnPlaySpeech;
         _engineHandle = GCHandle.Alloc(this, GCHandleType.Normal);
