@@ -16,8 +16,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8; mode: Python; indent-tabs-mode: t; tab-width: 4; python-indent: 4 -*-
 
-# Copyright (C) 2022 Non-Routine LLC.  <lp@louderpages.org>
-
 import sys
 import codecs
 import struct

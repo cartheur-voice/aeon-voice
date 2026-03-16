@@ -13,20 +13,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# Copyright (C) 2021 Non-Routine LLC.  <lp@louderpages.org>
-
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as published by
-# the Free Software Foundation, version 3.0 of the License.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 define g2gMacedonian  [А|а]:a | [Е|È|Ѐ|е|è|ѐ]:e | [И|Ѝ|и|ѝ]:i | [О|о]:o |  [У|у]:u |
 [Б|б]:b | [В|в]:v | [Г|г]:g | [Д|д]:d | [Ѓ|ѓ]:{gj} | [Ж|ж]:{zh} | [З|з]:z | [Ѕ|ѕ]:{dz} | [Ј|ј]:j | [К|к]:k | [Л|л]:{ll} | [Љ|љ]:{l} | [М|м]:m  | [Н|н]:n | [Њ|њ]:{nj} | [П|п]:p | [Р|р]:r | [С|с]:s | [Т|т]:t | [Ќ|ќ]:q | [Ф|ф]:f | [Х|х]:h | [Ц|ц]:c | [Ч|ч]:ç | [Џ|џ]:{xh} | [Ш|ш]:{sh} |  [CH|ch]:ç | [KJ|kj]:q | [DZ|dz]:x | [DZH|dzh]:{xh} | [Ǵ|ǵ]:{gj}| [Đ|đ]:{gj}| [Ḱ|ḱ]:q | [Ć|ć]:ç | [Ẑ|ẑ]:x | [Ž|ž]: {zh}| [Ń|ń]:{nj} | [N̂|n̂]:{nj} | [L̂|l̂]:{lj} | [Š|š]:{sh} | [Č|č]:ç | [Ĺ|ĺ]:{lj};
 

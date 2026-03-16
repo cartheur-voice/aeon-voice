@@ -13,8 +13,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# Copyright (C) 2023 Non-Routine LLC.  <lp@louderpages.org>
-
 source digits.foma
 source graphemes.foma
 
