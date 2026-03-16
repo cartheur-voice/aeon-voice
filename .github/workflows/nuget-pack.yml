@@ -19,17 +19,9 @@ permissions:
   contents: read
 
 jobs:
-  build-native:
-    name: Build Native (${{ matrix.rid }})
-    runs-on: ${{ matrix.runner }}
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - rid: linux-x64
-            runner: ubuntu-24.04
-          - rid: linux-arm64
-            runner: ubuntu-24.04-arm
+  build-native-x64:
+    name: Build Native (linux-x64)
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
@@ -47,19 +39,57 @@ jobs:
         run: scons -j"$(nproc)"
 
       - name: Stage native runtime assets
-        run: ./dotnet/scripts/stage-native.sh "${{ matrix.rid }}" ./build/linux
+        run: ./dotnet/scripts/stage-native.sh "linux-x64" ./build/linux
 
       - name: Upload native runtime artifact
         uses: actions/upload-artifact@v4
         with:
-          name: native-${{ matrix.rid }}
-          path: dotnet/AeonVoice.Native/runtimes/${{ matrix.rid }}/native/*
+          name: native-linux-x64
+          path: dotnet/AeonVoice.Native/runtimes/linux-x64/native/*
+          if-no-files-found: error
+
+  build-native-arm64:
+    name: Build Native (linux-arm64, bullseye baseline)
+    runs-on: ubuntu-24.04-arm
+    container:
+      image: debian:11
+
+    steps:
+      - name: Install checkout prerequisites
+        run: |
+          apt-get update
+          apt-get install -y git ca-certificates
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install build dependencies
+        run: |
+          apt-get update
+          apt-get install -y \
+            build-essential \
+            pkg-config \
+            scons
+
+      - name: Build AeonVoice native libraries
+        run: scons -j"$(nproc)"
+
+      - name: Stage native runtime assets
+        run: ./dotnet/scripts/stage-native.sh "linux-arm64" ./build/linux
+
+      - name: Upload native runtime artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-linux-arm64
+          path: dotnet/AeonVoice.Native/runtimes/linux-arm64/native/*
           if-no-files-found: error
 
   pack:
     name: Pack NuGet Packages
     runs-on: ubuntu-24.04
-    needs: build-native
+    needs:
+      - build-native-x64
+      - build-native-arm64
 
     outputs:
       package_version: ${{ steps.version.outputs.package_version }}

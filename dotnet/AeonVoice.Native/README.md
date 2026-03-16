@@ -9,6 +9,10 @@ This package contains platform-specific shared libraries used by the managed `Ae
 - `linux-x64`
 - `linux-arm64`
 
+## Compatibility baseline
+
+- `linux-arm64` binaries are built with a Debian 11 (Bullseye-era) baseline toolchain to improve compatibility across older Linux ARM64 environments with older C/C++ runtimes (including Raspberry Pi and other SBC/server distributions).
+
 ## Package contents
 
 Libraries are delivered under:

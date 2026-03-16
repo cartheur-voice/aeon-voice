@@ -18,6 +18,8 @@ Current packaged runtimes:
 - `linux-x64`
 - `linux-arm64`
 
+`linux-arm64` native assets are built with a Debian 11 (Bullseye-era) baseline to improve compatibility across older Linux ARM64 runtimes (including Raspberry Pi and other SBC/server distributions).
+
 ## Install
 
 ```bash

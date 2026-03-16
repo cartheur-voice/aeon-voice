@@ -5,7 +5,7 @@
     <NoWarn>$(NoWarn);NU5128</NoWarn>
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <PackageId>AeonVoice.Native</PackageId>
-    <Version>0.1.5</Version>
+    <Version>0.1.6</Version>
     <Authors>The Cartheur Team</Authors>
     <Company>Cartheur Research</Company>
     <Description>Native binaries for AeonVoice runtime consumption from .NET.</Description>
