@@ -4,129 +4,102 @@
 
 The voice of artificial animals.
 
-## Background
+AeonVoice is a speaker-based TTS engine for giving invented creatures a believable voice.
+In Aeon, we treat toys like characters: they greet, react, mutter, narrate, and occasionally surprise you.
 
-This project has been laboring under an 8-bit voice that was fit-for-purpose but now we want to move beyond.
+This repo is both:
+- an engineering toolchain you can drop into practical production workflows
+- a creative instrument for shaping tone, rhythm, and personality in synthetic voices
 
-This repo is all about this evolution.
+It includes:
+- native engine code and runtime assets
+- language and voice resources
+- training/utility scripts
+- .NET wrapper and NuGet packaging
 
-## The theory
+## Repository layout
 
-There were two constructs we wanted to employ for this feature:
+- `src/`: native engine, modules, utilities
+- `data/`: runtime language/voice data used by synthesis
+- `config/`: runtime configuration and dictionaries
+- `doc/`: build and customization docs
+- `dotnet/`: `AeonVoice` and `AeonVoice.Native` NuGet projects
 
-1. The simplest yet powerful speech synthesis,
-2. Voices based on actual speakers and not AI.
+## Build and run (native)
 
-For the former, the selection was to leverage the [statistical parametric synthesis](https://en.wikipedia.org/wiki/Speech_synthesis#HMM-based_synthesis) model in the context of [HTS](https://hts.sp.nitech.ac.jp).
+Prerequisites (Linux):
+- `gcc/g++`
+- `make`
+- `scons`
+- `pkg-config`
 
-Voices are built from recordings of natural speech, as such they have small footprints since the statistical models are stored on the Aeon hardware. Although it could be argued the voices lack the naturalness of the synthesizers - as a matter of speech generation by combining segments of the recordings themselves - these are still intelligible and resemble the speakers who recorded the source material, which is the point to bring _humanness_ to our artificial animals as [emotional](https://emotional.toys) toys.
-
-## Documentation about the code
-
-* [Compilation](/doc/Compilation.md)
-* [Configuration](/doc/Configuration.md)
-* [Creating A Custom Voice](/doc/CustomVoice.md)
-
-Ancillary toolchain scaffold for custom voice dependencies:
-- `ancillary/toolchain-sources/`
-
-## How to create a voice
-
-For this quick workflow, "create a voice" means selecting a base speaker profile and tuning
-prosody (rate, pitch, volume) for the toy persona.
-
-If you want to train a truly new voice identity from your own recordings, follow:
-`/doc/CustomVoice.md`
-
-Prerequisites:
-
-- Linux (`amd64` or `arm64`)
-- Build tools: `gcc/g++`, `make`, `scons`, `pkg-config`
-- Runtime audio tool for quick listening: `aplay` (from `alsa-utils`)
-- For quick voice tuning (existing profiles): successful `scons -j4` build
-- For custom voice training: `scons dev=True -j4` (builds `local/bin/AeonVoice-make-hts-labels` and `local/bin/AeonVoice-transcribe-sentences`)
-- For custom voice training (external toolchain): HTK, HTS 2.2 binaries, SPTK tools, Festival, Praat
-- Python modules for training helpers: `numpy`, `scipy`, `pyworld`
-
-Custom voice training utilities are built with:
+Build:
 
 ```bash
-scons dev=True -j4
+scons -j"$(nproc)"
 ```
 
-Debian training environment helper:
-
-```bash
-src/scripts/general/setup_environment_debian --help
-```
-
-Validation helper:
-
-```bash
-src/scripts/general/check_training_env.sh src/scripts/general/training.cfg
-```
-
-For custom training, also set required fields in `src/scripts/general/training.cfg`
-(`wavedir`, `text`, `test`, `speaker`, `outdir`) as documented in `/doc/CustomVoice.md`.
-
-### 1. Build the project
-
-```bash
-scons -j4
-```
-
-### 2. Set runtime environment
+Set runtime paths:
 
 ```bash
 export AEONVOICE_DATA_PATH="$(pwd)/data"
 export LD_LIBRARY_PATH="$(pwd)/build/linux/core:$(pwd)/build/linux/audio:$(pwd)/build/linux/lib"
 ```
 
-### 3. Synthesize a candidate sample
+Quick synthesis test:
 
 ```bash
-echo "Hello, I am Henry. I am right here with you." \
-  | build/linux/test/AeonVoice-test \
-      -p Leena \
-      -r 90 \
-      -t 94 \
-      -v 108 \
-      -o /tmp/henry-sample.wav
+echo "Hello from AeonVoice" | build/linux/test/AeonVoice-test -p Leena -o /tmp/sample.wav
 ```
 
-Parameters:
-- `-p`: voice profile (examples: `Leena`, `Helen`, `Daria`, `Alan`, `Ksp`, `Evgeniy-Eng`)
-- `-r`: rate (100 is default; lower is slower)
-- `-t`: pitch (100 is default; lower is deeper)
-- `-v`: volume (100 is default)
+## Voice/language work
 
-### 4. Listen and iterate
+For custom voices and training pipeline details, see:
+- [Compilation](doc/Compilation.md)
+- [Configuration](doc/Configuration.md)
+- [Creating A Custom Voice](doc/CustomVoice.md)
+
+## .NET and NuGet
+
+Packages:
+- `AeonVoice.Native`: native runtime package
+- `AeonVoice`: managed wrapper package
+
+Local packing:
 
 ```bash
-aplay /tmp/henry-sample.wav
+./dotnet/scripts/stage-native.sh linux-x64 ./build/linux
+./dotnet/scripts/stage-native.sh linux-arm64 ./build/linux
+
+dotnet pack dotnet/AeonVoice.Native/AeonVoice.Native.csproj -c Release
+dotnet pack dotnet/AeonVoice/AeonVoice.csproj -c Release
 ```
 
-Adjust `-r/-t/-v` until the tone matches the character.
+Consumer install:
 
-### 5. Save reusable voice artifacts
+```bash
+dotnet add package AeonVoice
+```
 
-Store approved samples in-repo so they can be reused by other codebases.
+## Release process
 
-Current example set:
-- `docs/voice-samples/henry/README.md`
-- `docs/voice-samples/henry/*.wav`
+NuGet packaging and publishing is handled by:
+- `.github/workflows/nuget-pack.yml`
 
-## .NET / NuGet packaging
+Behavior:
+- push to branch/PR: build + pack artifacts
+- push tag `v*`: build + pack + publish to NuGet.org
+- manual dispatch with `publish=true`: publish packed artifacts
 
-A starter .NET packaging scaffold is available in `dotnet/`:
+Versioning:
+- release version comes from the tag (for example `v0.1.7` -> `0.1.7`)
+- non-tag runs use CI versions (`0.1.0-ci.<run_number>`)
+- tags are not auto-incremented; each release requires pushing a new tag
 
-- `dotnet/AeonVoice.Native` for native runtime assets
-- `dotnet/AeonVoice` for the managed wrapper
+Trusted Publishing:
+- workflow uses OIDC (`NuGet/login@v1`)
+- requires repo secret `NUGET_USER`
 
-See `dotnet/README.md` for staging native libraries and running `dotnet pack`.
+## License
 
-Release flow:
-
-1. Push a tag like `v0.1.0`.
-2. Workflow `.github/workflows/nuget-pack.yml` builds native runtimes and packs both NuGet packages.
-3. If repository secret `NUGET_API_KEY` is set, it publishes to NuGet.org automatically for `v*` tags.
+This repository is licensed under GNU GPL v3 (see `LICENSE`).
