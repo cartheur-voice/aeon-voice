@@ -1,10 +1,5 @@
-## License ##
-This voice is distributed under [the CMU license](https://www.festvox.org), along with the recordings.
+## Leena
 
-## Team ##
-* AeonVoice contributors
+Mid-forties American-English female
 
-## Contact us ##
-* E-mail: [aeonvoice@tiflo.org](mailto:aeonvoice@tiflo.org)
-* Phone: [+7 952 280-89-89](tel:+79522808989)
-* Website: [AeonVoice.su](https://aeonvoice.su)
+

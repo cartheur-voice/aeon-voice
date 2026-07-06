@@ -41,6 +41,26 @@ SynthesisResult result = engine.SynthesizeToPcm16(
 `result.SampleRate` is the output sample rate.  
 `result.Samples` is signed 16-bit mono PCM.
 
+## Tuning Leena
+
+The packaged runtime includes slightly gentler defaults for `Leena` so the out-of-box voice lands less sharply.
+
+If you want a softer delivery for a specific utterance, pass synthesis options:
+
+```csharp
+SynthesisResult result = engine.SynthesizeToPcm16(
+    text: "Hello from AeonVoice",
+    voiceProfile: "Leena",
+    options: new SynthesisOptions
+    {
+        RelativeRate = 0.94,
+        RelativePitch = 0.97,
+        RelativeVolume = 1.04
+    });
+```
+
+These are relative multipliers where `1.0` is neutral.
+
 ## Voice profiles (English female)
 
 - `Leena`

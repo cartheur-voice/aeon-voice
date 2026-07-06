@@ -80,10 +80,17 @@ public sealed class AeonVoiceEngine : IDisposable
 
     public SynthesisResult SynthesizeToPcm16(string text, string voiceProfile)
     {
+        return SynthesizeToPcm16(text, voiceProfile, options: null);
+    }
+
+    public SynthesisResult SynthesizeToPcm16(string text, string voiceProfile, SynthesisOptions? options)
+    {
         ThrowIfDisposed();
 
         ArgumentException.ThrowIfNullOrWhiteSpace(text);
         ArgumentException.ThrowIfNullOrWhiteSpace(voiceProfile);
+        options ??= new SynthesisOptions();
+        options.Validate();
 
         _sampleRate = 0;
         _samples.Clear();
@@ -103,9 +110,9 @@ public sealed class AeonVoiceEngine : IDisposable
                 absolute_rate = 0,
                 absolute_pitch = 0,
                 absolute_volume = 0,
-                relative_rate = 1,
-                relative_pitch = 1,
-                relative_volume = 1,
+                relative_rate = options.RelativeRate,
+                relative_pitch = options.RelativePitch,
+                relative_volume = options.RelativeVolume,
                 punctuation_mode = NativeMethods.AeonVoicePunctuationMode.Default,
                 punctuation_list = IntPtr.Zero,
                 capitals_mode = NativeMethods.AeonVoiceCapitalsMode.Default,

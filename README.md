@@ -64,6 +64,7 @@ For custom voices and training pipeline details, see:
 - [Compilation](doc/Compilation.md)
 - [Configuration](doc/Configuration.md)
 - [Creating A Custom Voice](doc/CustomVoice.md)
+- [Engine And Config Reference](docs/engine-config-reference.md)
 
 ## .NET and NuGet
 
