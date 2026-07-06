@@ -35,6 +35,7 @@
 # Build directory
 
 build/
+work/
 
 # Boost unpacked
 external/libs/boost/include/boost/
