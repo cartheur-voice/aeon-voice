@@ -265,6 +265,7 @@ def export_subset(args: argparse.Namespace) -> int:
             entry = job["entry"]
             transcript = job["transcript"]
             source_path = entry.source_audio_path
+            job["wav_path"].parent.mkdir(parents=True, exist_ok=True)
 
             if dataset_root is None:
                 with tarfile.open(args.tar_path, "r:gz") as archive:
