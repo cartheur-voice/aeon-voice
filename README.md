@@ -66,6 +66,7 @@ For custom voices and training pipeline details, see:
 - [Creating A Custom Voice](doc/CustomVoice.md)
 - [Neural Voice Plan](docs/neural-voice-plan.md)
 - [Neural Voice Architecture Notes](docs/neural-voice-architecture.md)
+- [Neural Pilot Corpus](docs/neural-pilot-corpus.md)
 
 ## .NET and NuGet
 
