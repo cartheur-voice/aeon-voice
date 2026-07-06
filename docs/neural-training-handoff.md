@@ -58,6 +58,45 @@ The run stopped cleanly at:
 - TensorBoard events: `work/piper-runs/leena-pilot/lightning_logs/version_0/events.out.tfevents.*`
 - feature/cache outputs: `work/piper-cache/leena-pilot/`
 
+## Sample Rendering Result
+
+A direct sample was rendered from the checkpoint without using ONNX export.
+
+- helper script: `scripts/synthesize-piper-checkpoint.py`
+- rendered sample: `work/piper-export/leena-pilot-step10-sample.wav`
+- sample text: `Hello, I am Leena. This is our first neural voice pilot sample.`
+- sample format: mono, `24000` Hz, about `2.645` seconds
+
+Observed result:
+
+- the sample is only a buzz/noise-like output
+- this is consistent with a `10`-step checkpoint that has not learned speech yet
+- the synthesis path itself does work, which is still useful progress
+
+## Exporter Status
+
+The normal `Piper` ONNX export path currently fails in this environment.
+
+Attempted path:
+
+```bash
+python -m piper.train.export_onnx \
+  --checkpoint work/piper-runs/leena-pilot/lightning_logs/version_0/checkpoints/epoch=0-step=10.ckpt \
+  --output-file work/piper-export/leena-pilot-step10.onnx
+```
+
+What happened:
+
+- first failure: missing Python package `onnxscript`
+- after installing `onnxscript`, export still failed
+- current blocker: Torch ONNX export compatibility / symbolic guard failure during export
+
+Practical consequence:
+
+- checkpoint synthesis works
+- ONNX export is not yet reliable on this machine with the current Torch/Piper combination
+- next-session evaluation can continue using direct checkpoint rendering until export is fixed
+
 ## Machine Context
 
 The current machine reports:
@@ -90,3 +129,6 @@ Checkpoint to resume from:
 - The current pilot corpus is a proxy source voice, not the intended final Leena voice.
 - `work/` is ignored by git, so training artifacts are local-only unless explicitly exported.
 - There is also a local untracked `_skbuild/` build artifact in the repo root from the earlier native extension build.
+- `scripts/synthesize-piper-checkpoint.py` is currently an uncommitted helper script in the repo and should be kept if direct checkpoint sampling remains part of the workflow.
+- Arthur's target character is now documented in `docs/arthur-voice-profile.md`.
+- Arthur's execution strategy is now documented in `docs/arthur-voice-plan.md`.
