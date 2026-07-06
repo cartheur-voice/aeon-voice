@@ -35,6 +35,8 @@
 # Build directory
 
 build/
+work/
+_skbuild/
 
 # Boost unpacked
 external/libs/boost/include/boost/
