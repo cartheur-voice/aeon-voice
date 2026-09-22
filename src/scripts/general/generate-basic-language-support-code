@@ -21,7 +21,7 @@ import os.path
 import datetime
 
 license="""\
-/* Copyright (C) {year}  Olga Yakovleva <yakovleva.o.v@gmail.com> */
+/*  */
 
 """
 

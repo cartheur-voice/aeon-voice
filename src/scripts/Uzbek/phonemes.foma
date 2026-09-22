@@ -13,8 +13,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# Copyright (C) 2021  Olga Yakovleva <olga@aeonvoice.org>
-
 define FrontVowel "/a0" | "/aa0" | "/e0" | "/ee0" | "/i0" | "/ii0" ; 
 define Vowel FrontVowel | "/iy0" | "/iiy0" |  "/oa0" | "/ooa0" | "/ou0" | "/oou0" | "/u0" | "/uu0" | "/i?" | "/ii?" ; 
 

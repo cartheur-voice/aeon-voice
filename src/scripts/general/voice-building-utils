@@ -16,8 +16,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8; mode: Python; indent-tabs-mode: t -*-
 
-# Copyright (C) 2012, 2013, 2017, 2021 - 2024 Olga Yakovleva <olga@aeonvoice.org>
-
 import collections
 import sys
 import os
