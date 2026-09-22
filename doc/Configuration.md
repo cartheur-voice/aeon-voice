@@ -92,7 +92,7 @@ Examples:
 ```ini
 default_volume=0.8
 languages.english.default_rate=1.5
-voices.alan.default_pitch=0.9
+voices.toptygin.default_pitch=0.9
 ```
 
 #### Using the Sonic library
@@ -112,10 +112,10 @@ installed English voice for clients that support profile selection. The engine
 also makes an individual profile available for each installed voice.
 
 The `voice_profiles` setting is a comma-separated list of profile names. The
-included configuration declares the `Alan` and `Leena` profiles:
+included configuration declares the `Toptygin` and `Leena` profiles:
 
 ```ini
-voice_profiles=Alan,Leena
+voice_profiles=Toptygin,Leena
 ```
 
 ### Speech quality
@@ -197,9 +197,9 @@ cap_pitch_factor=1.3
 
 ### Disabling individual languages and voices
 
-You can disable English or an individual voice. The following example disables English and Alan:
+You can disable English or an individual voice. The following example disables English and Toptygin:
 
 ```ini
 languages.english.enabled=false
-voices.alan.enabled=false
+voices.toptygin.enabled=false
 ```

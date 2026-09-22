@@ -2,8 +2,6 @@
 
 [![NuGet Pack](https://github.com/cartheur-voice/aeon-voice/actions/workflows/nuget-pack.yml/badge.svg)](https://github.com/cartheur-voice/aeon-voice/actions/workflows/nuget-pack.yml)
 
-The voice of artificial animals.
-
 AeonVoice is a speaker-based TTS engine for giving invented creatures a believable voice.
 In Aeon, we treat toys like characters: they greet, react, mutter, narrate, and occasionally surprise you.
 
@@ -55,7 +53,7 @@ export LD_LIBRARY_PATH="$(pwd)/build/linux/core:$(pwd)/build/linux/audio:$(pwd)/
 Quick synthesis test:
 
 ```bash
-echo "Hello from AeonVoice" | build/linux/test/AeonVoice-test -p Alan -o /tmp/sample.wav
+echo "Hello from AeonVoice" | build/linux/test/AeonVoice-test -p Toptygin -o /tmp/sample.wav
 ```
 
 ## Voice work

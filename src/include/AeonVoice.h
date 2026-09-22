@@ -85,7 +85,7 @@ typedef struct
   typedef struct
   {
     /* One of the predefined English voice profiles or a custom voice name, */
-    /* for example "Alan". */
+    /* for example "Toptygin". */
     const char* voice_profile;
     /* The values must be between -1 and 1. */
     /*     They are normalized this way, because users can set different */

@@ -16,17 +16,17 @@ They are meant to identify which existing male English voice is the best startin
 
 ## Current Baseline Decision
 
-`Alan` is the chosen first baseline for Arthur on `main`.
+`Toptygin` is the chosen first baseline for Arthur on `main`.
 
-`arthur-steady-alan.wav` is the chosen direction inside the Alan set.
+`arthur-steady-toptygin.wav` is the chosen direction inside the Toptygin set.
 
 That means:
 
-- `arthur-steady-alan.wav` is the primary Arthur reference
-- the other Alan samples are comparison and tuning history
-- the next tuning pass should focus on refining `Alan` toward the Arthur profile
+- `arthur-steady-toptygin.wav` is the primary Arthur reference
+- the other Toptygin samples are comparison and tuning history
+- the next tuning pass should focus on refining `Toptygin` toward the Arthur profile
 
-After the first pass, the two Alan variants sounded too similar.
+After the first pass, the two Toptygin variants sounded too similar.
 The second pass therefore uses larger tuning jumps so the character differences are easier to hear.
 
 ## Evaluation Text
@@ -39,36 +39,36 @@ Hello, I am Arthur. I am glad to meet you. We can explore together, one small st
 
 ## Files
 
-- `docs/voice-samples/arthur/arthur-bright-alan.wav`
-- `docs/voice-samples/arthur/arthur-calm-alan.wav`
-- `docs/voice-samples/arthur/arthur-quick-alan.wav`
-- `docs/voice-samples/arthur/arthur-steady-alan.wav`
-- `docs/voice-samples/arthur/arthur-robot-alan.wav`
+- `docs/voice-samples/arthur/arthur-bright-toptygin.wav`
+- `docs/voice-samples/arthur/arthur-calm-toptygin.wav`
+- `docs/voice-samples/arthur/arthur-quick-toptygin.wav`
+- `docs/voice-samples/arthur/arthur-steady-toptygin.wav`
+- `docs/voice-samples/arthur/arthur-robot-toptygin.wav`
 
 ## Settings Used
 
-- `arthur-bright-alan.wav`
-  - profile: `Alan`
+- `arthur-bright-toptygin.wav`
+  - profile: `Toptygin`
   - rate: `102`
   - pitch: `108`
   - volume: `104`
-- `arthur-calm-alan.wav`
-  - profile: `Alan`
+- `arthur-calm-toptygin.wav`
+  - profile: `Toptygin`
   - rate: `98`
   - pitch: `104`
   - volume: `105`
-- `arthur-quick-alan.wav`
-  - profile: `Alan`
+- `arthur-quick-toptygin.wav`
+  - profile: `Toptygin`
   - rate: `112`
   - pitch: `116`
   - volume: `102`
-- `arthur-steady-alan.wav`
-  - profile: `Alan`
+- `arthur-steady-toptygin.wav`
+  - profile: `Toptygin`
   - rate: `90`
   - pitch: `98`
   - volume: `106`
-- `arthur-robot-alan.wav`
-  - profile: `Alan`
+- `arthur-robot-toptygin.wav`
+  - profile: `Toptygin`
   - rate: `106`
   - pitch: `112`
   - volume: `100`
@@ -84,17 +84,17 @@ The settings bias Arthur toward:
 
 ## Next Step
 
-Next session should start from `arthur-steady-alan.wav` and move from sample selection into package preparation.
+Next session should start from `arthur-steady-toptygin.wav` and move from sample selection into package preparation.
 
 Current outcome:
 
-1. base voice chosen: `Alan`
+1. base voice chosen: `Toptygin`
 2. first-pass observation: `bright` and `calm` were too similar
 3. chosen second-pass direction: `steady`
 
 Recommended next-session tasks:
 
-1. clone the `Alan` baseline into an Arthur-specific package direction
+1. clone the `Toptygin` baseline into an Arthur-specific package direction
 2. decide whether Arthur needs one more small tuning pass around the steady settings
 3. define the package shape the robot software will consume
 4. keep the output suitable for public reuse by other projects

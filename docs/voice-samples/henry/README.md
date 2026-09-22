@@ -11,7 +11,7 @@ Female:
 - `docs/voice-samples/henry/henry-warm-sleepy-daria.wav`
 
 Male:
-- `docs/voice-samples/henry/henry-warm-gentle-alan.wav`
+- `docs/voice-samples/henry/henry-warm-gentle-toptygin.wav`
 - `docs/voice-samples/henry/henry-warm-storytime-ksp.wav`
 - `docs/voice-samples/henry/henry-warm-sleepy-evgeniy-eng.wav`
 
@@ -37,8 +37,8 @@ Male:
   - rate: `86`
   - pitch: `92`
   - volume: `106`
-- `henry-warm-gentle-alan.wav`
-  - profile: `Alan`
+- `henry-warm-gentle-toptygin.wav`
+  - profile: `Toptygin`
   - rate: `90`
   - pitch: `92`
   - volume: `108`

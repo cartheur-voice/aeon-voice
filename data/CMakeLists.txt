@@ -14,7 +14,7 @@ createLangCodeToNameMapping()
 
 set("VOICE_evgeniy-eng_LANG" "en")
 set("VOICE_daria_LANG" "en")
-set("VOICE_alan_LANG" "en")
+set("VOICE_toptygin_LANG" "en")
 set("VOICE_bdl_LANG" "en")
 set("VOICE_helen_LANG" "en")
 set("VOICE_ksp_LANG" "en")
