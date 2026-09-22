@@ -44,6 +44,18 @@ dotnet add package AeonVoice
 
 `AeonVoice` depends on `AeonVoice.Native` automatically.
 
+The package smoke sample synthesizes the bundled `Leena` voice, verifies that
+the native and data assets are available, and writes a WAV file. To run it
+against locally packed packages:
+
+```bash
+dotnet restore dotnet/samples/AeonVoice.SmokeTest/AeonVoice.SmokeTest.csproj \
+  --source ./artifacts/nupkgs --source https://api.nuget.org/v3/index.json \
+  /p:AeonVoiceVersion=<version> /p:RuntimeIdentifier=linux-x64
+dotnet run --project dotnet/samples/AeonVoice.SmokeTest/AeonVoice.SmokeTest.csproj \
+  --no-restore --runtime linux-x64 /p:AeonVoiceVersion=<version>
+```
+
 ## CI and publishing
 
 Workflow: `.github/workflows/nuget-pack.yml`

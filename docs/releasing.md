@@ -11,6 +11,7 @@ CI workflow: `.github/workflows/nuget-pack.yml`
 - You are on `main` with a clean working tree.
 - Changes to be released are committed and pushed.
 - Repository secret `NUGET_USER` is configured for Trusted Publishing.
+- A consumer-facing release note exists at `docs/releases/<version>.md`.
 
 ## Versioning rules
 
@@ -29,18 +30,21 @@ git checkout main
 git pull --ff-only origin main
 ```
 
-2. Create and push release tag:
+2. Review the release note for the version being shipped. It should describe
+   user-visible changes, upgrade guidance, and release verification.
+
+3. Create and push release tag:
 
 ```bash
 git tag -a v0.1.8 -m "NuGet release v0.1.8"
 git push origin v0.1.8
 ```
 
-3. Monitor workflow:
+4. Monitor workflow:
 - Open GitHub Actions and verify `NuGet Pack` run for the new tag.
 - Confirm `publish` job succeeds.
 
-4. Validate on NuGet:
+5. Validate on NuGet:
 - Confirm both `AeonVoice` and `AeonVoice.Native` show the new version.
 
 ## Optional local verification before tagging

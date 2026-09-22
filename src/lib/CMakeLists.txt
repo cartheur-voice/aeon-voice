@@ -15,6 +15,9 @@
 
 add_library(AeonVoice SHARED "${CMAKE_CURRENT_SOURCE_DIR}/lib.cpp")
 set_target_properties(AeonVoice PROPERTIES VERSION "${AEONVOICE_VERSION}" SOVERSION "${AEONVOICE_VERSION_MAJOR}")
+if(UNIX AND NOT APPLE)
+	set_target_properties(AeonVoice PROPERTIES BUILD_RPATH "$ORIGIN" INSTALL_RPATH "$ORIGIN")
+endif()
 harden("AeonVoice")
 add_sanitizers("AeonVoice")
 target_include_directories(AeonVoice PRIVATE "${INCLUDE_DIR}" "${HTS_LABELS_KIT_INCLUDES}")

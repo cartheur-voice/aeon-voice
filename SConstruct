@@ -137,9 +137,13 @@ def create_base_env(user_vars):
     env_args["package_name"]="AeonVoice"
     env_args["CPPDEFINES"]=[]
     env=Environment(**env_args)
+    if env["PLATFORM"] != "win32":
+        # NuGet deploys the shared libraries as siblings under runtimes/<rid>/native.
+        # Keep the literal dollar sign for the ELF dynamic loader, not SCons expansion.
+        env["RPATH"] = "'$$$$ORIGIN'"
     if env["dev"]:
         env["prefix"]=os.path.abspath("local")
-        env["RPATH"]=env.Dir("$libdir").abspath
+        env.AppendUnique(RPATH=[env.Dir("$libdir").abspath])
     env["package_version"]=get_version(env["release"])
     env.Append(CPPDEFINES=("PACKAGE",env.subst(r'\"$package_name\"')))
     env["libcore"]="AeonVoice_core"

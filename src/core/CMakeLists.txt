@@ -34,6 +34,9 @@ endif()
 
 add_library(AeonVoice_core SHARED "${SRCFILES}")
 set_target_properties(AeonVoice_core PROPERTIES VERSION "${RHVOICE_VERSION}" SOVERSION "${RHVOICE_VERSION_MAJOR}")
+if(UNIX AND NOT APPLE)
+	set_target_properties(AeonVoice_core PROPERTIES BUILD_RPATH "$ORIGIN" INSTALL_RPATH "$ORIGIN")
+endif()
 set(libs2link "libhts_engine")
 target_include_directories(AeonVoice_core PUBLIC "${INCLUDE_DIR}" PRIVATE "${HTS_LABELS_KIT_INCLUDES}")
 

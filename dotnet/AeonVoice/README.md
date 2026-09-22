@@ -36,10 +36,16 @@ using var engine = new AeonVoiceEngine();
 SynthesisResult result = engine.SynthesizeToPcm16(
     text: "Hello from AeonVoice",
     voiceProfile: "Leena");
+
+result.WriteWave("hello.wav");
 ```
 
 `result.SampleRate` is the output sample rate.  
 `result.Samples` is signed 16-bit mono PCM.
+
+`WriteWave` writes this PCM as a standard mono PCM16 WAV file. Playback remains
+application-owned; on Linux, for example, `aplay hello.wav` is a convenient
+smoke-test player.
 
 ## Voice profiles (English female)
 
