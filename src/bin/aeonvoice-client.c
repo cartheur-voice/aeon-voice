@@ -52,7 +52,7 @@ static void show_version(const char *progname)
 static void show_help(const char *progname)
 {
   show_version(progname);
-  printf("a speech synthesizer for Russian language\n");
+  printf("an English speech synthesizer\n");
   printf("usage: %s [options]\n", progname);
   printf("reads text from a file or from stdin (expects UTF-8 encoding)\n");
   printf("writes speech output to a file or to stdout\n");

@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_SAMPLE_RATE_HPP
-#define RHVOICE_SAMPLE_RATE_HPP
+#ifndef AEONVOICE_SAMPLE_RATE_HPP
+#define AEONVOICE_SAMPLE_RATE_HPP
 
 #include "property.hpp"
 

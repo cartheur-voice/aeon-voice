@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_TONE_HPP
-#define RHVOICE_TONE_HPP
+#ifndef AEONVOICE_TONE_HPP
+#define AEONVOICE_TONE_HPP
 
 #include <cmath>
 #include <vector>

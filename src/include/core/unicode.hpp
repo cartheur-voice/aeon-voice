@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_UNICODE_HPP
-#define RHVOICE_UNICODE_HPP
+#ifndef AEONVOICE_UNICODE_HPP
+#define AEONVOICE_UNICODE_HPP
 
 #include "utf8.h"
 

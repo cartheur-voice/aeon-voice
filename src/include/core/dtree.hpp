@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_DTREE_HPP
-#define RHVOICE_DTREE_HPP
+#ifndef AEONVOICE_DTREE_HPP
+#define AEONVOICE_DTREE_HPP
 
 #include <stdint.h>
 #include <fstream>

@@ -21,13 +21,13 @@ import os.path
 import datetime
 
 license="""\
-/*  */
+/* */
 
 """
 
 hpp=license+"""
-#ifndef RHVOICE_{NAME}_HPP
-#define RHVOICE_{NAME}_HPP
+#ifndef AEONVOICE_{NAME}_HPP
+#define AEONVOICE_{NAME}_HPP
 
 #include \"str.hpp\"
 #include \"fst.hpp\"

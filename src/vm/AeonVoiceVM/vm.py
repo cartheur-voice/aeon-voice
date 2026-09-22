@@ -256,7 +256,7 @@ def update():
 def main():
     global state_dir, pkg_dir_file, pkg_dir, args, inst_dir, inst_info_file, data_dir
     get_args()
-    var_state_dir=os.environ.get("RHVOICE_STATE_DIR", "/var/lib/AeonVoice")
+    var_state_dir=os.environ.get("AEONVOICE_STATE_DIR", "/var/lib/AeonVoice")
     state_dir=pathlib.Path(var_state_dir)
     mkdir(state_dir)
     pkg_dir_file=state_dir / "packages.json"

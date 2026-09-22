@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_EXCEPTION_HPP
-#define RHVOICE_EXCEPTION_HPP
+#ifndef AEONVOICE_EXCEPTION_HPP
+#define AEONVOICE_EXCEPTION_HPP
 
 #include <stdexcept>
 #include <string>

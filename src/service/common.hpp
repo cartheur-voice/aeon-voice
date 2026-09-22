@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_SERVICE_COMMON_HPP
-#define RHVOICE_SERVICE_COMMON_HPP
+#ifndef AEONVOICE_SERVICE_COMMON_HPP
+#define AEONVOICE_SERVICE_COMMON_HPP
 
 #include <glibmm.h>
 

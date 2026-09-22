@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_SPEECH_PROCESSOR_HPP
-#define RHVOICE_SPEECH_PROCESSOR_HPP
+#ifndef AEONVOICE_SPEECH_PROCESSOR_HPP
+#define AEONVOICE_SPEECH_PROCESSOR_HPP
 
 #include <vector>
 #include "client.hpp"

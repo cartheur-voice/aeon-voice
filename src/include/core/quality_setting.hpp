@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_QUALITY_SETTING_HPP
-#define RHVOICE_QUALITY_SETTING_HPP
+#ifndef AEONVOICE_QUALITY_SETTING_HPP
+#define AEONVOICE_QUALITY_SETTING_HPP
 
 #include "property.hpp"
 namespace AeonVoice

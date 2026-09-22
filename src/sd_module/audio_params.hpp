@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_SD_AUDIO_PARAMS_HPP
-#define RHVOICE_SD_AUDIO_PARAMS_HPP
+#ifndef AEONVOICE_SD_AUDIO_PARAMS_HPP
+#define AEONVOICE_SD_AUDIO_PARAMS_HPP
 
 #include "core/config.hpp"
 

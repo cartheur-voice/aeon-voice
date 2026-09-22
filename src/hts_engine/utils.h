@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_UTILS_H
-#define RHVOICE_UTILS_H
+#ifndef AEONVOICE_UTILS_H
+#define AEONVOICE_UTILS_H
 
 #include <stdio.h>
 #ifdef WIN32

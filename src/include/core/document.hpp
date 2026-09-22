@@ -33,10 +33,9 @@
 #include "params.hpp"
 #include "quality_setting.hpp"
 #include "emoji.hpp"
-#include "english_id.hpp"
 
-#ifndef RHVOICE_DOCUMENT_HPP
-#define RHVOICE_DOCUMENT_HPP
+#ifndef AEONVOICE_DOCUMENT_HPP
+#define AEONVOICE_DOCUMENT_HPP
 namespace AeonVoice
 {
   typedef std::pair<language_list::const_iterator,voice_list::const_iterator> language_voice_pair;
@@ -263,7 +262,6 @@ namespace AeonVoice
     double rate,pitch,volume;
     language_voice_pair language_and_voice;
     std::size_t length,num_tokens;
-    english_id en_id;
 
     static const std::size_t max_token_length=200;
     static const std::size_t max_sentence_length=1000;

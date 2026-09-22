@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_SSML_HPP
-#define RHVOICE_SSML_HPP
+#ifndef AEONVOICE_SSML_HPP
+#define AEONVOICE_SSML_HPP
 
 #include <stack>
 #include <sstream>

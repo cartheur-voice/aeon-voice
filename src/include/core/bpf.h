@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_BPF_H
-#define RHVOICE_BPF_H
+#ifndef AEONVOICE_BPF_H
+#define AEONVOICE_BPF_H
 #ifdef __cplusplus
 extern "C" {
   #endif

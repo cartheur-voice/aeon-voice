@@ -212,7 +212,7 @@ namespace opt
   void show_help()
   {
     show_version();
-    cout << "a speech synthesizer for Russian language\n";
+    cout << "an English speech synthesizer\n";
     cout << "usage: AeonVoice [options]\n";
     cout << "reads text from a file or from stdin (expects UTF-8 encoding)\n";
     cout << "writes speech output to a file or to stdout\n";

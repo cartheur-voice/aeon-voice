@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_SD_LIST_VOICES_HPP
-#define RHVOICE_SD_LIST_VOICES_HPP
+#ifndef AEONVOICE_SD_LIST_VOICES_HPP
+#define AEONVOICE_SD_LIST_VOICES_HPP
 
 #include "command.hpp"
 
