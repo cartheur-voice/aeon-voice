@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_EVENT_LOGGER_HPP
-#define RHVOICE_EVENT_LOGGER_HPP
+#ifndef AEONVOICE_EVENT_LOGGER_HPP
+#define AEONVOICE_EVENT_LOGGER_HPP
 
 #include <string>
 #include "AeonVoice_common.h"

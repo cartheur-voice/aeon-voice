@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_CURL_HPP
-#define RHVOICE_CURL_HPP
+#ifndef AEONVOICE_CURL_HPP
+#define AEONVOICE_CURL_HPP
 
 #include <memory>
 #include <functional>

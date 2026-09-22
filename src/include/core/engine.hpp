@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_ENGINE_HPP
-#define RHVOICE_ENGINE_HPP
+#ifndef AEONVOICE_ENGINE_HPP
+#define AEONVOICE_ENGINE_HPP
 
 #include <string>
 #include <map>

@@ -22,16 +22,7 @@
 #include "core/engine.hpp"
 #include "core/item.hpp"
 #include "core/language.hpp"
-#include "core/russian.hpp"
 #include "core/english.hpp"
-#include "core/esperanto.hpp"
-#include "core/georgian.hpp"
-#include "core/ukrainian.hpp"
-#include "core/kyrgyz.hpp"
-#include "core/tatar.hpp"
-#include "core/brazilian_portuguese.hpp"
-#include "core/macedonian.hpp"
-#include "core/vietnamese.hpp"
 #include "core/stress_pattern.hpp"
 #include "core/event_logger.hpp"
 #include "core/emoji.hpp"
@@ -1948,16 +1939,7 @@ const language* language::get_item_second_language(const item& i) const
   language_list::language_list(const std::vector<std::string>& language_paths,const std::string& userdict_path,const event_logger& logger)
   {
     const std::string tag="language_list";
-    register_language<russian_info>("Russian",2);
     register_language<english_info>("English",2);
-    register_language<esperanto_info>("Esperanto",1);
-    register_language<georgian_info>("Georgian",1);
-    register_language<ukrainian_info>("Ukrainian",1);
-    register_language<kyrgyz_info>("Kyrgyz",1);
-    register_language<tatar_info>("Tatar",1);
-    register_language<brazilian_portuguese_info>("Brazilian-Portuguese",1);
-    register_language<macedonian_info>("Macedonian",1);
-register_language<vietnamese_info>("Vietnamese",1);
     for(std::vector<std::string>::const_iterator it1=language_paths.begin();it1!=language_paths.end();++it1)
       {
         logger.log(tag,AeonVoice_log_level_info,std::string("Path: ")+(*it1));

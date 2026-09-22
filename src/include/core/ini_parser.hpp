@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_INI_PARSER_HPP
-#define RHVOICE_INI_PARSER_HPP
+#ifndef AEONVOICE_INI_PARSER_HPP
+#define AEONVOICE_INI_PARSER_HPP
 
 #include <memory>
 #include <fstream>

@@ -30,8 +30,8 @@ namespace
     if(s==0||s[0]==0)
       return false;
     p->label_string_length=std::strlen(s);
-    if(p->label_string_length>RHVOICE_PARSED_LABEL_STRING_MAX_LENGTH)
-      p->label_string_length=RHVOICE_PARSED_LABEL_STRING_MAX_LENGTH;
+    if(p->label_string_length>AEONVOICE_PARSED_LABEL_STRING_MAX_LENGTH)
+      p->label_string_length=AEONVOICE_PARSED_LABEL_STRING_MAX_LENGTH;
     try
       {
         p->label_string=new char[p->label_string_length+1];

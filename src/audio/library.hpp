@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_AUDIO_LIBRARY_HPP
-#define RHVOICE_AUDIO_LIBRARY_HPP
+#ifndef AEONVOICE_AUDIO_LIBRARY_HPP
+#define AEONVOICE_AUDIO_LIBRARY_HPP
 
 #include "audio.hpp"
 

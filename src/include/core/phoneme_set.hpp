@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_PHONEME_SET_HPP
-#define RHVOICE_PHONEME_SET_HPP
+#ifndef AEONVOICE_PHONEME_SET_HPP
+#define AEONVOICE_PHONEME_SET_HPP
 
 #include <stdexcept>
 #include <string>

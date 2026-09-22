@@ -32,7 +32,7 @@
 ; Abbreviation, which should be pronounced as lseq (letter by letter).
 чгу/i
 
-; Breaking of the word, to avoid the vocal reduction applies to russian!.
+; Word-breaking examples for English pronunciation.
 егэ=е&гэ
 гос&дум{а,ы,е,у,ой}
 

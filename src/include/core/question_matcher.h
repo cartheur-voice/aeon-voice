@@ -13,14 +13,14 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_QUESTION_MATCHER_H
-#define RHVOICE_QUESTION_MATCHER_H
+#ifndef AEONVOICE_QUESTION_MATCHER_H
+#define AEONVOICE_QUESTION_MATCHER_H
 
 #ifdef __cplusplus
 extern "C" {
   #endif
 
-#define RHVOICE_PARSED_LABEL_STRING_MAX_LENGTH 1024
+#define AEONVOICE_PARSED_LABEL_STRING_MAX_LENGTH 1024
 
 typedef struct
 {
@@ -40,8 +40,8 @@ typedef struct
 #endif
 #endif
 
-#ifndef RHVOICE_QUESTION_MATCHER_HPP
-#define RHVOICE_QUESTION_MATCHER_HPP
+#ifndef AEONVOICE_QUESTION_MATCHER_HPP
+#define AEONVOICE_QUESTION_MATCHER_HPP
 
 #ifdef __cplusplus
 

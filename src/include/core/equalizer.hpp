@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_EQUALIZER_HPP
-#define RHVOICE_EQUALIZER_HPP
+#ifndef AEONVOICE_EQUALIZER_HPP
+#define AEONVOICE_EQUALIZER_HPP
 
 #include <list>
 #include <array>

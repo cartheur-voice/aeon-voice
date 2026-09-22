@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_MODEL_ANSWER_CACHE_H
-#define RHVOICE_MODEL_ANSWER_CACHE_H
+#ifndef AEONVOICE_MODEL_ANSWER_CACHE_H
+#define AEONVOICE_MODEL_ANSWER_CACHE_H
 #ifdef __cplusplus
 extern "C" {
   #endif

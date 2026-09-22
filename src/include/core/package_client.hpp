@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_PACKAGE_CLIENT_HPP
-#define RHVOICE_PACKAGE_CLIENT_HPP
+#ifndef AEONVOICE_PACKAGE_CLIENT_HPP
+#define AEONVOICE_PACKAGE_CLIENT_HPP
 #define BOOST_DATE_TIME_NO_LIB
 
 #include <string>

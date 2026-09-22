@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_H
-#define RHVOICE_H
+#ifndef AEONVOICE_H
+#define AEONVOICE_H
 
 #include "AeonVoice_common.h"
 
@@ -84,18 +84,8 @@ typedef struct
 
   typedef struct
   {
-    /* One of the predefined voice profiles or a custom one, e.g. */
-    /* Aleksandr+Alan. Voice names should be ordered according to their */
-    /* priority, but they must not speak the same language. If the */
-    /* combination includes more than one voice, automatic language */
-    /* switching may be used. The voice which speaks the primary language */
-    /* should be placed first. AeonVoice will use one of the other voices */
-    /* from the list, if it detects the corresponding language. The */
-    /* detection algorithm is not very smart at the moment. It will not */
-    /* handle languages with common letters. For example, if you set this */
-    /* field to "Helen+Spomenka", it will always choose Helen for latin */
-    /* letters. Spomenka might still be used, if Esperanto is requested */
-    /* through SSML. */
+    /* One of the predefined English voice profiles or a custom voice name, */
+    /* for example "Alan". */
     const char* voice_profile;
     /* The values must be between -1 and 1. */
     /*     They are normalized this way, because users can set different */

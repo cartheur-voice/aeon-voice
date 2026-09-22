@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_COMMON_H
-#define RHVOICE_COMMON_H
+#ifndef AEONVOICE_COMMON_H
+#define AEONVOICE_COMMON_H
 
 typedef enum {
   AeonVoice_voice_gender_unknown,

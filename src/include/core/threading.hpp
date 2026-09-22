@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_THREADING_HPP
-#define RHVOICE_THREADING_HPP
+#ifndef AEONVOICE_THREADING_HPP
+#define AEONVOICE_THREADING_HPP
 
 #ifdef WIN32
 #include <windows.h>

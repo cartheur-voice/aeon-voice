@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_IO_HPP
-#define RHVOICE_IO_HPP
+#ifndef AEONVOICE_IO_HPP
+#define AEONVOICE_IO_HPP
 
 #include <stdint.h>
 #include <string>
@@ -29,10 +29,10 @@
 #include "api.hpp"
 #include "exception.hpp"
 
-#ifdef RHVOICE_IO_EXPORTS
-  #define RHVOICE_IO_API RHVOICE_EXPORT_API
+#ifdef AEONVOICE_IO_EXPORTS
+  #define AEONVOICE_IO_API AEONVOICE_EXPORT_API
 #else
-  #define RHVOICE_IO_API RHVOICE_IMPORT_API
+  #define AEONVOICE_IO_API AEONVOICE_IMPORT_API
 #endif
 
 namespace AeonVoice
@@ -55,10 +55,10 @@ namespace AeonVoice
 
     typedef std::shared_ptr<FILE> file_handle;
 
-    RHVOICE_IO_API file_handle open_file(const std::string& path,const std::string& mode);
-    RHVOICE_IO_API void open_ifstream(std::ifstream& stream,const std::string& path,bool binary=false);
-    RHVOICE_IO_API void open_ofstream(std::ofstream& stream,const std::string& path,bool binary=false);
-    RHVOICE_IO_API bool skip_bom(std::istream& in);
+    AEONVOICE_IO_API file_handle open_file(const std::string& path,const std::string& mode);
+    AEONVOICE_IO_API void open_ifstream(std::ifstream& stream,const std::string& path,bool binary=false);
+    AEONVOICE_IO_API void open_ofstream(std::ofstream& stream,const std::string& path,bool binary=false);
+    AEONVOICE_IO_API bool skip_bom(std::istream& in);
 
     union host_endianness
     {

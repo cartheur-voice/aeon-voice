@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_TRIE_HPP
-#define RHVOICE_TRIE_HPP
+#ifndef AEONVOICE_TRIE_HPP
+#define AEONVOICE_TRIE_HPP
 
 #include <vector>
 #include <stack>

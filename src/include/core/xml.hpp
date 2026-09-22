@@ -26,8 +26,8 @@
 #include "str.hpp"
 #include "tts_markup.hpp"
 
-#ifndef RHVOICE_XML_HPP
-#define RHVOICE_XML_HPP
+#ifndef AEONVOICE_XML_HPP
+#define AEONVOICE_XML_HPP
 namespace AeonVoice
 {
   class document;

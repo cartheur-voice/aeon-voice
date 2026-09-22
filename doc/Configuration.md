@@ -40,16 +40,12 @@ The following format is used:
 languages.<language>.<key>=<value>
 ```
 
-The language can be indicated by:
-
-* Its English name
-* its two-letter code defined by ISO 639-1
-* its three-letter code defined by ISO 639-3.
+AeonVoice supports English only. Use `English`, `en`, or `eng`.
 
 Examples:
 
 ```ini
-languages.russian.default_rate=2
+languages.english.default_rate=0.8
 languages.eng.default_rate=0.8
 ```
 
@@ -212,31 +208,11 @@ If capital letters are indicated by a change in pitch, than the `cap_pitch_facto
 cap_pitch_factor=1.3
 ```
 
-### Stress marks
-
-Stress indication in a text is supported only for Russian language. For example, to tell the synthesizer that the vowel after the `+` sign must receive stress, Add the following to the configuration file:
-
-```ini
-stress_marker=+
-```
-
 ### Disabling individual languages and voices
 
-You can disable some of the languages or voices. It may be useful if you don't use them and don't want your screen reader to show them. The following example disables all the English voices and Aleksandr::
+You can disable English or an individual voice. The following example disables English and Alan:
 
 ```ini
 languages.english.enabled=false
-voices.aleksandr.enabled=false
-```
-
-### Pseudo-English mode
-
-This mode is available only if the language doesn't use the Latin alphabet. When they read English words, the voices can try to follow the correct English pronunciation as much as possible. Though they can't use the correct English sounds, but the closest sounds in their native language.
-
-To use this mode, you need to install the English language pack. The English voices don't need to be installed.
-
-If the English language pack is installed, the pseudo-English mode is enabled by default. Using Russian as an example, you can disable it this way:
-
-```ini
-languages.russian.use_pseudo_english=no
+voices.alan.enabled=false
 ```

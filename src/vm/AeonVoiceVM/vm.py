@@ -1,5 +1,3 @@
-# Copyright (C) 2023  Olga Yakovleva <olga@aeonvoice.org>
-
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -258,7 +256,7 @@ def update():
 def main():
     global state_dir, pkg_dir_file, pkg_dir, args, inst_dir, inst_info_file, data_dir
     get_args()
-    var_state_dir=os.environ.get("RHVOICE_STATE_DIR", "/var/lib/AeonVoice")
+    var_state_dir=os.environ.get("AEONVOICE_STATE_DIR", "/var/lib/AeonVoice")
     state_dir=pathlib.Path(var_state_dir)
     mkdir(state_dir)
     pkg_dir_file=state_dir / "packages.json"

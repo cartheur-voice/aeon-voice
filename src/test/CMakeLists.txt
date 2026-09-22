@@ -14,8 +14,8 @@ if(BUILD_TESTING)
 	add_test(
 		NAME AeonVoice_SmokeSynthesis
 		COMMAND "${CMAKE_COMMAND}" -E env
-			"RHVOICE_DATA_PATH=${CMAKE_SOURCE_DIR}/data"
-			"RHVOICE_CONFIG_PATH=${CMAKE_SOURCE_DIR}/config"
+			"AEONVOICE_DATA_PATH=${CMAKE_SOURCE_DIR}/data"
+			"AEONVOICE_CONFIG_PATH=${CMAKE_SOURCE_DIR}/config"
 			"$<TARGET_FILE:AeonVoice-test>"
 			"-i" "${CMAKE_SOURCE_DIR}/README.md"
 			"-o" "${CMAKE_CURRENT_BINARY_DIR}/AeonVoice-smoke.wav"

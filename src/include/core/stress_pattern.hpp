@@ -13,8 +13,8 @@
 /* You should have received a copy of the GNU General Public License */
 /* along with this program.  If not, see <https://www.gnu.org/licenses/>. */
 
-#ifndef RHVOICE_STRESS_PATTERN_HPP
-#define RHVOICE_STRESS_PATTERN_HPP
+#ifndef AEONVOICE_STRESS_PATTERN_HPP
+#define AEONVOICE_STRESS_PATTERN_HPP
 
 #include <bitset>
 #include <string>

@@ -33,7 +33,7 @@ else()
 endif()
 
 add_library(AeonVoice_core SHARED "${SRCFILES}")
-set_target_properties(AeonVoice_core PROPERTIES VERSION "${RHVOICE_VERSION}" SOVERSION "${RHVOICE_VERSION_MAJOR}")
+set_target_properties(AeonVoice_core PROPERTIES VERSION "${AEONVOICE_VERSION}" SOVERSION "${AEONVOICE_VERSION_MAJOR}")
 if(UNIX AND NOT APPLE)
 	set_target_properties(AeonVoice_core PROPERTIES BUILD_RPATH "$ORIGIN" INSTALL_RPATH "$ORIGIN")
 endif()
@@ -42,7 +42,7 @@ target_include_directories(AeonVoice_core PUBLIC "${INCLUDE_DIR}" PRIVATE "${HTS
 
 set(package_name "AeonVoice_core")
 
-set(VERSION "${RHVOICE_VERSION}")
+set(VERSION "${AEONVOICE_VERSION}")
 
 if(ENABLE_SONIC)
 	list(APPEND libs2link "sonic")

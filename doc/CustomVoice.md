@@ -80,7 +80,7 @@ mv /tmp/training.cfg src/scripts/general/training.cfg
 Before recording, define:
 
 - Character name and role (example: "Henry, emotional toy bear")
-- Target language (`English`, `Russian`, etc.)
+- Target language (`English`)
 - Tone keywords (example: `warm`, `gentle`, `reassuring`)
 - Delivery constraints (slow pace, short sentence cadence, etc.)
 

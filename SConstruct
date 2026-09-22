@@ -87,8 +87,7 @@ def create_languages_user_var():
     names=[name for name in sorted(os.listdir(langs_dir.path)) if os.path.isdir(langs_dir.Entry(name).path)]
     langs=[name.lower() for name in names]
     name_map=dict(zip(names,langs))
-    def_langs=[lang for lang in langs if lang not in["georgian"]]
-    print("Extended languages skipped")
+    def_langs=["english"]
     help="Which languages to install"
     return ListVariable("languages",help,def_langs,langs,name_map)
 
