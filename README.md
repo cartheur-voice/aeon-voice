@@ -55,10 +55,10 @@ export LD_LIBRARY_PATH="$(pwd)/build/linux/core:$(pwd)/build/linux/audio:$(pwd)/
 Quick synthesis test:
 
 ```bash
-echo "Hello from AeonVoice" | build/linux/test/AeonVoice-test -p Leena -o /tmp/sample.wav
+echo "Hello from AeonVoice" | build/linux/test/AeonVoice-test -p Alan -o /tmp/sample.wav
 ```
 
-## Voice/language work
+## Voice work
 
 For custom voices and training pipeline details, see:
 - [Compilation](doc/Compilation.md)

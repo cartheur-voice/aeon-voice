@@ -30,9 +30,9 @@ AeonVoice uses the classic ini format. But as this format is not defined by a fo
 
 ## General and specific settings
 
-Some of the options allow specification that they must be applied only to a specific language or voice. And some of them are only defined for specific languages.
+Some options can be applied to a specific installed voice.
 
-### Language-specific settings
+### English-wide settings
 
 The following format is used:
 
@@ -60,7 +60,7 @@ voices.<name>.<key>=<value>
 Example:
 
 ```ini
-voices.elena.enabled=no
+voices.leena.enabled=no
 ```
 
 ## Available options
@@ -85,7 +85,7 @@ For example, for an expression of the value of speech rate as a percentage, Aeon
 | `min_volume`     | minimum volume | 0.25          | 0.25          | 1             |
 | `max_volume`     | maximum volume | 2             | 1             | 4             |
 
-These settings can be applied both to all the voices and to individual languages or voices.
+These settings can be applied to all voices, English as a whole, or an individual voice.
 
 Examples:
 
@@ -105,30 +105,17 @@ The `min_sonic_rate` setting specifies the minimum rate value starting from whic
 min_sonic_rate=1
 ```
 
-### Language switching and voice profiles
- AeonVoice can analyze the input text and change the synthesis language automatically. This functionality is currently implemented only for those
-languages whose alphabets share no letters.
+### Voice profiles
 
-#### Voice profiles
+AeonVoice currently synthesizes English only. A voice profile selects one
+installed English voice for clients that support profile selection. The engine
+also makes an individual profile available for each installed voice.
 
-A voice profile is just a combination of voices selected by the user. The languages of the voices must differ. The first voice in the group is considered the primary voice and determines the so-called primary language.
-
-A voice profile is written as a sequence of names of voices separated by the `+` character. The `voice_profiles` setting is used to define the list of voice profiles. Its value must be a comma-separated list of voice profiles.
-
-Example:
+The `voice_profiles` setting is a comma-separated list of profile names. The
+included configuration declares the `Alan` and `Leena` profiles:
 
 ```ini
-voice_profiles=anna+leena,aleksandr+alan
-```
-
-#### Language switching
-
-When one of the voice profiles is active, AeonVoice will try to use the voice which corresponds to the language of the text. The language may be set by the client program or detected automatically. If the language cannot be detected automatically, as is the case when reading individual numbers or names of punctuationmarks, the primary voice will be used, that is the first voice of the profile.
-
-But if numbers or non-alphabetic characters appear in a sentence, and AeonVoice determines that the language of the sentence differs from the primary language, there are two possibilities: read them with the primary voice or read the whole sentence with one voice according to the language. By default the first alternative is chosen, but the user can change this behavior by disabling the `prefer_primary_language` setting:
-
-```ini
-prefer_primary_language=false
+voice_profiles=Alan,Leena
 ```
 
 ### Speech quality
