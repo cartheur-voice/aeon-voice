@@ -49,6 +49,14 @@ The first batch is a pipeline pilot: `corpus/train.ssml` contains 18 clips and
 enough to train a usable voice. Keep the held-out IDs fixed and add recording
 sessions until the corpus reaches at least 1,200 varied utterances.
 
+## Next recording batch
+
+Record [batch 002](prompts/batch-002.psv) as IDs `000021` through `000120`.
+Keep the established microphone, room, input gain, sample rate, and bit depth.
+If recording the batch in one WAV, leave about two seconds of room tone between
+lines and say no slate or line numbers; this makes non-destructive splitting
+reliable.  Review and validate clips before adding them to `metadata.psv`.
+
 ## Check before importing
 
 Run this from the repository root after adding recordings:
