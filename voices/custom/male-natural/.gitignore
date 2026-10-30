@@ -2,5 +2,6 @@
 corpus/wav/
 corpus/reports/
 training-workspace/
+neural/artifacts/
 tools/__pycache__/
 *.voice
