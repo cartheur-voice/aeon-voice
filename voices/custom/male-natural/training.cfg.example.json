@@ -1,0 +1,19 @@
+{
+  "bindir": "REPLACE_WITH_SPTK_AND_HTS_BIN_DIRECTORY",
+  "htk_bindir": "REPLACE_WITH_HTK_BIN_DIRECTORY",
+  "hts22_bindir": "REPLACE_WITH_HTS_2_2_BIN_DIRECTORY",
+  "festdir": "REPLACE_WITH_FESTIVAL_DIRECTORY",
+  "praat_path": "REPLACE_WITH_PRAAT_EXECUTABLE",
+  "reaper_path": null,
+  "wavedir": "REPLACE_WITH_ABSOLUTE_PATH_TO_CORPUS_WAV",
+  "text": "REPLACE_WITH_ABSOLUTE_PATH_TO_TRAIN_SSML",
+  "test": "REPLACE_WITH_ABSOLUTE_PATH_TO_EVALUATION_SSML",
+  "speaker": "human_natural",
+  "language": "English",
+  "gender": "REPLACE_WITH_PERFORMER_SELF_DESCRIBED_VALUE",
+  "sample_rate": 24000,
+  "lower_f0": 60,
+  "upper_f0": 400,
+  "f0_method": "reaper",
+  "outdir": "REPLACE_WITH_ABSOLUTE_PATH_TO_AEONVOICE_DATA_VOICES"
+}

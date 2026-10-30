@@ -63,6 +63,10 @@ For custom voices and training pipeline details, see:
 - [Configuration](doc/Configuration.md)
 - [Creating A Custom Voice](doc/CustomVoice.md)
 
+The consent-first recording and QA starters for the new voices are in
+[voices/custom/male-natural](voices/custom/male-natural/README.md) and
+[voices/custom/female-natural](voices/custom/female-natural/README.md).
+
 ## .NET and NuGet
 
 Install from a .NET project:

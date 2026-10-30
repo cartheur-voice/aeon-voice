@@ -1,0 +1,5 @@
+# Voice recordings and derived clips are biometric data, not source assets.
+corpus/wav/*.wav
+corpus/review/
+corpus/reports/
+training-workspace/
