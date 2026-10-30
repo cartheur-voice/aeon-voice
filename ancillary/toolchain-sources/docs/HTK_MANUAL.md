@@ -1,6 +1,7 @@
 # HTK Manual Step
 
-HTK is license-gated and should be acquired manually.
+HTK is license-gated and should be acquired manually. An HTK 3.4.1 source
+mirror may be used only if its bundled HTK licence is retained and accepted.
 
 ## 1. Download HTK
 
@@ -16,6 +17,14 @@ Typical binaries needed by AeonVoice training:
 Install into a dedicated prefix, for example:
 
 - `/opt/aeonvoice-toolchain/htk341/bin`
+
+The reproducible local builder keeps the source checkout unmodified:
+
+```bash
+./scripts/install_htk_from_source.sh /path/to/htk
+```
+
+It installs to `out/toolchain/htk341/bin` unless `PREFIX` is set.
 
 ## 3. Wire Into AeonVoice Training Config
 
