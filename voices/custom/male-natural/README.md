@@ -22,7 +22,8 @@ control.
 
 ## Record a corpus
 
-Put recordings in `corpus/wav/` and add one line per recording to
+Keep each complete recording as `corpus/wav/batch-xx.wav` and its accepted
+snippets in `corpus/wav/batch-xx/`. Add one line per accepted recording to
 `corpus/metadata.psv`:
 
 ```text
@@ -30,7 +31,7 @@ Put recordings in `corpus/wav/` and add one line per recording to
 000002|Let us take this one step at a time.
 ```
 
-The filename stem must exactly match the first field.  Record each line once,
+The snippet filename stem must exactly match the first field. Record each line once,
 in the same room, with the same microphone position and gain.  Preserve
 natural delivery; do not add noise reduction, reverb, or aggressive dynamics
 processing.  Leave roughly 150–300 ms of room tone at either end.
@@ -64,8 +65,10 @@ Run this from the repository root after adding recordings:
 ```bash
 python3 voices/custom/male-natural/tools/validate_corpus.py \
   --wav-dir voices/custom/male-natural/corpus/wav \
+  --recursive \
   --metadata voices/custom/male-natural/corpus/metadata.psv \
   --evaluation-ids voices/custom/male-natural/corpus/evaluation-ids.txt \
+  --exclude-id batch-01 --exclude-id batch-02 \
   --report /tmp/male-natural-corpus-report.json
 ```
 
@@ -79,7 +82,9 @@ quality check, not proof of consent or of transcript accuracy.
 1. Build the development helpers: `scons dev=True -j4`.
 2. Copy `training.cfg.example.json` into an empty training workspace as
    `training.cfg`, then replace every `REPLACE_WITH_...` value with an absolute
-   path.  Do not edit the repository-wide `src/scripts/general/training.cfg`.
+   path. Stage links or copies from the batch folders into one flat workspace
+   WAV directory before importing, because the HTS importer reads one directory
+   at a time. Do not edit the repository-wide `src/scripts/general/training.cfg`.
 3. Initialize the HTS scaffold and follow [the custom voice guide](../../../doc/CustomVoice.md).
 4. Package the exported model as `data/voices/<final-voice-id>/`, incrementing
    `revision` for each trained model.

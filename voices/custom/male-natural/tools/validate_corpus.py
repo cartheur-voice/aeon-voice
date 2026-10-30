@@ -88,11 +88,19 @@ def main():
     parser.add_argument("--report", type=Path)
     parser.add_argument("--sample-rate", type=int, default=24000)
     parser.add_argument("--max-edge-silence-ms", type=int, default=1000)
+    parser.add_argument("--recursive", action="store_true",
+                        help="search for WAV files in batch subdirectories")
     parser.add_argument("--exclude-id", action="append", default=[],
                         help="WAV stem to deliberately omit, for example a discarded retake")
     args = parser.parse_args()
     entries, errors = read_metadata(args.metadata)
-    wavs = {file.stem: file for file in args.wav_dir.glob("*.wav")}
+    wave_paths = args.wav_dir.rglob("*.wav") if args.recursive else args.wav_dir.glob("*.wav")
+    wavs = {}
+    for file in wave_paths:
+        if file.stem in wavs:
+            errors.append("duplicate recording ID: %s" % file.stem)
+        else:
+            wavs[file.stem] = file
     excluded = set(args.exclude_id)
     unexpected_exclusions = sorted(excluded - set(wavs))
     errors.extend("excluded recording does not exist: %s.wav" % item

@@ -1,11 +1,9 @@
-# 01-20.wav segmentation review
+# Batch 01 segmentation record
 
-Source: `corpus/wav/01-20.wav` (24 kHz, mono, PCM16).
+Source master: `corpus/wav/batch-01.wav` (24 kHz, mono, PCM16).
 
-The proposed review clips preserve roughly 150 ms of room tone around each
-spoken region.  `source-16-first-take.wav` is retained only for comparison and
-is excluded from the proposed corpus because it contains the pronunciation
-mistake.  `000016.wav` is cut from the later, corrected take.
+The retained snippets are in `corpus/wav/batch-01/`. They preserve roughly
+150 ms of room tone around each spoken region. Prompt 16 uses the corrected
+second take; the earlier mispronounced take was discarded after validation.
 
-Listen to the proposed clips before promoting them into `corpus/wav/`; no
-audio is overwritten during this review step.
+The master is retained for recovery. No duplicate review clips are kept.

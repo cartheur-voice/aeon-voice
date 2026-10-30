@@ -1,6 +1,5 @@
 # Recording corpus and training outputs may contain biometric voice data.
-corpus/wav/*.wav
-corpus/review/
+corpus/wav/
 corpus/reports/
 training-workspace/
 tools/__pycache__/
