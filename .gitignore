@@ -35,6 +35,7 @@
 # Build directory
 
 build/
+local/
 work/
 _skbuild/
 
