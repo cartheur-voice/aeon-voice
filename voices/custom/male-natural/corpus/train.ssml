@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<speak xml:lang="en">
+  <s xml:id="000001">Hello. I am glad you are here.</s>
+  <s xml:id="000002">Give me a moment to think about that.</s>
+  <s xml:id="000003">I can help you take the next small step.</s>
+  <s xml:id="000004">That sounds important.</s>
+  <s xml:id="000005">We do not have to rush.</s>
+  <s xml:id="000006">Let us look at it together.</s>
+  <s xml:id="000007">I heard what you said.</s>
+  <s xml:id="000008">You can pause whenever you need to.</s>
+  <s xml:id="000009">The answer is not obvious yet, but we can find it.</s>
+  <s xml:id="000010">First, take a slow breath.</s>
+  <s xml:id="000011">I may have misunderstood; could you say that another way?</s>
+  <s xml:id="000013">The package weighs 2.6 kilograms.</s>
+  <s xml:id="000014">Please call Maya at 08 1234 5678.</s>
+  <s xml:id="000015">There are three choices, and each one is reasonable.</s>
+  <s xml:id="000016">No—wait. I want to phrase that more clearly.</s>
+  <s xml:id="000017">The room was quiet except for rain against the window.</s>
+  <s xml:id="000018">After a long day, a familiar voice can make a difference.</s>
+  <s xml:id="000020">Whenever you are ready, we can begin.</s>
+</speak>

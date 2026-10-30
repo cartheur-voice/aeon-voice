@@ -44,6 +44,11 @@ longer narration.  Move only the prompts actually recorded into
 Use the planned evaluation IDs in `corpus/evaluation-ids.txt`; never include
 those recordings in training.
 
+The first batch is a pipeline pilot: `corpus/train.ssml` contains 18 clips and
+`corpus/evaluation.ssml` holds out 2 clips. Its 51.25 seconds of speech is not
+enough to train a usable voice. Keep the held-out IDs fixed and add recording
+sessions until the corpus reaches at least 1,200 varied utterances.
+
 ## Check before importing
 
 Run this from the repository root after adding recordings:

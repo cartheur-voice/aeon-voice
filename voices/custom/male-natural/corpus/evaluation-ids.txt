@@ -1,2 +1,5 @@
-# Reserve 100 IDs for evaluation before recording. One ID per line.
-# Example: 001401
+# Never train on these IDs. Expand this fixed set toward 100 lines as the
+# corpus grows; the initial pilot deliberately holds out a numeric/date line
+# and a conversational line.
+000012
+000019
